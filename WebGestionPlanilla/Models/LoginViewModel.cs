@@ -9,7 +9,7 @@ namespace WebGestionPlanilla.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name ="Nombre de usario")]
+        [Display(Name ="Nombre de usuario")]
         public string UserName { get; set; }
         
         [Required]
