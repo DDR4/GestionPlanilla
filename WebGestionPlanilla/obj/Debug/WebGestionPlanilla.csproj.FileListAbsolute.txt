@@ -1,0 +1,194 @@
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csprojAssemblyReference.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csproj.CoreCompileInputs.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\WebGestionPlanilla.dll.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\WebGestionPlanilla.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\WebGestionPlanilla.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\csc.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\csc.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\csc.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\csi.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\csi.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.AppContext.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.Collections.Immutable.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.IO.FileSystem.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\System.Reflection.Metadata.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\vbc.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\vbc.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\vbc.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\VBCSCompiler.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\roslyn\VBCSCompiler.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Antlr3.Runtime.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\BouncyCastle.Crypto.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.BusinessLogic.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.Common.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.Entities.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.AspNet.Identity.Core.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Security.Cookies.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Security.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Web.Infrastructure.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Newtonsoft.Json.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.OOXML.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.OpenXml4Net.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.OpenXmlFormats.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Owin.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Helpers.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Mvc.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Optimization.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Razor.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.Deployment.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.Razor.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\WebGrease.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.DataAccess.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Dapper.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.BusinessLogic.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.Common.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.Entities.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\BouncyCastle.Crypto.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.AspNet.Identity.Core.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Security.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.Owin.Security.Cookies.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Helpers.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Mvc.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Optimization.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.Razor.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.Deployment.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\System.Web.WebPages.Razor.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Newtonsoft.Json.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Antlr3.Runtime.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\GP.DataAccess.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Dapper.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\Dapper.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.Helpers.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.Mvc.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.Optimization.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.Razor.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.WebPages.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csproj.CopyComplete
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.OOXML.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\WebGestionPlanilla\bin\NPOI.OpenXml4Net.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\WebGestionPlanilla.dll.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\WebGestionPlanilla.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\WebGestionPlanilla.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\csc.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\csc.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\csc.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\csi.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\csi.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.AppContext.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.Collections.Immutable.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.IO.FileSystem.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\System.Reflection.Metadata.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\vbc.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\vbc.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\vbc.rsp
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\VBCSCompiler.exe
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\roslyn\VBCSCompiler.exe.config
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Antlr3.Runtime.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\BouncyCastle.Crypto.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.BusinessLogic.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.Common.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.Entities.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.AspNet.Identity.Core.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Security.Cookies.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Security.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Web.Infrastructure.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Newtonsoft.Json.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.OOXML.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.OpenXml4Net.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.OpenXmlFormats.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Owin.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Helpers.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Mvc.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Optimization.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Razor.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.Deployment.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.Razor.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\WebGrease.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.DataAccess.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Dapper.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.BusinessLogic.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.Common.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.Entities.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\BouncyCastle.Crypto.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\ICSharpCode.SharpZipLib.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.AspNet.Identity.Core.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Security.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.Owin.Security.Cookies.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.OOXML.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\NPOI.OpenXml4Net.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Helpers.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Mvc.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Optimization.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.Razor.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.Deployment.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\System.Web.WebPages.Razor.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Newtonsoft.Json.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Antlr3.Runtime.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\GP.DataAccess.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Dapper.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\Dapper.xml
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.Helpers.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.Mvc.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.Optimization.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.Razor.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.WebPages.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csprojAssemblyReference.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csproj.CoreCompileInputs.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.csproj.CopyComplete
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Proyecto Grupal\Proyecto\WebGestionPlanilla\obj\Debug\WebGestionPlanilla.pdb

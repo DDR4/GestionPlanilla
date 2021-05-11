@@ -1,0 +1,215 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Trabajador";
+}
+
+
+
+<section class="content-header">
+    <h1>Trabajador</h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                    <div class="box-tools pull-right">
+                        @if (User.Identity.GetUserId().Equals("1"))
+                        {
+                            <button class="btn btn-success btn-sm-max" id="btnNuevoTrabajador"><span class="fa fa-plus-square"></span> Nuevo Trabajador</button>
+                        }
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body ">
+                    <form id="form1">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="cboTipoBusqueda">Tipo b&uacute;squeda</label>
+                                <select class="form-control input-sm" style="width:100%;" id="cboTipoBusqueda">
+                                    <option value="0">Todos</option>
+                                    <option value="1">Nombres y Apellidos</option>
+                                    <option value="2">Estado</option>
+                                </select>
+                            </div>
+                            <div id="tipoNombre" style="display:none;">
+                                <div class="form-group col-md-2">
+                                    <label for="txtNombre">Nombres y Apellidos</label>
+                                    <input type="text" class="form-control input-sm" id="txtNombre">
+                                </div>
+                            </div>
+                            <div id="tipoEstado" style="display:none;">
+                                <div class="form-group col-md-2">
+                                    <label for="cboEstado">Estado</label>
+                                    <select class="form-control input-sm" id="cboEstado">
+                                        <option value="0" selected>Todos</option>
+                                        <option value="1">Activo</option>
+                                        <option value="2">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <label for="btnBuscar"><font color="white">_</font></label>
+                                <button type="button" class="btn btn-primary btn-sm" id="btnBuscar">
+                                    <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">&nbsp;</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <div class="box-body ">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table id="tblListadoTrabajadores" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th width="10%;">Nombres</th>
+                                            <th width="10%;">Apellido Paterno</th>
+                                            <th width="10%;">Apellido Materno</th>
+                                            <th width="10%;">Area</th>
+                                            <th width="10%;">Turno</th>
+                                            <th width="10%;">Cargo</th>
+                                            <th width="10%;">Tipo</th>
+                                            <th width="10%;">Estado</th>
+                                            <th width="8%;"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="modalTrabajador" tabindex="-1" role="dialog" aria-labelledby="titleModal" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="titleModalTrabajador">Agregar Trabajador</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formModal" class="small" onkeypress="return event.keyCode != 13;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtModalUsuario">Usuario</label>
+                                <input class="form-control input-sm" type="text" id="txtModalUsuario" maxlength="15" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtModalClave">Contraseña</label>
+                                <input class="form-control input-sm" type="password" id="txtModalClave" maxlength="15" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cboModalTipo">Tipo</label>
+                            <select class="form-control input-sm" id="cboModalTipo">
+                                <option value="0" selected>Todos</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Trabajador</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtModalNombres">Nombres</label>
+                                <input class="form-control input-sm" type="text" id="txtModalNombres" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtModalApellidoP">Apellido Paterno</label>
+                                <input class="form-control input-sm" type="text" id="txtModalApellidoP" maxlength="20" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="txtModalApellidoM">Apellido Materno</label>
+                                <input class="form-control input-sm" type="text" id="txtModalApellidoM" maxlength="20" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="cboModalArea">Area</label>
+                            <select class="form-control input-sm" id="cboModalArea">
+                                <option value="0" selected>Todos</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cboModalTurno">Turno</label>
+                            <select class="form-control input-sm" id="cboModalTurno">
+                                <option value="0" selected>Todos</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cboModalCargo">Cargo</label>
+                            <select class="form-control input-sm" id="cboModalCargo">
+                                <option value="0" selected>Todos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="txtModalFechaN">Fecha Nacimiento</label>
+                            <input class="form-control input-sm" id="txtModalFechaN"  readonly />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cboModalSexo">Sexo</label>
+                            <select class="form-control input-sm" id="cboModalSexo">
+                                <option value="0" selected>Todos</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cboModalEstado">Estado</label>
+                            <select class="form-control input-sm" id="cboModalEstado">
+                                <option value="0" selected>Todos</option>
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-sm" type="button" id="btnGuardar">Guardar</button>
+                <button class="btn btn-default btn-sm" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/js/Trabajador/trabajador.js"></script>
+}

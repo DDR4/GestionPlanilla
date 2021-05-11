@@ -1,0 +1,6 @@
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\obj\Debug\GP.Common.csproj.CoreCompileInputs.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\bin\Debug\GP.Common.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\bin\Debug\GP.Common.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\obj\Debug\GP.Common.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\obj\Debug\GP.Common.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Common\obj\Debug\GP.Common.csprojAssemblyReference.cache

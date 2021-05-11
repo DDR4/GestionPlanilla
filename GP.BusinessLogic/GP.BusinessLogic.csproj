@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF1A2A1A-2D93-4EE1-9B48-ED7BA2739D65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GP.BusinessLogic</RootNamespace>
+    <AssemblyName>GP.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLArea.cs" />
+    <Compile Include="BLAuthorization.cs" />
+    <Compile Include="BLCargo.cs" />
+    <Compile Include="BLCombos.cs" />
+    <Compile Include="BLHorasTrabajadas.cs" />
+    <Compile Include="BLMarcacion.cs" />
+    <Compile Include="BLProducto.cs" />
+    <Compile Include="BLTrabajador.cs" />
+    <Compile Include="BLTurno.cs" />
+    <Compile Include="BLVentas.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GP.Common\GP.Common.csproj">
+      <Project>{117695a7-cdb6-4c95-a534-da93835c657c}</Project>
+      <Name>GP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP.DataAccess\GP.DataAccess.csproj">
+      <Project>{67a45f6f-3de0-47e5-b7dc-2c369a1dfc8b}</Project>
+      <Name>GP.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP.Entities\GP.Entities.csproj">
+      <Project>{e2657519-82ae-4f54-be6e-518180a7d0d1}</Project>
+      <Name>GP.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

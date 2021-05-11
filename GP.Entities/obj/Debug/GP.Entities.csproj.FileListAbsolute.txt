@@ -1,0 +1,5 @@
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\bin\Debug\GP.Entities.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\bin\Debug\GP.Entities.pdb
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.csproj.CoreCompileInputs.cache
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.dll
+F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.pdb
