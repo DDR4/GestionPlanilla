@@ -14,7 +14,7 @@ namespace GestionPlanilla.DataAccess
 {
     public class DAHorasTrabajadas
     {
-        public IEnumerable<HorasTrabajadas> GetHorasTrabajadas(Trabajador obj)
+        public IEnumerable<Trabajador> GetHorasTrabajadas(Trabajador obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
@@ -23,6 +23,7 @@ namespace GestionPlanilla.DataAccess
 
                 parm.Add("@Trabajador_Id", obj.Trabajador_Id);
                 parm.Add("@Periodo", obj.HorasTrabajadas.Periodo);
+                parm.Add("@NombreApellido", obj.Nombres);
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
                 var result = connection.Query(
@@ -30,12 +31,16 @@ namespace GestionPlanilla.DataAccess
                      param: parm,
                      commandType: CommandType.StoredProcedure)
                      .Select(m => m as IDictionary<string, object>)
-                     .Select(n => new HorasTrabajadas
+                     .Select(n => new Trabajador
                      {
-                         Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
-                         Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
-                         Faltas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Faltas")).Value.Parse<int>(),
-                         Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
+                         Nombres = n.Single(d => d.Key.Equals("NombreApellido")).Value.Parse<string>(),
+                         HorasTrabajadas = new HorasTrabajadas
+                         {
+                             Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
+                             Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
+                             Faltas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Faltas")).Value.Parse<int>(),
+                             Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
+                         },                     
                          Operacion = new Operacion
                          {
                              TotalRows = n.Single(d => d.Key.Equals("TotalRows")).Value.Parse<int>(),

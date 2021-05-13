@@ -19,16 +19,16 @@ namespace GestionPlanilla.BusinessLogic
             repository = new DAHorasTrabajadas();
         }
 
-        public Response<IEnumerable<HorasTrabajadas>> GetHorasTrabajadas(Trabajador obj)
+        public Response<IEnumerable<Trabajador>> GetHorasTrabajadas(Trabajador obj)
         {
             try
             {
                 var result = repository.GetHorasTrabajadas(obj);
-                return new Response<IEnumerable<HorasTrabajadas>>(result);
+                return new Response<IEnumerable<Trabajador>>(result);
             }
             catch (Exception ex)
             {
-                return new Response<IEnumerable<HorasTrabajadas>>(ex);
+                return new Response<IEnumerable<Trabajador>>(ex);
             }
         }       
         

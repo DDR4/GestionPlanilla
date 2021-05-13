@@ -76,18 +76,13 @@
                                 <i class="fa fa-fw fa-book"></i> <span>Marcación</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="@Url.Action("Index", "HorasTrabajadas")">
-                                <i class="fa fa-clock-o"></i> <span>Horas Trabajadas</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Index", "Trabajador")">
-                                <i class="fa fa-user"></i> <span>Trabajador</span>
-                            </a>
-                        </li>
                         @if (User.Identity.GetUserId().Equals("1"))
                         {
+                            <li>
+                                <a href="@Url.Action("Index", "HorasTrabajadas")">
+                                    <i class="fa fa-clock-o"></i> <span>Horas Trabajadas</span>
+                                </a>
+                            </li>
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-wrench"></i> <span>Mantenimientos</span>
@@ -96,6 +91,11 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Trabajador")">
+                                            <i class="fa fa-user"></i> <span>Trabajador</span>
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="@Url.Action("Index", "Area")">
                                             <i class="fa fa-users"></i> <span>Area</span>
