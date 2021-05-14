@@ -59,7 +59,7 @@ namespace GestionPlanilla.DataAccess
             }
         }
 
-        public int MarcarIngreso(Trabajador obj)
+        public DateTime MarcarIngreso(Trabajador obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
@@ -73,11 +73,11 @@ namespace GestionPlanilla.DataAccess
                      param: parm,
                      commandType: CommandType.StoredProcedure);
 
-                return result;
+                return obj.Turno.Marcar_Hora_Ingreso;
             }
         }
 
-        public int MarcarSalida(Trabajador obj)
+        public DateTime MarcarSalida(Trabajador obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
@@ -91,7 +91,7 @@ namespace GestionPlanilla.DataAccess
                      param: parm,
                      commandType: CommandType.StoredProcedure);
 
-                return result;
+                return obj.Turno.Marcar_Hora_Salida;
             }
         }
 

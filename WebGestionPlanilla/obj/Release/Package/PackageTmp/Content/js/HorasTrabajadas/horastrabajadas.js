@@ -5,6 +5,8 @@
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoFecha = $('#tipoFecha');
     var $txtFecha = $('#txtFecha');
+    var $tipoNombres = $('#tipoNombres');
+    var $txtNombres = $('#txtNombres');
     var $btnBuscar = $('#btnBuscar');
                                         
     var Message = {
@@ -30,16 +32,18 @@
 
         var parms = {
             Trabajador_Id: null,
-            HorasTrabajadas: { Periodo: $txtFecha.val() }
+            HorasTrabajadas: { Periodo: $txtFecha.val() },
+            Nombres: $txtNombres.val()
         };
 
         var url = "HorasTrabajadas/GetHorasTrabajadas";
 
         var columns = [
-            { data: "Horas_Trabajadas" },
-            { data: "Horas_Tardanzas" },
-            { data: "Faltas" },
-            { data: "Periodo" },
+            { data: "Nombres" },
+            { data: "HorasTrabajadas.Horas_Trabajadas" },
+            { data: "HorasTrabajadas.Horas_Tardanzas" },
+            { data: "HorasTrabajadas.Faltas" },
+            { data: "HorasTrabajadas.Periodo" }
             //{ data: "Auditoria.TipoUsuario" }
         ];
         var columnDefs = [                   
@@ -71,17 +75,17 @@
 
     function $cboTipoBusqueda_change() {
         var codSelec = $(this).val();
+        $tipoNombres.hide();
         $tipoFecha.hide();
-        //$tipoEstado.hide();
-
-        $txtFecha.val("");
-        //$cboEstado.val(0);
+ 
+        $txtNombres.val("");
+        $txtFecha.val("");           
 
         if (codSelec === "1") {
-            $tipoFecha.show();
+            $tipoNombres.show();
         }
         else if (codSelec === "2") {
-            //$tipoEstado.show();
+            $tipoFecha.show();
         }
 
     }

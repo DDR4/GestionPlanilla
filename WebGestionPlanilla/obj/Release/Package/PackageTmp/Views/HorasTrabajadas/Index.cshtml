@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Index";
 }
@@ -25,9 +25,16 @@
                                 <label for="cboTipoBusqueda">Tipo b&uacute;squeda</label>
                                 <select class="form-control input-sm" style="width:100%;" id="cboTipoBusqueda">
                                     <option value="0">Todos</option>
-                                    <option value="1">Fecha</option>
-                                    @*<option value="2">Estado</option>*@
+                                    <option value="1">Nombres y Apellidos</option>
+                                    <option value="2">Fecha</option>
+
                                 </select>
+                            </div>
+                            <div id="tipoNombres" style="display:none;">
+                                <div class="form-group col-md-2">
+                                    <label for="txtNombres">Nombres y Apellidos</label>
+                                    <input type="text" class="form-control input-sm" id="txtNombres">
+                                </div>
                             </div>
                             <div id="tipoFecha" style="display:none;">
                                 <div class="form-group col-md-2">
@@ -67,6 +74,7 @@
                                 <table id="tblListadoNumeroHoras" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
                                     <thead>
                                         <tr>
+                                            <th width="15%;">Nombres y Apellidos</th>
                                             <th width="10%;">Horas Trabajadas</th>
                                             <th width="10%;">Tardanzas</th>
                                             <th width="10%;">Faltas</th>

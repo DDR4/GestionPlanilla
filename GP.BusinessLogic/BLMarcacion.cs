@@ -44,29 +44,29 @@ namespace GestionPlanilla.BusinessLogic
             }
         }
 
-        public Response<int> MarcarIngreso(Trabajador obj)
+        public Response<DateTime> MarcarIngreso(Trabajador obj)
         {
             try
             {
                 var result = repository.MarcarIngreso(obj);
-                return new Response<int>(result);
+                return new Response<DateTime>(result);
             }
             catch (Exception ex)
             {
-                return new Response<int>(ex);
+                return new Response<DateTime>(ex);
             }
         }
 
-        public Response<int> MarcarSalida(Trabajador obj)
+        public Response<DateTime> MarcarSalida(Trabajador obj)
         {
             try
             {
                 var result = repository.MarcarSalida(obj);
-                return new Response<int>(result);
+                return new Response<DateTime>(result);
             }
             catch (Exception ex)
             {
-                return new Response<int>(ex);
+                return new Response<DateTime>(ex);
             }
         }
 

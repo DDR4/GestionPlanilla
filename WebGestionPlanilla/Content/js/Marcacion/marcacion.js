@@ -79,44 +79,26 @@
     }
 
     function $btnMarcarIngreso_click() {
-
-        ActualizarFecha();           
-        var fechaIngreso = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
-
-        var obj = {
-            "Turno": {
-                "Marcar_Hora_Ingreso": fechaIngreso
-            }
-        };
+       
         var method = "POST";
-        var data = obj;
         var url = "Marcacion/MarcarIngreso";
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);      
-            $txtMarcarHoraIngreso.val(fechaIngreso);  
+            $txtMarcarHoraIngreso.val(ConvertDatetime(data.Data));  
         };
-        app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
+        app.CallAjax(method, url, null, fnDoneCallback, null, null, null);
 
     }
 
     function $btnMarcarSalida_click() { 
 
-        ActualizarFecha();
-        var fechaSalida = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
-
-        var obj = {
-            "Turno": {
-                "Marcar_Hora_Salida": fechaSalida
-            }
-        };
         var method = "POST";
-        var data = obj;
         var url = "Marcacion/MarcarSalida";
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $txtMarcarHoraSalida.val(fechaSalida);
+            $txtMarcarHoraSalida.val(ConvertDatetime(data.Data));
         };
-        app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
+        app.CallAjax(method, url, null, fnDoneCallback, null, null, null);
 
     }
 

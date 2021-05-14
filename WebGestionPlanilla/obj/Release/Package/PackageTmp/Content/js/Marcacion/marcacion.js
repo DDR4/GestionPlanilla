@@ -69,7 +69,7 @@
         var method = "POST";
         var url = "Marcacion/GetMarcaHorarios";
         var fnDoneCallback = function (data) {
-            if (data !== null) {
+            if (data.Data !== null) {
                 $txtMarcarHoraIngreso.val(ConvertDatetime(data.Data.Marcar_Hora_Ingreso));
                 $txtMarcarHoraSalida.val(ConvertDatetime(data.Data.Marcar_Hora_Salida));
             }
