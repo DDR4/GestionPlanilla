@@ -124,7 +124,7 @@
         mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
         año = fecha.getFullYear();
         hora = ('0' + fecha.getHours()).slice(-2);
-        minuto = ('0' + (fecha.getMinutes())).slice(-2);
+        minuto = ('0' + fecha.getMinutes()).slice(-2);
         segundo = ('0' + fecha.getSeconds()).slice(-2);
 
         var rsfecha;
