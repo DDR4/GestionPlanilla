@@ -80,7 +80,7 @@
 
     function $btnMarcarIngreso_click() {
         ActualizarFecha();
-        var fechaIngreso = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
+        var fechaIngreso = mes + "/" + dia + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
 
         var obj = {
             "Turno": {
@@ -91,16 +91,16 @@
         var data = obj;
         var url = "Marcacion/MarcarIngreso";
         var fnDoneCallback = function (data) {
-            app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $txtMarcarHoraIngreso.val(ConvertDatetime(data.Data));
+            app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);      
+            $txtMarcarHoraIngreso.val(ConvertDatetime(data.Data));  
         };
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
 
     }
 
-    function $btnMarcarSalida_click() { 
+    function $btnMarcarSalida_click() {
         ActualizarFecha();
-        var fechaSalida = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
+        var fechaSalida = mes + "/" + dia + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
 
         var obj = {
             "Turno": {

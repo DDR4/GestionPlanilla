@@ -78,5 +78,13 @@
 </section>
 
 @section scripts{
-    <script src="~/Content/js/Marcacion/marcacion.js"></script>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="~/Content/js/Marcacion/marcacion.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/js/Marcacion/marcacion_release.js"></script>
+    }
+
 }
