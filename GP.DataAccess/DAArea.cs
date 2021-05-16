@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using GestionPlanilla.Common;
-using GestionPlanilla.DataAccess;
-using GestionPlanilla.Entities;
+using GP.Common;
+using GP.DataAccess;
+using GP.Entities;
 
-namespace GestionPlanilla.DataAccess
+namespace GP.DataAccess
 {
     public class DAArea
     {

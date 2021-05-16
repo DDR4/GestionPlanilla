@@ -2,8 +2,8 @@
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using NPOI.XSSF.UserModel;
-using GestionPlanilla.Common;
-using GestionPlanilla.Entities;
+using GP.Common;
+using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,7 +44,7 @@ namespace WebCalzadosAnnies.Controllers
                     Fin = fin
                 };
 
-                var bussingLogic = new GestionPlanilla.BusinessLogic.BLVentas();
+                var bussingLogic = new GP.BusinessLogic.BLVentas();
                 var response = bussingLogic.GetVentas(obj);
 
                 var Datos = response.Data;
@@ -72,7 +72,7 @@ namespace WebCalzadosAnnies.Controllers
         {
             try
             {
-                var bussingLogic = new GestionPlanilla.BusinessLogic.BLProducto();
+                var bussingLogic = new GP.BusinessLogic.BLProducto();
                 obj.Stock_Prod = 1;
                 obj.Estado_Prod = 1;
                 var ctx = HttpContext.GetOwinContext();
@@ -116,7 +116,7 @@ namespace WebCalzadosAnnies.Controllers
 
         public JsonResult InsertUpdateVentas(Ventas obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLVentas();
+            var bussingLogic = new GP.BusinessLogic.BLVentas();
             obj.Auditoria = new Auditoria
             {
                 UsuarioCreacion = User.Identity.Name
@@ -154,7 +154,7 @@ namespace WebCalzadosAnnies.Controllers
 
         public JsonResult DeleteVentas(Ventas obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLVentas();
+            var bussingLogic = new GP.BusinessLogic.BLVentas();
             obj.Auditoria = new Auditoria
             {
                 UsuarioModificacion = User.Identity.Name
@@ -169,14 +169,14 @@ namespace WebCalzadosAnnies.Controllers
             try
             {
                 Session["ReporteVenta"] = null;
-                var bussingLogic = new GestionPlanilla.BusinessLogic.BLVentas();
+                var bussingLogic = new GP.BusinessLogic.BLVentas();
                 var response = bussingLogic.GetAllVentas(obj);
                 Session["ReporteVenta"] = response.Data.ToList();
                 return Json(response);
             }
             catch (Exception ex)
             {
-                var result = new Response<List<GestionPlanilla.Entities.Ventas>>(ex);
+                var result = new Response<List<GP.Entities.Ventas>>(ex);
                 return Json(result);
             }
 

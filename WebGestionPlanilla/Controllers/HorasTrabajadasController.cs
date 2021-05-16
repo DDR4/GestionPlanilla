@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System.Web.Mvc;
 using System.Security.Claims;
 using System.Threading;
@@ -36,7 +36,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLHorasTrabajadas();
+            var bussingLogic = new GP.BusinessLogic.BLHorasTrabajadas();
 
             if (!User.Identity.GetUserId().Equals("1"))
             {          

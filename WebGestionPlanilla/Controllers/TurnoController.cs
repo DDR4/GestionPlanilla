@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +37,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTurno();
+            var bussingLogic = new GP.BusinessLogic.BLTurno();
             var response = bussingLogic.GetTurno(obj);
 
             var Datos = response.Data;
@@ -57,7 +57,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult InsertUpdateTurno(Turno obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTurno();
+            var bussingLogic = new GP.BusinessLogic.BLTurno();
             var response = bussingLogic.InsertUpdateTurno(obj);
 
             return Json(response);
@@ -65,7 +65,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult DeleteTurno(Turno obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTurno();
+            var bussingLogic = new GP.BusinessLogic.BLTurno();
             var response = bussingLogic.DeleteTurno(obj);
 
             return Json(response);

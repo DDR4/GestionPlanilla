@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GestionPlanilla.Common.EnumTypes;
 
-namespace GestionPlanilla.Common
+namespace GP.Common
 {
     public class Response<T>
     {

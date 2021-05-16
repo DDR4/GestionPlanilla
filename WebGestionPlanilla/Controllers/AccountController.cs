@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using GestionPlanilla.Entities;
 using WebGestionPlanilla.Core.Identity;
 using WebGestionPlanilla.Models;
 
@@ -30,7 +29,7 @@ namespace WebGestionPlanilla.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToLocal(GestionPlanilla.Common.Constants.ConfigurationKeys.DefaultRedirect);
+                return RedirectToLocal(GP.Common.Constants.ConfigurationKeys.DefaultRedirect);
             }
             ViewBag.ReturnUrl = returnUrl;
             return View();

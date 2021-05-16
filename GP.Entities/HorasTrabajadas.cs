@@ -1,11 +1,11 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SL.Entities
+namespace GP.Entities
 {
     public class HorasTrabajadas
     {

@@ -18,14 +18,14 @@ namespace WebGestionPlanilla.Core.Identity
         {
             var taskInvoke = Task<CustomApplicationUser>.Factory.StartNew(() =>
             {
-                var credential = new GestionPlanilla.Entities.Trabajador
+                var credential = new GP.Entities.Trabajador
                 {
                     Usuario = userName,
                     Contraseña = password,
                     Estado = 1
                 };
 
-                var authBL = new GestionPlanilla.BusinessLogic.BLAuthorization();
+                var authBL = new GP.BusinessLogic.BLAuthorization();
                 var result = authBL.Authorize(credential);
 
                 return new CustomApplicationUser(result.Result);

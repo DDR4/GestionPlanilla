@@ -1,5 +1,4 @@
-﻿using GestionPlanilla.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +14,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult GetArea()
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCombos();
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
             var response = bussingLogic.GetArea();
 
             return Json(response);
@@ -23,7 +22,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult GetTurno()
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCombos();
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
             var response = bussingLogic.GetTurno();
 
             return Json(response);
@@ -31,8 +30,16 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult GetCargo()
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCombos();
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
             var response = bussingLogic.GetCargo();
+
+            return Json(response);
+        }
+
+        public JsonResult GetTipoDocumento()
+        {
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
+            var response = bussingLogic.GetTipoDocumento();
 
             return Json(response);
         }

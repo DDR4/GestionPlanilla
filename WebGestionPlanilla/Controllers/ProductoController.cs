@@ -2,7 +2,7 @@
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using NPOI.XSSF.UserModel;
-using GestionPlanilla.Entities;
+using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,7 +42,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLProducto();
+            var bussingLogic = new GP.BusinessLogic.BLProducto();
             var response = bussingLogic.GetProducto(obj);
 
             var Datos = response.Data;
@@ -62,7 +62,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult InsertUpdateProducto(Producto obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLProducto();
+            var bussingLogic = new GP.BusinessLogic.BLProducto();
 
             obj.Auditoria = new Auditoria
             {
@@ -84,7 +84,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult DeleteProducto(Producto obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLProducto();
+            var bussingLogic = new GP.BusinessLogic.BLProducto();
             obj.Auditoria = new Auditoria
             {
                 UsuarioModificacion = User.Identity.Name
@@ -101,14 +101,14 @@ namespace WebGestionPlanilla.Controllers
             try
             {
                 Session["ReporteProducto"] = null;
-                var bussingLogic = new GestionPlanilla.BusinessLogic.BLProducto();
+                var bussingLogic = new GP.BusinessLogic.BLProducto();
                 var response = bussingLogic.GetAllProductos(obj);
                 Session["ReporteProducto"] = response.Data.ToList();
                 return Json(response);
             }
             catch (Exception ex)
             {
-                var result = new GestionPlanilla.Common.Response<List<Producto>>(ex);
+                var result = new GP.Common.Response<List<Producto>>(ex);
                 return Json(result);
             }
 

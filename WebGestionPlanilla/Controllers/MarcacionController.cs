@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System.Web.Mvc;
 using System.Security.Claims;
 using System.Threading;
@@ -17,7 +17,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult GetHorarios()
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLMarcacion();
+            var bussingLogic = new GP.BusinessLogic.BLMarcacion();
             var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
             int Trabajador_Id = Convert.ToInt32(identity.Claims.Where(c => c.Type == "Trabajador_Id").Select(c => c.Value).SingleOrDefault());
 
@@ -28,7 +28,7 @@ namespace WebGestionPlanilla.Controllers
 
          public JsonResult GetMarcaHorarios()
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLMarcacion();
+            var bussingLogic = new GP.BusinessLogic.BLMarcacion();
             var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
             int Trabajador_Id = Convert.ToInt32(identity.Claims.Where(c => c.Type == "Trabajador_Id").Select(c => c.Value).SingleOrDefault());
 
@@ -39,7 +39,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult MarcarIngreso(Trabajador obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLMarcacion();
+            var bussingLogic = new GP.BusinessLogic.BLMarcacion();
             var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
             int Trabajador_Id = Convert.ToInt32(identity.Claims.Where(c => c.Type == "Trabajador_Id").Select(c => c.Value).SingleOrDefault());
             obj.Trabajador_Id = Trabajador_Id;
@@ -51,7 +51,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult MarcarSalida(Trabajador obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLMarcacion();
+            var bussingLogic = new GP.BusinessLogic.BLMarcacion();
             var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
             int Trabajador_Id = Convert.ToInt32(identity.Claims.Where(c => c.Type == "Trabajador_Id").Select(c => c.Value).SingleOrDefault());
             obj.Trabajador_Id = Trabajador_Id;

@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using GestionPlanilla.Common;
-using GestionPlanilla.Entities;
+using GP.Common;
+using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionPlanilla.DataAccess
+namespace GP.DataAccess
 {
     public class DAProducto
     {

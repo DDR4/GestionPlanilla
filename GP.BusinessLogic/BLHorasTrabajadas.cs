@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestionPlanilla.Common;
-using GestionPlanilla.DataAccess;
-using GestionPlanilla.Entities;
-using SL.Entities;
+using GP.Common;
+using GP.DataAccess;
+using GP.Entities;
 
-namespace GestionPlanilla.BusinessLogic
+namespace GP.BusinessLogic
 {
     public class BLHorasTrabajadas
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionPlanilla.Entities
+namespace GP.Entities
 {
     public class Cargo
     {

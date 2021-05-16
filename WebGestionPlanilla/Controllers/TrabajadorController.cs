@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +37,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTrabajador();
+            var bussingLogic = new GP.BusinessLogic.BLTrabajador();
             var response = bussingLogic.GetTrabajador(obj);
 
             var Datos = response.Data;
@@ -57,7 +57,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult InsertUpdateTrabajador(Trabajador obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTrabajador();
+            var bussingLogic = new GP.BusinessLogic.BLTrabajador();
             var response = bussingLogic.InsertUpdateTrabajador(obj);
 
             return Json(response);
@@ -65,7 +65,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult DeleteTrabajador(Trabajador obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLTrabajador();
+            var bussingLogic = new GP.BusinessLogic.BLTrabajador();
             var response = bussingLogic.DeleteTrabajador(obj);
 
             return Json(response);

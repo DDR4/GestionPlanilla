@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +37,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCargo();
+            var bussingLogic = new GP.BusinessLogic.BLCargo();
             var response = bussingLogic.GetCargo(obj);
 
             var Datos = response.Data;
@@ -57,7 +57,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult InsertUpdateCargo(Cargo obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCargo();
+            var bussingLogic = new GP.BusinessLogic.BLCargo();
             var response = bussingLogic.InsertUpdateCargo(obj);
 
             return Json(response);
@@ -65,7 +65,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult DeleteCargo(Cargo obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLCargo();
+            var bussingLogic = new GP.BusinessLogic.BLCargo();
             var response = bussingLogic.DeleteCargo(obj);
 
             return Json(response);

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestionPlanilla.Entities;
+using GP.Entities;
 
-namespace GestionPlanilla.BusinessLogic
+namespace GP.BusinessLogic
 {
     public class BLAuthorization
     {
@@ -15,7 +15,7 @@ namespace GestionPlanilla.BusinessLogic
         {
             repository = new DataAccess.DAAuthorization();
         }
-        public async Task<GestionPlanilla.Common.Response<Trabajador>> Authorize(Trabajador credential)
+        public async Task<Common.Response<Trabajador>> Authorize(Trabajador credential)
         {
             try
             {
@@ -23,14 +23,14 @@ namespace GestionPlanilla.BusinessLogic
 
                 if (result == null)
                 {
-                    return new GestionPlanilla.Common.Response<Trabajador>("Trabajador o password incorrectos.");
+                    return new Common.Response<Trabajador>("Trabajador o password incorrectos.");
                 }
 
-                return new GestionPlanilla.Common.Response<Trabajador>(result);
+                return new Common.Response<Trabajador>(result);
             }
             catch (Exception ex)
             {
-                return new GestionPlanilla.Common.Response<Trabajador>(ex);
+                return new Common.Response<Trabajador>(ex);
             }
         }
     }

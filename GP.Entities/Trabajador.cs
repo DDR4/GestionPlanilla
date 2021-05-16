@@ -1,11 +1,11 @@
-﻿using SL.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionPlanilla.Entities
+namespace GP.Entities
 {
     public class Trabajador
     {
@@ -17,6 +17,9 @@ namespace GestionPlanilla.Entities
         public string ApellidoMaterno { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Sexo { get; set; }
+        public int TipoDocumento { get; set; }
+        public string NumeroDocumento { get; set; }
+        public decimal Sueldo { get; set; }   
         public int Tipo { get; set; }
         public int Estado { get; set; }
         public Area Area { get; set; }

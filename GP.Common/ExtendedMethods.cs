@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionPlanilla.Common
+namespace GP.Common
 {
    public static class ExtendedMethods
     {

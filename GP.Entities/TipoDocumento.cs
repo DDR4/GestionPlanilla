@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace GP.Entities
 {
-    public class Area
+    public class TipoDocumento
     {
-        public int? Area_Id { get; set; }
+        public int? TipoDocumento_Id { get; set; }
         public string Descripcion { get; set; }
         public int Estado { get; set; }
-        public Operacion Operacion { get; set; }
-        public Auditoria Auditoria { get; set; }
     }
 }

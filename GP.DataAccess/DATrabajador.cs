@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using GestionPlanilla.Common;
-using GestionPlanilla.DataAccess;
-using GestionPlanilla.Entities;
+using GP.Common;
+using GP.DataAccess;
+using GP.Entities;
 
-namespace GestionPlanilla.DataAccess
+namespace GP.DataAccess
 {
     public class DATrabajador
     {
@@ -35,6 +35,9 @@ namespace GestionPlanilla.DataAccess
                          Trabajador_Id = n.Single(d => d.Key.Equals("Trabajador_Id")).Value.Parse<int>(),
                          Usuario = n.Single(d => d.Key.Equals("Trabajador_Usuario")).Value.Parse<string>(),
                          Contraseña = "******",
+                         TipoDocumento = n.Single(d => d.Key.Equals("Tipo_Documento")).Value.Parse<int>(),
+                         NumeroDocumento = n.Single(d => d.Key.Equals("Numero_Documento")).Value.Parse<string>(),
+                         Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
                          Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
                          ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
                          ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
@@ -78,18 +81,21 @@ namespace GestionPlanilla.DataAccess
                 connection.Open();
                 var parm = new DynamicParameters();
                 parm.Add("@Trabajador_Id", obj.Trabajador_Id);
-                parm.Add("@Usuario", obj.Usuario);
-                parm.Add("@Contraseña", obj.Contraseña);
-                parm.Add("@@Nombres", obj.Nombres);
+                parm.Add("@Nombres", obj.Nombres);
                 parm.Add("@ApellidoPaterno", obj.ApellidoPaterno);
                 parm.Add("@ApellidoMaterno", obj.ApellidoMaterno);
-                parm.Add("@FechaNacimiento", obj.FechaNacimiento);
+                parm.Add("@Tipo_Documento", obj.TipoDocumento);
+                parm.Add("@Numero_Documento", obj.NumeroDocumento);
                 parm.Add("@Sexo", obj.Sexo);
-                parm.Add("@Estado", obj.Estado);
-                parm.Add("@Tipo", obj.Tipo);
                 parm.Add("@Area", obj.Area.Area_Id);
-                parm.Add("@Turno", obj.Turno.Turno_Id);
                 parm.Add("@Cargo", obj.Cargo.Cargo_Id);
+                parm.Add("@FechaNacimiento", obj.FechaNacimiento);
+                parm.Add("@Turno", obj.Turno.Turno_Id);
+                parm.Add("@Usuario", obj.Usuario);
+                parm.Add("@Contraseña", obj.Contraseña);
+                parm.Add("@Sueldo", obj.Sueldo);
+                parm.Add("@Tipo", obj.Tipo);
+                parm.Add("@Estado", obj.Estado);   
                 var result = connection.Execute(
                     sql: "sp_Insertar_Trabajador",
                     param: parm,

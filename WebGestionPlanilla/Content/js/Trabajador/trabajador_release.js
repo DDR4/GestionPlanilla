@@ -99,7 +99,7 @@
             "Nombres": $txtModalNombres.val(),
             "ApellidoPaterno": $txtModalApellidoP.val(),
             "ApellidoMaterno": $txtModalApellidoM.val(),
-            "FechaNacimiento": $txtModalFechaN.val(),
+            "FechaNacimiento": ConvertFormatDate($txtModalFechaN.val()),
             "Sexo": $cboModalSexo.val(),
             "TipoDocumento": $cboModalTipoDoc.val(),
             "NumeroDocumento": $txtModalNumDoc.val(),
@@ -300,7 +300,19 @@
 
     function $btnBuscar_click() {
         GetTrabajador();
-    }                                        
+    }                       
+
+    function ConvertFormatDate(pfecha) {
+        var year = pfecha.getFullYear();
+
+        var month = (1 + pfecha.getMonth()).toString();
+        month = month.length > 1 ? month : '0' + month;
+
+        var day = pfecha.getDate().toString();
+        day = day.length > 1 ? day : '0' + day;
+
+        return month + '/' + day + '/' + year;
+    }
 
     return {
         EditarTrabajador: EditarTrabajador,

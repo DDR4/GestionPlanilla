@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace GestionPlanilla.Entities
+namespace GP.Entities
 {
     public class Ventas
     {

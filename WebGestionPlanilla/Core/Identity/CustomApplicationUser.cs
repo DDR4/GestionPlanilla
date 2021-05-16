@@ -12,14 +12,14 @@ namespace WebGestionPlanilla.Core.Identity
         public string UserName { get; set; }
         public string Trabajador_Id { get; set; }
 
-        public GestionPlanilla.Common.Response<GestionPlanilla.Entities.Trabajador> Trabajador { get; set; }
+        public GP.Common.Response<GP.Entities.Trabajador> Trabajador { get; set; }
 
-        public CustomApplicationUser() : this(new GestionPlanilla.Common.Response<GestionPlanilla.Entities.Trabajador>(default(GestionPlanilla.Entities.Trabajador)))
+        public CustomApplicationUser() : this(new GP.Common.Response<GP.Entities.Trabajador>(default(GP.Entities.Trabajador)))
         {
         }
 
 
-        public CustomApplicationUser(GestionPlanilla.Common.Response<GestionPlanilla.Entities.Trabajador> usuario)
+        public CustomApplicationUser(GP.Common.Response<GP.Entities.Trabajador> usuario)
         {
             Trabajador = usuario;
 

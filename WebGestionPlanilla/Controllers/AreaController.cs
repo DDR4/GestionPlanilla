@@ -1,4 +1,4 @@
-﻿using GestionPlanilla.Entities;
+﻿using GP.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -37,7 +37,7 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLArea();
+            var bussingLogic = new GP.BusinessLogic.BLArea();
             var response = bussingLogic.GetArea(obj);
 
             var Datos = response.Data;
@@ -57,7 +57,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult InsertUpdateArea(Area obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLArea();
+            var bussingLogic = new GP.BusinessLogic.BLArea();
             var response = bussingLogic.InsertUpdateArea(obj);
 
             return Json(response);
@@ -65,7 +65,7 @@ namespace WebGestionPlanilla.Controllers
 
         public JsonResult DeleteArea(Area obj)
         {
-            var bussingLogic = new GestionPlanilla.BusinessLogic.BLArea();
+            var bussingLogic = new GP.BusinessLogic.BLArea();
             var response = bussingLogic.DeleteArea(obj);
 
             return Json(response);

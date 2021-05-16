@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 
-namespace GestionPlanilla.Common
+namespace GP.Common
 {
    public class ConfigurationUtilities
     {
