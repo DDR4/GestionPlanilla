@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DABoletaPago.cs" />
     <Compile Include="DAArea.cs" />
     <Compile Include="DAAuthorization.cs" />
     <Compile Include="DACargo.cs" />

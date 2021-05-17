@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using GP.Common;
-using GP.DataAccess;
 using GP.Entities;
 
 namespace GP.DataAccess
