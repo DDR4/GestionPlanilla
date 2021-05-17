@@ -302,15 +302,11 @@
         GetTrabajador();
     }                       
 
-    function ConvertFormatDate(pfecha) {
-        var year = pfecha.getFullYear();
-
-        var month = (1 + pfecha.getMonth()).toString();
-        month = month.length > 1 ? month : '0' + month;
-
-        var day = pfecha.getDate().toString();
-        day = day.length > 1 ? day : '0' + day;
-
+    function ConvertFormatDate(pfecha) {                                                      
+        var year = pfecha.substring(6);
+        var month = pfecha.substring(3, 5);
+        var day = pfecha.substring(0, 2);
+        
         return month + '/' + day + '/' + year;
     }
 
