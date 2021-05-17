@@ -20,7 +20,6 @@ namespace GP.DataAccess
                 connection.Open();
                 var parm = new DynamicParameters();
                 parm.Add("@Descripcion", obj.Descripcion);
-                parm.Add("@Area", obj.Area.Area_Id);
                 parm.Add("@Estado", obj.Estado);
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
@@ -33,12 +32,7 @@ namespace GP.DataAccess
                      {
                          Cargo_Id = n.Single(d => d.Key.Equals("Cargo_Id")).Value.Parse<int>(),
                          Descripcion = n.Single(d => d.Key.Equals("Cargo_Descripcion")).Value.Parse<string>(),
-                         Estado = n.Single(d => d.Key.Equals("Cargo_Estado")).Value.Parse<int>(),
-                         Area = new Area
-                         {
-                             Area_Id = n.Single(d => d.Key.Equals("Area")).Value.Parse<int>(),
-                             Descripcion = n.Single(d => d.Key.Equals("Area_Descripcion")).Value.Parse<string>(),
-                         },
+                         Estado = n.Single(d => d.Key.Equals("Cargo_Estado")).Value.Parse<int>(),                       
                          Auditoria = new Auditoria
                          {
                              TipoUsuario = obj.Auditoria.TipoUsuario,
@@ -61,7 +55,6 @@ namespace GP.DataAccess
                 var parm = new DynamicParameters();
                 parm.Add("@Cargo_Id", obj.Cargo_Id);
                 parm.Add("@Descripcion", obj.Descripcion);
-                parm.Add("@Area", obj.Area.Area_Id);
                 parm.Add("@Estado", obj.Estado);
                 var result = connection.Execute(
                     sql: "sp_Insertar_Cargo",

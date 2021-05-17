@@ -6,12 +6,9 @@
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoDescripcion = $('#tipoDescripcion');
     var $txtDescripcion = $('#txtDescripcion');
-    var $tipoArea = $('#tipoArea');
-    var $cboArea = $('#cboArea');
     var $tipoEstado = $('#tipoEstado');
     var $cboEstado = $('#cboEstado');
     var $btnBuscar = $('#btnBuscar');
-    var $cboModalArea = $('#cboModalArea');  
 
     //Modal
     var $modalCargo = $('#modalCargo');  
@@ -39,7 +36,6 @@
         $btnBuscar.click($btnBuscar_click);         
         $btnGuardar.click($btnGuardar_click);
         $btnNuevaCargo.click($btnNuevaCargo_click);
-        GetArea();
     }           
 
     function $btnNuevaCargo_click() {
@@ -47,17 +43,14 @@
         $modalCargo.modal();
         Global.Cargo_Id = null;
         $txtModalDescripcion.val("");
-        $cboModalArea.val(0);
         $cboModalEstado.val(1);
-        app.Event.Disabled($cboModalEstado);
-
+        app.Event.Disabled($cboModalEstado);            
     }
 
     function GetCargos() {             
 
         var parms = {
             Descripcion: $txtDescripcion.val(),
-            Area: { Area_Id: $cboArea.val()},
             Estado: $cboEstado.val()
         };
 
@@ -65,13 +58,12 @@
 
         var columns = [
             { data: "Descripcion" },
-            { data: "Area.Descripcion" },
             { data: "Estado" },
             { data: "Auditoria.TipoUsuario" }
         ];
         var columnDefs = [ 
             {
-                "targets": [2],
+                "targets": [1],
                 'render': function (data, type, full, meta) {
                     if (data === 1) {
                         return "Activo";
@@ -80,7 +72,7 @@
                 }
             },
             {
-                "targets": [3],
+                "targets": [2],
                 "visible": true,
                 "orderable": false,
                 "className": "text-center",
@@ -108,21 +100,16 @@
     function $cboTipoBusqueda_change() {
         var codSelec = $(this).val();
         $tipoDescripcion.hide();
-        $tipoArea.hide();
         $tipoEstado.hide();
 
         $txtDescripcion.val("");
-        $cboArea.val(0);
         $cboEstado.val(0);
        
 
         if (codSelec === "1") {
             $tipoDescripcion.show();
-        }
+        }                
         else if (codSelec === "2") {
-            $tipoArea.show();
-        }
-        else if (codSelec === "3") {
             $tipoEstado.show();
         }
 
@@ -137,7 +124,6 @@
         var obj = {
             "Cargo_Id": Global.Cargo_Id,
             "Descripcion": $txtModalDescripcion.val(),   
-            "Area": { Area_Id: $cboModalArea.val() },   
             "Estado": $cboModalEstado.val()
         };
 
@@ -165,7 +151,6 @@
         $modalCargo.modal();
         Global.Cargo_Id = data.Cargo_Id;
         $txtModalDescripcion.val(data.Descripcion);
-        $cboModalArea.val(data.Area.Area_Id);
         $cboModalEstado.val(data.Estado).trigger('change');
         app.Event.Enable($cboModalEstado);
     }
@@ -187,19 +172,6 @@
             app.CallAjax(method, url, rsdata, fnDoneCallback, null, null, null);
         };
         app.Message.Confirm("Aviso", "Esta seguro que desea eliminar el Cargo?", "Aceptar", "Cancelar", fnAceptarCallback, null);
-    }
-
-    function GetArea() {
-        var method = "POST";
-        var url = "Combos/GetArea";
-        var fnDoneCallback = function (data) {
-            for (var i = 0; i < data.Data.length; i++) {
-                $cboModalArea.append('<option value=' + data.Data[i].Area_Id + '>' + data.Data[i].Descripcion + '</option>');
-                $cboArea.append('<option value=' + data.Data[i].Area_Id + '>' + data.Data[i].Descripcion + '</option>');
-            }
-
-        };
-        app.CallAjax(method, url, null, fnDoneCallback, null, null, null);
     }
 
     return {

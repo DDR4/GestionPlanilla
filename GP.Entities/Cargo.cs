@@ -11,7 +11,6 @@ namespace GP.Entities
         public int? Cargo_Id { get; set; }
         public string Descripcion { get; set; }
         public int Estado { get; set; }
-        public Area Area { get; set; }
         public Operacion Operacion { get; set; }
         public Auditoria Auditoria { get; set; }
     }
