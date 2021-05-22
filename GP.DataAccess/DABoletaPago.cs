@@ -26,10 +26,12 @@ namespace GP.DataAccess
                     .Select(m => m as IDictionary<string, object>)
                     .Select(n => new BoletaPago
                     {
+                        Indicador = n.Single(d => d.Key.Equals("Indicador")).Value.Parse<int>(),
                         Trabajador = new Trabajador
                         {
                             Trabajador_Id = n.Single(d => d.Key.Equals("Trabajador_Id")).Value.Parse<int>()
-                        }                       
+                        },
+                      
                     });
 
                 return result;

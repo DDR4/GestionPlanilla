@@ -9,9 +9,8 @@ namespace GP.Common.Constants
     public class ConfigurationKeys
     {
         public const string ConnectionString = "ConnectionString";
-
-
         public const string DefaultRedirect = "/";
-
+        public const string Email = "Email";
+        public const string Clave = "Clave";
     }
 }

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\BoletaPagoController.cs" />
     <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CombosController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -193,6 +194,7 @@
     <Content Include="Content\img\user-256.png" />
     <Content Include="Content\js\app.js" />
     <Content Include="Content\js\Area\area.js" />
+    <Content Include="Content\js\BoletaPago\boletapago.js" />
     <Content Include="Content\js\Cargo\cargo.js" />
     <Content Include="Content\js\HorasTrabajadas\horastrabajadas.js" />
     <Content Include="Content\js\Marcacion\marcacion_release.js" />
@@ -297,6 +299,9 @@
     <Content Include="Content\lib\ionicons\fonts\ionicons.eot" />
     <Content Include="Content\lib\ionicons\fonts\ionicons.ttf" />
     <Content Include="Content\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="Views\Plantillas\PlantillaCorreo.cshtml">
+      <BrowseToURL>~/Plantillas/PlantillaCorreo</BrowseToURL>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -339,6 +344,7 @@
     <Content Include="Views\Shared\_LayoutModals.cshtml" />
     <Content Include="Views\Shared\_LayoutSideBar.cshtml" />
     <Content Include="Views\Shared\_LayoutSideBarControl.cshtml" />
+    <Content Include="Views\BoletaPago\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,6 @@ namespace GP.Entities
         public int? BoletaPago_Id { get; set; }
         public Trabajador Trabajador { get; set; }
         public HorasTrabajadas HorasTrabajadas { get; set; }
-
-
+        public int Indicador { get; set; }
     }
 }

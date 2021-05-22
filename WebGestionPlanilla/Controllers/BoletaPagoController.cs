@@ -23,6 +23,5 @@ namespace WebGestionPlanilla.Controllers
             return Json(response);
         }
 
-
     }
 }
