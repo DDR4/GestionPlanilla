@@ -16,6 +16,9 @@ namespace GP.Entities
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaIngreso { get; set; }
+        public DateTime FechaCese { get; set; }
+        public string Correo { get; set; }
         public string Sexo { get; set; }
         public int TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }

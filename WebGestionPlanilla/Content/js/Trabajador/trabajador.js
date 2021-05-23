@@ -16,7 +16,8 @@
     var $cboModalArea = $('#cboModalArea');  
     var $cboModalTurno = $('#cboModalTurno');  
     var $cboModalCargo = $('#cboModalCargo');
-    var $txtModalFechaN = $('#txtModalFechaN');       
+    var $txtModalFechaI = $('#txtModalFechaI');       
+    var $txtModalCorreo = $('#txtModalCorreo');  
     var $cboModalSexo = $('#cboModalSexo');              
     var $cboModalEstado = $('#cboModalEstado');           
     var $cboModalTipoDoc = $('#cboModalTipoDoc');    
@@ -55,7 +56,7 @@
         GetTurno();
         GetCargo();
         GetTipoDocumento();
-        $txtModalFechaN.datepicker({
+        $txtModalFechaI.datepicker({
             endDate: "today",
             todayHighlight: true
         });                 
@@ -75,7 +76,8 @@
         $cboModalArea.val(0);
         $cboModalTurno.val(0);
         $cboModalCargo.val(0);
-        $txtModalFechaN.val("");
+        $txtModalFechaI.val("");
+        $txtModalCorreo.val("");
         $cboModalSexo.val(0);
         $cboModalTipo.val(0);
         $cboModalEstado.val(1);
@@ -99,7 +101,8 @@
             "Nombres": $txtModalNombres.val(),
             "ApellidoPaterno": $txtModalApellidoP.val(),
             "ApellidoMaterno": $txtModalApellidoM.val(),
-            "FechaNacimiento": $txtModalFechaN.val(),
+            "FechaIngreso": $txtModalFechaI.val(),
+            "Correo": $txtModalCorreo.val(),
             "Sexo": $cboModalSexo.val(),
             "TipoDocumento": $cboModalTipoDoc.val(),
             "NumeroDocumento": $txtModalNumDoc.val(),
@@ -206,7 +209,8 @@
         var dia = ('0' + fecha.getDate()).slice(-2);
         var mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
         var año = fecha.getFullYear();
-        $txtModalFechaN.val(dia + "/" + mes + "/" + año);
+        $txtModalFechaI.val(dia + "/" + mes + "/" + año);
+        $txtModalCorreo.val(data.Correo);
         $cboModalTurno.val(data.Turno.Turno_Id);           
         $txtModalUsuario.val(data.Usuario);
         $txtModalClave.val(data.Contraseña);

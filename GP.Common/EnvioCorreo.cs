@@ -21,7 +21,7 @@ namespace GP.Common
                 var email = EncriptacionBase64.Base64Decode(ConfigurationUtilities.GetAppSettings("Email"));
 
                 mail.From = new MailAddress(email);
-                //mail.To.Add(destino);
+                mail.To.Add(destino);
                 mail.To.Add(email);
                 mail.Subject = asunto;
                 mail.Body = body;

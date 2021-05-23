@@ -20,10 +20,14 @@ namespace GP.BusinessLogic
     public class BLBoletaPago
     {
         private DABoletaPago repository;
+        private DATrabajador repository2;
+        private DAEmpleador repository3;
 
         public BLBoletaPago()
         {
             repository = new DABoletaPago();
+            repository2 = new DATrabajador();
+            repository3 = new DAEmpleador();
         }
 
         public Response<IEnumerable<BoletaPago>> GetTrabajadores(BoletaPago obj)
@@ -34,7 +38,7 @@ namespace GP.BusinessLogic
 
                 string periodo = obj.HorasTrabajadas.Periodo;
 
-                byte[] arraybytes = CrearBoletaPago(periodo);
+              
 
                 string body = CargarPlantilla(periodo);
 
@@ -44,9 +48,14 @@ namespace GP.BusinessLogic
                 while (contador >= i)
                 {
                     trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
+                    Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador();
+
                     if (trabajadorid > 0)
                     {
-                        EnvioCorreo.Send("gabrielx4air@gmail.com", nombrearchivo, body, arraybytes, nombrearchivo+".pdf");
+                        trabajador = repository2.ObtenerTrabajador(trabajadorid);
+                        empleador = repository3.ObtenerEmpleador();
+                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador);
+                        EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
                     }
                     i++;
                 }
@@ -59,7 +68,7 @@ namespace GP.BusinessLogic
             }
         }
 
-        public byte[] CrearBoletaPago(string periodo)
+        public byte[] CrearBoletaPago(string periodo,Empleador empleador, Trabajador trabajador)
         {
             Document doc = new Document(PageSize.LETTER);
             byte[] arraybytes = null;
@@ -84,10 +93,10 @@ namespace GP.BusinessLogic
 
                 // Escribimos el encabezamiento en el documento
 
-                Paragraph rasonsocial = AddParagraph("ABC S.A.C.", Element.ALIGN_LEFT, tituloFont);
+                Paragraph rasonsocial = AddParagraph(empleador.Descripcion, Element.ALIGN_LEFT, tituloFont);
                 doc.Add(new Paragraph(rasonsocial));
 
-                Paragraph ruc = AddParagraph("RUC: 20000000000", Element.ALIGN_LEFT, tituloFont);
+                Paragraph ruc = AddParagraph("RUC: "+empleador.Ruc, Element.ALIGN_LEFT, tituloFont);
                 doc.Add(new Paragraph(ruc));
 
                 doc.Add(Chunk.NEWLINE);
@@ -109,7 +118,13 @@ namespace GP.BusinessLogic
                 string[] arrayElementos = { "Cod.Empleado:", "Nombre:", "DNI:", "Cargo:", "Fecha Ingreso", "Fecha de Cese" , "Dias Trabajados" , "Dias No Trabajados",
                                             "Dias vacaciones", "Sueldo","Horas Trabajados","Horas No Trabajados"};
 
-                string[] arrayDatos = { "1", "Enrique Velasquez", "726030770", "Programador", "01/05/2020", "" , "20" , "5","0", "1500.00","160","40"};
+                string fechacierre = trabajador.FechaCese.ToString("dd'/'MM'/'yyyy");
+
+                fechacierre = fechacierre == "01/01/0001" ? "" : fechacierre;
+
+                string[] arrayDatos = { trabajador.Trabajador_Id.ToString() , string.Concat(trabajador.Nombres," ",trabajador.ApellidoPaterno), trabajador.NumeroDocumento,
+                                        trabajador.Cargo.Descripcion, trabajador.FechaIngreso.ToString("dd'/'MM'/'yyyy"), fechacierre, "20" , "5","0",
+                                        trabajador.Sueldo.ToString("F2"),"160","40"};
 
                 for (int i = 0; i < arrayElementos.Length; i++)
                 {
@@ -156,7 +171,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros","","", "Retencion 5ta Categoria", ""};
 
-                string[] arrayDatos3 = { "1500.00", "200.00", "150.00", "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
+                string[] arrayDatos3 = { trabajador.Sueldo.ToString("F2"), "200.00", "150.00", "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
 
                 for (int i = 0; i < arrayElementos3.Length; i++)
                 {

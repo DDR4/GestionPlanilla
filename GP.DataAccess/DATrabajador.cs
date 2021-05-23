@@ -40,7 +40,8 @@ namespace GP.DataAccess
                          Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
                          ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
                          ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
-                         FechaNacimiento = n.Single(d => d.Key.Equals("Trabajador_FechaNacimiento")).Value.Parse<DateTime>(),
+                         FechaIngreso = n.Single(d => d.Key.Equals("Trabajador_FechaIngreso")).Value.Parse<DateTime>(),
+                         Correo = n.Single(d => d.Key.Equals("Trabajador_Correo")).Value.Parse<string>(),
                          Sexo = n.Single(d => d.Key.Equals("Trabajador_Sexo")).Value.Parse<string>(),
                          Tipo = n.Single(d => d.Key.Equals("Trabajador_Tipo")).Value.Parse<int>(),
                          Estado = n.Single(d => d.Key.Equals("Trabajador_Estado")).Value.Parse<int>(),
@@ -117,6 +118,56 @@ namespace GP.DataAccess
                     commandType: CommandType.StoredProcedure);
 
                 return result;
+            }
+        }
+
+        public Trabajador ObtenerTrabajador(int? codigo)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+
+                parm.Add("@Trabajador_Id", codigo);
+                var result = connection.Query(
+                     sql: "sp_Obtener_Trabajador",
+                     param: parm,
+                     commandType: CommandType.StoredProcedure)
+                     .Select(m => m as IDictionary<string, object>)
+                     .Select(n => new Trabajador
+                     {
+                         Trabajador_Id = n.Single(d => d.Key.Equals("Trabajador_Id")).Value.Parse<int>(),
+                         Usuario = n.Single(d => d.Key.Equals("Trabajador_Usuario")).Value.Parse<string>(),
+                         Contraseña = "******",
+                         TipoDocumento = n.Single(d => d.Key.Equals("Tipo_Documento")).Value.Parse<int>(),
+                         NumeroDocumento = n.Single(d => d.Key.Equals("Numero_Documento")).Value.Parse<string>(),
+                         Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
+                         Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
+                         ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
+                         ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
+                         FechaIngreso = n.Single(d => d.Key.Equals("Trabajador_FechaIngreso")).Value.Parse<DateTime>(),
+                         Correo = n.Single(d => d.Key.Equals("Trabajador_Correo")).Value.Parse<string>(),
+                         Sexo = n.Single(d => d.Key.Equals("Trabajador_Sexo")).Value.Parse<string>(),
+                         Tipo = n.Single(d => d.Key.Equals("Trabajador_Tipo")).Value.Parse<int>(),
+                         Estado = n.Single(d => d.Key.Equals("Trabajador_Estado")).Value.Parse<int>(),
+                         Area = new Area
+                         {
+                             Area_Id = n.Single(d => d.Key.Equals("Area_Id")).Value.Parse<int>(),
+                             Descripcion = n.Single(d => d.Key.Equals("Area_Descripcion")).Value.Parse<string>(),
+                         },
+                         Turno = new Turno
+                         {
+                             Turno_Id = n.Single(d => d.Key.Equals("Turno_Id")).Value.Parse<int>(),
+                             Descripcion = n.Single(d => d.Key.Equals("Turno_Descripcion")).Value.Parse<string>(),
+                         },
+                         Cargo = new Cargo
+                         {
+                             Cargo_Id = n.Single(d => d.Key.Equals("Cargo_Id")).Value.Parse<int>(),
+                             Descripcion = n.Single(d => d.Key.Equals("Cargo_Descripcion")).Value.Parse<string>(),
+                         }
+                     });
+
+                return result.FirstOrDefault();
             }
         }
     }

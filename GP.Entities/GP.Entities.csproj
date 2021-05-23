@@ -45,6 +45,7 @@
     <Compile Include="Auditoria.cs" />
     <Compile Include="BoletaPago.cs" />
     <Compile Include="Cargo.cs" />
+    <Compile Include="Empleador.cs" />
     <Compile Include="HorasTrabajadas.cs" />
     <Compile Include="Operacion.cs" />
     <Compile Include="Producto.cs" />
