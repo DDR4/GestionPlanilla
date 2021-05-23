@@ -36,7 +36,6 @@ namespace GP.DataAccess
                          {
                              Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
                              Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
-                             Faltas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Faltas")).Value.Parse<int>(),
                              Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
                          },                     
                          Operacion = new Operacion
@@ -46,6 +45,33 @@ namespace GP.DataAccess
                      });
 
                 return result;
+            }
+        }
+
+        public HorasTrabajadas CalculaHorasTrabajadas(string periodo, Trabajador obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@Periodo", periodo);
+                parm.Add("@TrabajadorId", obj.Trabajador_Id);
+                var result = connection.Query(
+                     sql: "sp_Calcular_Horas_Periodo",
+                     param: parm,
+                     commandType: CommandType.StoredProcedure)
+                     .Select(m => m as IDictionary<string, object>)
+                     .Select(n => new HorasTrabajadas
+                     {
+                        PrimerDia = n.Single(d => d.Key.Equals("PrimerDia")).Value.Parse<DateTime>(),
+                        UltimoDia = n.Single(d => d.Key.Equals("UltimoDia")).Value.Parse<DateTime>(),
+                        DiasTrabajados = n.Single(d => d.Key.Equals("DiasTrabajados")).Value.Parse<int>(),
+                        Horas_Trabajadas = n.Single(d => d.Key.Equals("HorasTrabajadas")).Value.Parse<int>(),
+                        DiasNoTrabajados = n.Single(d => d.Key.Equals("DiasNoTrabajados")).Value.Parse<int>(),
+                        HorasNoTrabajados = n.Single(d => d.Key.Equals("HorasNoTrabajadas")).Value.Parse<int>(),    
+                     });
+
+                return result.FirstOrDefault();
             }
         }
     }

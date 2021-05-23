@@ -22,12 +22,14 @@ namespace GP.BusinessLogic
         private DABoletaPago repository;
         private DATrabajador repository2;
         private DAEmpleador repository3;
+        private DAHorasTrabajadas repository4;
 
         public BLBoletaPago()
         {
             repository = new DABoletaPago();
             repository2 = new DATrabajador();
             repository3 = new DAEmpleador();
+            repository4 = new DAHorasTrabajadas();
         }
 
         public Response<IEnumerable<BoletaPago>> GetTrabajadores(BoletaPago obj)
@@ -48,13 +50,16 @@ namespace GP.BusinessLogic
                 while (contador >= i)
                 {
                     trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
-                    Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador();
+                    Trabajador trabajador = new Trabajador();
+                    Empleador empleador = new Empleador();
+                    HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
 
                     if (trabajadorid > 0)
                     {
                         trabajador = repository2.ObtenerTrabajador(trabajadorid);
                         empleador = repository3.ObtenerEmpleador();
-                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador);
+                        horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo,trabajador);
+                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas);
                         EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
                     }
                     i++;
@@ -68,7 +73,7 @@ namespace GP.BusinessLogic
             }
         }
 
-        public byte[] CrearBoletaPago(string periodo,Empleador empleador, Trabajador trabajador)
+        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas)
         {
             Document doc = new Document(PageSize.LETTER);
             byte[] arraybytes = null;
@@ -104,7 +109,7 @@ namespace GP.BusinessLogic
                 Paragraph subtitulo = AddParagraph("BOLETA DE PAGO", Element.ALIGN_CENTER, subtituloFont);
                 doc.Add(new Paragraph(subtitulo));
 
-                Paragraph rangofecha = AddParagraph("01/05/2021 - 31/05/2021", Element.ALIGN_CENTER, tituloFont);
+                Paragraph rangofecha = AddParagraph(horasTrabajadas.PrimerDia.ToString("dd'/'MM'/'yyyy") + "-"+ horasTrabajadas.UltimoDia.ToString("dd'/'MM'/'yyyy"), Element.ALIGN_CENTER, tituloFont);
                 doc.Add(new Paragraph(rangofecha));
 
                 doc.Add(new Paragraph("\n"));
@@ -123,8 +128,9 @@ namespace GP.BusinessLogic
                 fechacierre = fechacierre == "01/01/0001" ? "" : fechacierre;
 
                 string[] arrayDatos = { trabajador.Trabajador_Id.ToString() , string.Concat(trabajador.Nombres," ",trabajador.ApellidoPaterno), trabajador.NumeroDocumento,
-                                        trabajador.Cargo.Descripcion, trabajador.FechaIngreso.ToString("dd'/'MM'/'yyyy"), fechacierre, "20" , "5","0",
-                                        trabajador.Sueldo.ToString("F2"),"160","40"};
+                                        trabajador.Cargo.Descripcion, trabajador.FechaIngreso.ToString("dd'/'MM'/'yyyy"), fechacierre, horasTrabajadas.DiasTrabajados.ToString(),
+                                        horasTrabajadas.DiasNoTrabajados.ToString(),"0",trabajador.Sueldo.ToString("F2"),horasTrabajadas.Horas_Trabajadas.ToString(),
+                                        horasTrabajadas.HorasNoTrabajados.ToString()};
 
                 for (int i = 0; i < arrayElementos.Length; i++)
                 {
