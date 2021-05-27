@@ -129,7 +129,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayDatos = { trabajador.Trabajador_Id.ToString() , string.Concat(trabajador.Nombres," ",trabajador.ApellidoPaterno), trabajador.NumeroDocumento,
                                         trabajador.Cargo.Descripcion, trabajador.FechaIngreso.ToString("dd'/'MM'/'yyyy"), fechacierre, horasTrabajadas.DiasTrabajados.ToString(),
-                                        horasTrabajadas.DiasNoTrabajados.ToString(),"0",trabajador.Sueldo.ToString("F2"),horasTrabajadas.Horas_Trabajadas.ToString(),
+                                        horasTrabajadas.DiasNoTrabajados.ToString(),"0",trabajador.Cargo.Sueldo.ToString("F2"),horasTrabajadas.Horas_Trabajadas.ToString(),
                                         horasTrabajadas.HorasNoTrabajados.ToString()};
 
                 for (int i = 0; i < arrayElementos.Length; i++)
@@ -177,7 +177,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros","","", "Retencion 5ta Categoria", ""};
 
-                string[] arrayDatos3 = { trabajador.Sueldo.ToString("F2"), "200.00", "150.00", "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
+                string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), "200.00", "150.00", "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
 
                 for (int i = 0; i < arrayElementos3.Length; i++)
                 {

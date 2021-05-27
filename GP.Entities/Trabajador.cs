@@ -22,7 +22,6 @@ namespace GP.Entities
         public string Sexo { get; set; }
         public int TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }
-        public decimal Sueldo { get; set; }   
         public int Tipo { get; set; }
         public int Estado { get; set; }
         public Area Area { get; set; }

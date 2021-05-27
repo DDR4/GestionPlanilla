@@ -172,6 +172,7 @@
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Controllers\TurnoController.cs" />
+    <Compile Include="Controllers\VacacionesController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Core\Filter\CustomAuthorizeAttribute.cs" />
     <Compile Include="Core\Identity\CustomApplicationUser.cs" />
@@ -203,6 +204,7 @@
     <Content Include="Content\js\Trabajador\trabajador_release.js" />
     <Content Include="Content\js\Trabajador\trabajador.js" />
     <Content Include="Content\js\Turno\turno.js" />
+    <Content Include="Content\js\Vacaciones\vacaciones.js" />
     <Content Include="Content\js\Ventas\ventas.js" />
     <Content Include="Content\lib\adminLTE\css\adminLTE.min.css" />
     <Content Include="Content\lib\adminLTE\js\adminlte.js" />
@@ -345,6 +347,7 @@
     <Content Include="Views\Shared\_LayoutSideBar.cshtml" />
     <Content Include="Views\Shared\_LayoutSideBarControl.cshtml" />
     <Content Include="Views\BoletaPago\Index.cshtml" />
+    <Content Include="Views\Vacaciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

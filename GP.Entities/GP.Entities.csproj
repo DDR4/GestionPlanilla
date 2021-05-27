@@ -53,6 +53,7 @@
     <Compile Include="TipoDocumento.cs" />
     <Compile Include="Trabajador.cs" />
     <Compile Include="Turno.cs" />
+    <Compile Include="Vacaciones.cs" />
     <Compile Include="Ventas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

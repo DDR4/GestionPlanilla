@@ -1,10 +1,10 @@
-﻿@using Microsoft.AspNet.Identity
+﻿
 @{
     ViewBag.Title = "Index";
 }
 
 <section class="content-header">
-    <h1>Horas Trabajadas</h1>
+    <h1>Vacaciones</h1>
 </section>
 <section class="content">
     <div class="row">
@@ -26,7 +26,6 @@
                                 <select class="form-control input-sm" style="width:100%;" id="cboTipoBusqueda">
                                     <option value="0">Todos</option>
                                     <option value="1">Nombres y Apellidos</option>
-                                    <option value="2">Fecha</option>
 
                                 </select>
                             </div>
@@ -36,17 +35,14 @@
                                     <input type="text" class="form-control input-sm" id="txtNombres">
                                 </div>
                             </div>
-                            <div id="tipoFecha" style="display:none;">
-                                <div class="form-group col-md-2">
-                                    <label for="txtFecha">Fecha</label>
-                                    <input type="text" class="form-control input-sm" id="txtFecha" readonly>
-                                </div>
-                            </div>
                             <div class="form-group col-md-1">
                                 <label for="btnBuscar"><font color="white">_</font></label>
                                 <button type="button" class="btn btn-primary btn-sm" id="btnBuscar">
                                     <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Buscar
                                 </button>
+                            </div>
+                            <div class="form-group col-md-7" style="text-align:right;">
+                                <button type="button" class="btn btn-success btn-sm" id="btnActualizacionMasiva">Actualización Masiva de Vacaciones </button>
                             </div>
                         </div>
                     </form>
@@ -71,13 +67,12 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="table-responsive">
-                                <table id="tblListadoNumeroHoras" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
+                                <table id="tblListadoVacaciones" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
                                     <thead>
                                         <tr>
                                             <th width="15%;">Nombres y Apellidos</th>
-                                            <th width="10%;">Horas Trabajadas</th>
-                                            <th width="10%;">Tardanzas</th>
-                                            <th width="10%;">Periodo</th>
+                                            <th width="10%;">Dias Disponibles</th>
+                                            <th width="10%;">Dias Totales</th>
                                             @*<th width="8%;"></th>*@
                                         </tr>
                                     </thead>
@@ -92,7 +87,6 @@
 </section>
 
 @section scripts{
-    <script src="~/Content/js/HorasTrabajadas/horastrabajadas.js"></script>
+    <script src="~/Content/js/Vacaciones/vacaciones.js"></script>
 }
-
 

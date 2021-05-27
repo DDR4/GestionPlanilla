@@ -14,6 +14,7 @@
     var $modalCargo = $('#modalCargo');  
     var $titleModalCargo = $('#titleModalCargo');
     var $txtModalDescripcion = $('#txtModalDescripcion');  
+    var $txtModalSueldo = $('#txtModalSueldo'); 
     var $cboModalEstado = $('#cboModalEstado'); 
     var $btnGuardar = $('#btnGuardar');
                                         
@@ -43,6 +44,7 @@
         $modalCargo.modal();
         Global.Cargo_Id = null;
         $txtModalDescripcion.val("");
+        $txtModalSueldo.val("");
         $cboModalEstado.val(1);
         app.Event.Disabled($cboModalEstado);            
     }
@@ -58,12 +60,20 @@
 
         var columns = [
             { data: "Descripcion" },
+            { data: "Sueldo" },
             { data: "Estado" },
             { data: "Auditoria.TipoUsuario" }
         ];
         var columnDefs = [ 
             {
                 "targets": [1],
+                "className": "text-right",
+                'render': function (data, type, full, meta) {
+                    return '' + app.FormatNumber(data) + '';
+                }
+            },
+            {
+                "targets": [2],
                 'render': function (data, type, full, meta) {
                     if (data === 1) {
                         return "Activo";
@@ -72,7 +82,7 @@
                 }
             },
             {
-                "targets": [2],
+                "targets": [3],
                 "visible": true,
                 "orderable": false,
                 "className": "text-center",
@@ -122,8 +132,9 @@
     function InsertUpdateCargo() {
 
         var obj = {
-            "Cargo_Id": Global.Cargo_Id,
+            "Cargo_Id": Global.Cargo_Id,    
             "Descripcion": $txtModalDescripcion.val(),   
+            "Sueldo": $txtModalSueldo.val(),
             "Estado": $cboModalEstado.val()
         };
 
@@ -151,6 +162,7 @@
         $modalCargo.modal();
         Global.Cargo_Id = data.Cargo_Id;
         $txtModalDescripcion.val(data.Descripcion);
+        $txtModalSueldo.val(data.Sueldo);
         $cboModalEstado.val(data.Estado).trigger('change');
         app.Event.Enable($cboModalEstado);
     }

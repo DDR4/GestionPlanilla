@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GP.Entities
 {
-    public class Cargo
+    public class Vacaciones
     {
-        public int? Cargo_Id { get; set; }
-        public string Descripcion { get; set; }
-        public decimal Sueldo { get; set; }
-        public int Estado { get; set; }
+        public int? Vacaciones_Id { get; set; }
+        public string NombreApellido { get; set; }
+        public int DiasDisponibles { get; set; }
+        public int DiasTotales { get; set; }
         public Operacion Operacion { get; set; }
         public Auditoria Auditoria { get; set; }
     }

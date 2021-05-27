@@ -52,6 +52,7 @@
     <Compile Include="BLBoletaPago.cs" />
     <Compile Include="BLArea.cs" />
     <Compile Include="BLAuthorization.cs" />
+    <Compile Include="BLVacaciones.cs" />
     <Compile Include="BLCargo.cs" />
     <Compile Include="BLCombos.cs" />
     <Compile Include="BLHorasTrabajadas.cs" />

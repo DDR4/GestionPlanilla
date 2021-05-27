@@ -36,7 +36,7 @@ namespace GP.DataAccess
                          Contraseña = "******",
                          TipoDocumento = n.Single(d => d.Key.Equals("Tipo_Documento")).Value.Parse<int>(),
                          NumeroDocumento = n.Single(d => d.Key.Equals("Numero_Documento")).Value.Parse<string>(),
-                         Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
+                         //Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
                          Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
                          ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
                          ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
@@ -93,7 +93,6 @@ namespace GP.DataAccess
                 parm.Add("@Turno", obj.Turno.Turno_Id);
                 parm.Add("@Usuario", obj.Usuario);
                 parm.Add("@Contraseña", obj.Contraseña);
-                parm.Add("@Sueldo", obj.Sueldo);
                 parm.Add("@Tipo", obj.Tipo);
                 parm.Add("@Estado", obj.Estado);   
                 var result = connection.Execute(
@@ -141,7 +140,6 @@ namespace GP.DataAccess
                          Contraseña = "******",
                          TipoDocumento = n.Single(d => d.Key.Equals("Tipo_Documento")).Value.Parse<int>(),
                          NumeroDocumento = n.Single(d => d.Key.Equals("Numero_Documento")).Value.Parse<string>(),
-                         Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
                          Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
                          ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
                          ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
@@ -164,6 +162,7 @@ namespace GP.DataAccess
                          {
                              Cargo_Id = n.Single(d => d.Key.Equals("Cargo_Id")).Value.Parse<int>(),
                              Descripcion = n.Single(d => d.Key.Equals("Cargo_Descripcion")).Value.Parse<string>(),
+                             Sueldo = n.Single(d => d.Key.Equals("Cargo_Sueldo")).Value.Parse<decimal>(),
                          }
                      });
 

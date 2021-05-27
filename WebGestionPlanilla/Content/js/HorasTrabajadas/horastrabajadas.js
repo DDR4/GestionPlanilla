@@ -42,7 +42,6 @@
             { data: "Nombres" },
             { data: "HorasTrabajadas.Horas_Trabajadas" },
             { data: "HorasTrabajadas.Horas_Tardanzas" },
-            { data: "HorasTrabajadas.Faltas" },
             { data: "HorasTrabajadas.Periodo" }
             //{ data: "Auditoria.TipoUsuario" }
         ];
