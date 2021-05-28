@@ -759,6 +759,46 @@
         return date;
     }
 
+    function ConvertDatetime(pfecha) {
+        var fecha = new Date(parseInt(pfecha.replace("/Date(", "").replace(")/", ""), 10));
+        dia = ('0' + fecha.getDate()).slice(-2);
+        mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
+        año = fecha.getFullYear();
+        hora = ('0' + fecha.getHours()).slice(-2);
+        minuto = ('0' + fecha.getMinutes()).slice(-2);
+        segundo = ('0' + fecha.getSeconds()).slice(-2);
+
+        var rsfecha;
+
+        if (año === 0 || año === 1) {
+            rsfecha = "";
+        } else {
+            rsfecha = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
+        }
+
+        return rsfecha;
+    }
+
+    function ConvertDate(pfecha) {
+        var fecha = new Date(parseInt(pfecha.replace("/Date(", "").replace(")/", ""), 10));
+        dia = ('0' + fecha.getDate()).slice(-2);
+        mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
+        año = fecha.getFullYear();
+        hora = ('0' + fecha.getHours()).slice(-2);
+        minuto = ('0' + fecha.getMinutes()).slice(-2);
+        segundo = ('0' + fecha.getSeconds()).slice(-2);
+
+        var rsfecha;
+
+        if (año === 0 || año === 1) {
+            rsfecha = "";
+        } else {
+            rsfecha = dia + "/" + mes + "/" + año;
+        }
+
+        return rsfecha;
+    }
+
 
     function ValidarCampo(valor, msg) {
         if (valor === "" || valor === null || valor === 0 || valor === undefined || valor === 0.00) {
@@ -848,6 +888,8 @@
         FillDataTableFiltros: FillDataTableFiltros,
         GetDataOfDataTable: GetDataOfDataTable,
         ConvertIntToDatetimeDT: ConvertIntToDatetimeDT,
+        ConvertDatetime: ConvertDatetime,
+        ConvertDate: ConvertDate,
         FillDataTableAjaxPaging: FillDataTableAjaxPaging
     };
 

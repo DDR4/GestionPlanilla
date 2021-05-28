@@ -60,5 +60,13 @@ namespace WebGestionPlanilla.Controllers
             return Json(response);
         }
 
+        public JsonResult DetalleVacaciones(Trabajador obj)
+        {          
+            var bussingLogic = new GP.BusinessLogic.BLVacaciones();
+            var response = bussingLogic.DetalleVacaciones(obj);
+
+            return Json(response);
+        }
+
     }
 }

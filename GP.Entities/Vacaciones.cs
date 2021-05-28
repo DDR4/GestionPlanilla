@@ -14,5 +14,6 @@ namespace GP.Entities
         public int DiasTotales { get; set; }
         public Operacion Operacion { get; set; }
         public Auditoria Auditoria { get; set; }
+        public Trabajador Trabajador { get; set; }
     }
 }

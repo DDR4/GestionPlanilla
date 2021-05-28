@@ -44,5 +44,18 @@ namespace GP.BusinessLogic
             }
         }
 
+        public Response<IEnumerable<DetalleVacaciones>> DetalleVacaciones(Trabajador obj)
+        {
+            try
+            {
+                var result = repository.DetalleVacaciones(obj);
+                return new Response<IEnumerable<DetalleVacaciones>>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<IEnumerable<DetalleVacaciones>>(ex);
+            }
+        }
+
     }
 }

@@ -11,13 +11,14 @@
     var $btnActualizacionMasiva = $('#btnActualizacionMasiva');
 
     //Modal
-    //var $modalCargo = $('#modalCargo');  
+    var $modalDetalleVacaciones = $('#modalDetalleVacaciones');
+    var $tblListadoDetalleVacaciones = $('#tblListadoDetalleVacaciones');
     //var $titleModalCargo = $('#titleModalCargo');
     //var $txtModalDescripcion = $('#txtModalDescripcion');  
     //var $txtModalSueldo = $('#txtModalSueldo'); 
     //var $cboModalEstado = $('#cboModalEstado'); 
     //var $btnGuardar = $('#btnGuardar');
-                                        
+
     var Message = {
         ObtenerTipoBusqueda: "Obteniendo los tipos de busqueda, Por favor espere...",
         GuardarSuccess: "Los datos se guardaron satisfactoriamente"
@@ -28,15 +29,15 @@
     };
 
     // Constructor
-    $(Initialize);                        
+    $(Initialize);
 
     // Implementacion del constructor
-    function Initialize() {          
-        GetVacaciones();         
+    function Initialize() {
+        GetVacaciones();
         $cboTipoBusqueda.change($cboTipoBusqueda_change);
-        $btnBuscar.click($btnBuscar_click);         
+        $btnBuscar.click($btnBuscar_click);
         $btnActualizacionMasiva.click($btnActualizacionMasiva_click);
-    }           
+    }
 
     function $btnActualizacionMasiva_click() {
 
@@ -56,10 +57,10 @@
         $modalCargo.modal();
         Global.Cargo_Id = null;
         $txtModalDescripcion.val("");
-        app.Event.Disabled($cboModalEstado);            
+        app.Event.Disabled($cboModalEstado);
     }
 
-    function GetVacaciones() {             
+    function GetVacaciones() {
 
         var parms = {
             NombreApellido: $txtNombres.val()
@@ -70,10 +71,10 @@
         var columns = [
             { data: "NombreApellido" },
             { data: "DiasDisponibles" },
-            { data: "DiasTotales" }
-            //{ data: "Auditoria.TipoUsuario" }
+            { data: "DiasTotales" },
+            { data: "Auditoria.TipoUsuario" }
         ];
-        var columnDefs = [ 
+        var columnDefs = [
 
             //{
             //    "targets": [2],
@@ -84,6 +85,21 @@
 
             //    }
             //},
+            {
+                "targets": [3],
+                "visible": true,
+                "orderable": false,
+                "className": "text-center",
+                'render': function (data, type, full, meta) {
+                    if (data === "1") {
+                        return "<center>" +
+                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Detalle" href="javascript:Vacaciones.DetalleVacaciones(' + meta.row + ');"><i class="fa fa-eye" aria-hidden="true"></i></a>' +
+                            "</center> ";
+                    } else {
+                        return "";
+                    }
+                }
+            }
 
         ];
 
@@ -92,17 +108,17 @@
         };
         app.FillDataTableAjaxPaging($tblListadoVacaciones, url, parms, columns, columnDefs, filters, null, null);
 
-    }     
+    }
 
     function $cboTipoBusqueda_change() {
         var codSelec = $(this).val();
         $tipoNombres.hide();
 
-        $txtNombres.val("");         
+        $txtNombres.val("");
 
         if (codSelec === "1") {
             $tipoNombres.show();
-        }                
+        }
 
     }
 
@@ -113,8 +129,8 @@
     function InsertUpdateCargo() {
 
         var obj = {
-            "Cargo_Id": Global.Cargo_Id,    
-            "Descripcion": $txtModalDescripcion.val(),   
+            "Cargo_Id": Global.Cargo_Id,
+            "Descripcion": $txtModalDescripcion.val(),
             "Sueldo": $txtModalSueldo.val(),
             "Estado": $cboModalEstado.val()
         };
@@ -134,11 +150,53 @@
 
     function $btnBuscar_click() {
         GetVacaciones();
-    }             
+    }
+
+    function DetalleVacaciones(row) {
+        var data = app.GetValueRowCellOfDataTable($tblListadoVacaciones, row);
+        console.log(data);
+
+        var obj = {
+            "Trabajador_Id": data.Trabajador.Trabajador_Id
+        };
+
+        var method = "POST";
+        var url = "Vacaciones/DetalleVacaciones";
+        var pdata = obj;
+        var fnDoneCallback = function (data) {
+            $modalDetalleVacaciones.modal();
+            LoadDetalleVacaciones(data);
+            console.log(data);
+        };                                                             
+
+        app.CallAjax(method, url, pdata, fnDoneCallback, null, null, null);
+    }
+
+    function LoadDetalleVacaciones(data) {
+        var columns = [
+            { data: "FechaInicio" },
+            { data: "FechaFin" },
+            { data: "DiasVacaciones" }
+        ];
+
+        var columnDefs = [
+            {
+                "targets": [0,1],
+                'render': function (data, type, full, meta) {
+                    return '' + app.ConvertDate(data) + '';
+                }
+            }
+        ];
+
+        var filtros = {
+            pageLength: 10
+        };
+        app.FillDataTable($tblListadoDetalleVacaciones, data, columns, columnDefs, "#tblListadoDetalleVacaciones", filtros, null, null, null, null, true);
+    }
+
 
     return {
-        //EditarCargo: EditarCargo,
-        //EliminarCargo: EliminarCargo
+        DetalleVacaciones: DetalleVacaciones
     };
 
 
