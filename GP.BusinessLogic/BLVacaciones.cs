@@ -57,5 +57,18 @@ namespace GP.BusinessLogic
             }
         }
 
+        public Response<int> InsertarDetalleVacaciones(DetalleVacaciones obj)
+        {
+            try
+            {
+                var result = repository.InsertarDetalleVacaciones(obj);
+                return new Response<int>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<int>(ex);
+            }
+        }
+
     }
 }

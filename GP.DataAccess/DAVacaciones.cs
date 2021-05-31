@@ -89,5 +89,23 @@ namespace GP.DataAccess
                 return result;
             }
         }
+
+        public int InsertarDetalleVacaciones(DetalleVacaciones obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@Trabajador_Id", obj.Trabajador_Id);
+                parm.Add("@FechaInicio", obj.FechaInicio);
+                parm.Add("@FechaFin", obj.FechaFin);
+                var result = connection.Execute(
+                    sql: "sp_Crear_Vacaciones",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
+
+                return result;
+            }
+        }
     }
 }
