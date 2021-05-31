@@ -205,11 +205,7 @@
         $cboModalSexo.val(data.Sexo).trigger('change');
         $cboModalArea.val(data.Area.Area_Id);
         $cboModalCargo.val(data.Cargo.Cargo_Id);
-        var fecha = new Date(parseInt(data.FechaNacimiento.replace("/Date(", "").replace(")/", ""), 10));
-        var dia = ('0' + fecha.getDate()).slice(-2);
-        var mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
-        var año = fecha.getFullYear();
-        $txtModalFechaI.val(dia + "/" + mes + "/" + año);
+        $txtModalFechaI.val(app.ConvertDate(data.FechaIngreso));
         $txtModalCorreo.val(data.Correo);
         $cboModalTurno.val(data.Turno.Turno_Id);           
         $txtModalUsuario.val(data.Usuario);

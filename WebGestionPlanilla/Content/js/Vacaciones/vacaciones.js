@@ -36,11 +36,11 @@
         $btnBuscar.click($btnBuscar_click);
         $btnActualizacionMasiva.click($btnActualizacionMasiva_click);
         $txtModalFechaInicio.datepicker({
-            startDate: "yesterday",
+            startDate: "today",
             todayHighlight: true
         });        
         $txtModalFechaFin.datepicker({
-            startDate: "yesterday",
+            startDate: "today",
             todayHighlight: true
         });   
         $btnGuardar.click($btnGuardar_click);
@@ -113,7 +113,9 @@
     }
 
     function $btnGuardar_click() {
-        InsertarVacaciones();
+        if (ValidarInsertar()) {
+            InsertarVacaciones();
+        }
     }
 
     function InsertarVacaciones() {
@@ -145,7 +147,10 @@
         var data = app.GetValueRowCellOfDataTable($tblListadoVacaciones, row);
 
         var obj = {
-            "Trabajador_Id": data.Trabajador.Trabajador_Id
+            "Trabajador_Id": data.Trabajador.Trabajador_Id,
+            "HorasTrabajadas": {
+                "Periodo" : null
+            }
         };
 
         var method = "POST";
@@ -184,10 +189,34 @@
     function CrearVacaciones(row) {
         var data = app.GetValueRowCellOfDataTable($tblListadoVacaciones, row);
         $modalCrearVacaciones.modal();     
-        console.log(data);
         Global.Trabajador_Id = data.Trabajador.Trabajador_Id;
         $txtModalFechaInicio.val("");
         $txtModalFechaFin.val("");
+    }
+
+    function ValidarInsertar() {
+        var validar = true;
+       
+        var fechaInicio = ConvertStringDate($txtModalFechaInicio.val());
+        var fechaFin = ConvertStringDate($txtModalFechaFin.val());
+
+        if (fechaFin < fechaInicio) {
+            app.Message.Info("Aviso", "La Fecha de Inicio debe ser menor a la Fecha Fin", "Aceptar", null);
+            validar = false;
+        }
+
+        return validar;
+    }
+
+    function ConvertStringDate(pfecha) {
+
+        var dia = pfecha.substring(0, 2);
+        var mes = pfecha.substring(3, 5);
+        var año = pfecha.substring(6, 10);
+
+        var fecha = new Date(año, mes, dia);
+
+        return fecha;
     }
 
 

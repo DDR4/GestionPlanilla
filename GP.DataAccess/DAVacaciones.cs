@@ -73,6 +73,7 @@ namespace GP.DataAccess
                 connection.Open();
                 var parm = new DynamicParameters();
                 parm.Add("@Trabajador_Id", obj.Trabajador_Id);
+                parm.Add("@Periodo", obj.HorasTrabajadas.Periodo);
                 var result = connection.Query(
                      sql: "sp_Buscar_Detalle_Vacaciones",
                      param: parm,

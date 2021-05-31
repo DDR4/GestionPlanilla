@@ -23,6 +23,7 @@ namespace GP.BusinessLogic
         private DATrabajador repository2;
         private DAEmpleador repository3;
         private DAHorasTrabajadas repository4;
+        private DAVacaciones repository5;
 
         public BLBoletaPago()
         {
@@ -30,6 +31,7 @@ namespace GP.BusinessLogic
             repository2 = new DATrabajador();
             repository3 = new DAEmpleador();
             repository4 = new DAHorasTrabajadas();
+            repository5 = new DAVacaciones();
         }
 
         public Response<IEnumerable<BoletaPago>> GetTrabajadores(BoletaPago obj)
@@ -38,9 +40,7 @@ namespace GP.BusinessLogic
             {
                 var result = repository.GetTrabajadores(obj);
 
-                string periodo = obj.HorasTrabajadas.Periodo;
-
-              
+                string periodo = obj.HorasTrabajadas.Periodo;              
 
                 string body = CargarPlantilla(periodo);
 
@@ -53,13 +53,16 @@ namespace GP.BusinessLogic
                     Trabajador trabajador = new Trabajador();
                     Empleador empleador = new Empleador();
                     HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
+                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones;
 
                     if (trabajadorid > 0)
                     {
                         trabajador = repository2.ObtenerTrabajador(trabajadorid);
                         empleador = repository3.ObtenerEmpleador();
                         horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo,trabajador);
-                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas);
+                        trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = periodo };
+                        lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
+                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray());
                         EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
                     }
                     i++;
@@ -73,7 +76,8 @@ namespace GP.BusinessLogic
             }
         }
 
-        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas)
+        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas,
+                                      DetalleVacaciones[] arrayvacaciones)
         {
             Document doc = new Document(PageSize.LETTER);
             byte[] arraybytes = null;
@@ -235,7 +239,17 @@ namespace GP.BusinessLogic
                 tblElementos6.WidthPercentage = 50;
                 tblElementos6.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                string[] arrayElementos6 = { "", "", "0", "" };
+                string[] arrayElementos6 = new string[4];
+
+                for (int i = 0; i < arrayvacaciones.Length; i++)
+                {
+                    int j = 0;
+                    arrayElementos6[i++] = arrayvacaciones[j].FechaInicio.ToString("dd'/'MM'/'yyyy");
+                    arrayElementos6[i++] = arrayvacaciones[j].FechaFin.ToString("dd'/'MM'/'yyyy");
+                    arrayElementos6[i++] = arrayvacaciones[j].DiasVacaciones.ToString();
+                    arrayElementos6[i++] = "Trabajador";
+                    j++;
+                }
 
                 for (int i = 0; i < arrayElementos6.Length; i++)
                 {
