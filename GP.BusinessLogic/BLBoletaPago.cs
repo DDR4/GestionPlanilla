@@ -239,17 +239,17 @@ namespace GP.BusinessLogic
                 tblElementos6.WidthPercentage = 50;
                 tblElementos6.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                string[] arrayElementos6 = new string[4];
+                List<string> lstElementos6 = new List<string>();
 
-                for (int i = 0; i < arrayvacaciones.Length; i++)
+                for (int j = 0; j < arrayvacaciones.Length; j++)
                 {
-                    int j = 0;
-                    arrayElementos6[i++] = arrayvacaciones[j].FechaInicio.ToString("dd'/'MM'/'yyyy");
-                    arrayElementos6[i++] = arrayvacaciones[j].FechaFin.ToString("dd'/'MM'/'yyyy");
-                    arrayElementos6[i++] = arrayvacaciones[j].DiasVacaciones.ToString();
-                    arrayElementos6[i++] = "Trabajador";
-                    j++;
+                    lstElementos6.Add(arrayvacaciones[j].FechaInicio.ToString("dd'/'MM'/'yyyy"));
+                    lstElementos6.Add(arrayvacaciones[j].FechaFin.ToString("dd'/'MM'/'yyyy"));
+                    lstElementos6.Add(CalcularVacacionesPeriodo(horasTrabajadas.UltimoDia, arrayvacaciones[j].FechaInicio, arrayvacaciones[j].FechaFin).ToString());
+                    lstElementos6.Add("Trabajador");
                 }
+
+                string[] arrayElementos6 = lstElementos6.ToArray();
 
                 for (int i = 0; i < arrayElementos6.Length; i++)
                 {
@@ -267,7 +267,6 @@ namespace GP.BusinessLogic
             return arraybytes;
 
         }
-
 
         public string CargarPlantilla(string periodo)
         {
@@ -296,6 +295,22 @@ namespace GP.BusinessLogic
             pdfPCell.BorderWidthTop = widthtop;
             pdfPCell.HorizontalAlignment = alineacion;
             return pdfPCell;
+        }
+
+        public int CalcularVacacionesPeriodo(DateTime UltimoDia, DateTime FechaInicio, DateTime FechaFin) {
+
+            int cant = 0;
+            while (FechaInicio <= FechaFin)
+            {
+                
+                if (FechaInicio <= UltimoDia)
+                {
+                    cant++;
+                }
+                FechaInicio = FechaInicio.AddDays(1);
+            }
+
+            return cant;
         }
     }
 }
