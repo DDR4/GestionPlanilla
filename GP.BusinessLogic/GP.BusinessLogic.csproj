@@ -61,6 +61,7 @@
     <Compile Include="BLTrabajador.cs" />
     <Compile Include="BLTurno.cs" />
     <Compile Include="BLVentas.cs" />
+    <Compile Include="BLCalculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
