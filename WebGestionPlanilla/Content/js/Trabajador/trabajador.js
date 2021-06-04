@@ -25,6 +25,13 @@
     var $txtModalSueldo = $('#txtModalSueldo');                      
     var $titleModalTrabajador = $('#titleModalTrabajador');
 
+    var $checkboxEsSalud = $('#checkboxEsSalud');
+    var $checkboxEPS = $('#checkboxEPS');
+    var $rbnHabitat = $('#rbnHabitat');
+    var $rbnIntegra = $('#rbnIntegra');
+    var $rbnPrima = $('#rbnPrima');
+    var $rbnProFuturo = $('#rbnProFuturo');     
+
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoNombre = $('#tipoNombre');
     var $tipoEstado = $('#tipoEstado');
@@ -85,7 +92,13 @@
         $txtModalNumDoc.val(""),
         $txtModalSueldo.val(""),
         app.Event.Disabled($cboModalEstado);
-
+        $checkboxEsSalud.prop('checked', true);
+        app.Event.Disabled($checkboxEsSalud);
+        $checkboxEPS.prop('checked', false);
+        $rbnHabitat.prop('checked', false);
+        $rbnIntegra.prop('checked', false);
+        $rbnPrima.prop('checked', false);
+        $rbnProFuturo.prop('checked', false);
     }
 
     function $btnGuardar_click() {
