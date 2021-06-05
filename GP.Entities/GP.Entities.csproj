@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Auditoria.cs" />
+    <Compile Include="Beneficio.cs" />
     <Compile Include="BoletaPago.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Calculos.cs" />

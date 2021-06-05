@@ -36,7 +36,6 @@ namespace GP.DataAccess
                          Contraseña = "******",
                          TipoDocumento = n.Single(d => d.Key.Equals("Tipo_Documento")).Value.Parse<int>(),
                          NumeroDocumento = n.Single(d => d.Key.Equals("Numero_Documento")).Value.Parse<string>(),
-                         //Sueldo = n.Single(d => d.Key.Equals("Trabajador_Sueldo")).Value.Parse<decimal>(),
                          Nombres = n.Single(d => d.Key.Equals("Trabajador_Nombres")).Value.Parse<string>(),
                          ApellidoPaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoPaterno")).Value.Parse<string>(),
                          ApellidoMaterno = n.Single(d => d.Key.Equals("Trabajador_ApellidoMaterno")).Value.Parse<string>(),
@@ -44,6 +43,8 @@ namespace GP.DataAccess
                          Correo = n.Single(d => d.Key.Equals("Trabajador_Correo")).Value.Parse<string>(),
                          Sexo = n.Single(d => d.Key.Equals("Trabajador_Sexo")).Value.Parse<string>(),
                          Tipo = n.Single(d => d.Key.Equals("Trabajador_Tipo")).Value.Parse<int>(),
+                         Salud = n.Single(d => d.Key.Equals("Trabajador_Salud")).Value.Parse<int>(),
+                         AFP = n.Single(d => d.Key.Equals("Trabajador_AFP")).Value.Parse<int>(),
                          Estado = n.Single(d => d.Key.Equals("Trabajador_Estado")).Value.Parse<int>(),
                          Area = new Area
                          {
@@ -89,11 +90,14 @@ namespace GP.DataAccess
                 parm.Add("@Sexo", obj.Sexo);
                 parm.Add("@Area", obj.Area.Area_Id);
                 parm.Add("@Cargo", obj.Cargo.Cargo_Id);
-                parm.Add("@FechaNacimiento", obj.FechaNacimiento);
+                parm.Add("@FechaIngreso", obj.FechaIngreso);
+                parm.Add("@Correo", obj.Correo);
                 parm.Add("@Turno", obj.Turno.Turno_Id);
                 parm.Add("@Usuario", obj.Usuario);
                 parm.Add("@Contraseña", obj.Contraseña);
                 parm.Add("@Tipo", obj.Tipo);
+                parm.Add("@Salud", obj.Salud);
+                parm.Add("@AFP", obj.AFP);
                 parm.Add("@Estado", obj.Estado);   
                 var result = connection.Execute(
                     sql: "sp_Insertar_Trabajador",

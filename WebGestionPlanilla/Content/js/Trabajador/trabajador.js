@@ -119,7 +119,8 @@
             "Sexo": $cboModalSexo.val(),
             "TipoDocumento": $cboModalTipoDoc.val(),
             "NumeroDocumento": $txtModalNumDoc.val(),
-            "Sueldo": $txtModalSueldo.val(),
+            "Salud": GetSaludChecked(),
+            "AFP": $("input[name='rbnAFP']:checked").val(),
             "Estado": $cboModalEstado.val(),
             "Tipo": $cboModalTipo.val(),
             "Area": { "Area_Id": $cboModalArea.val() },
@@ -206,6 +207,7 @@
 
     function EditarTrabajador(row) {
         var data = app.GetValueRowCellOfDataTable($tblListadoTrabajadores, row);
+        console.log(data);
         $titleModalTrabajador.html("Editar Trabajador");
 
         $modalTrabajador.modal();
@@ -226,7 +228,10 @@
         $txtModalSueldo.val(data.Sueldo);
         $cboModalTipo.val(data.Auditoria.TipoUsuario).trigger('change');
         $cboModalEstado.val(data.Estado).trigger('change');
-        app.Event.Enable($cboModalEstado);                                                                                  
+        GetSalud(data.Salud);
+        GetAFP(data.AFP);
+        app.Event.Enable($cboModalEstado); 
+        app.Event.Disabled($checkboxEsSalud);
   
     }
 
@@ -314,6 +319,36 @@
     function $btnBuscar_click() {
         GetTrabajador();
     }                                        
+
+    function GetSalud(salud) {
+        if (salud === 1) {
+            $checkboxEsSalud.prop('checked', true);
+        } else if (salud === 2) {
+            $checkboxEsSalud.prop('checked', true);
+            $checkboxEPS.prop('checked', true);
+        }
+    }
+
+    function GetSaludChecked() {
+        var seguro = 1;
+        if ($checkboxEPS.is(":checked")) {
+            seguro = 2;
+        }
+        return seguro;
+    }
+
+    function GetAFP(afp) {
+        if (afp === 3) {
+            $rbnHabitat.prop('checked', true);
+        } else if (afp === 4) {
+            $rbnIntegra.prop('checked', true);
+        } else if (afp === 5) {
+            $rbnPrima.prop('checked', true);    
+        } else if (afp === 6) {
+            $rbnProFuturo.prop('checked', true);
+        }
+
+    }
 
     return {
         EditarTrabajador: EditarTrabajador,

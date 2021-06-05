@@ -24,6 +24,7 @@ namespace GP.BusinessLogic
         private DAEmpleador repository3;
         private DAHorasTrabajadas repository4;
         private DAVacaciones repository5;
+        private DABeneficio repository6;
 
         public BLBoletaPago()
         {
@@ -32,6 +33,7 @@ namespace GP.BusinessLogic
             repository3 = new DAEmpleador();
             repository4 = new DAHorasTrabajadas();
             repository5 = new DAVacaciones();
+            repository6 = new DABeneficio();
         }
 
         public Response<IEnumerable<BoletaPago>> GetTrabajadores(BoletaPago obj)
@@ -50,10 +52,8 @@ namespace GP.BusinessLogic
                 while (contador >= i)
                 {
                     trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
-                    Trabajador trabajador = new Trabajador();
-                    Empleador empleador = new Empleador();
-                    HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
-                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones;
+                    Trabajador trabajador = new Trabajador();Empleador empleador = new Empleador();HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
+                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones;Beneficio beneficio = new Beneficio();
 
                     if (trabajadorid > 0)
                     {
@@ -62,7 +62,8 @@ namespace GP.BusinessLogic
                         horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo,trabajador);
                         trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = periodo };
                         lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
-                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray());
+                        beneficio = repository6.GetSeguro(trabajador);
+                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
                         EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
                     }
                     i++;
@@ -76,8 +77,8 @@ namespace GP.BusinessLogic
             }
         }
 
-        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas,
-                                      DetalleVacaciones[] arrayvacaciones)
+        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas,DetalleVacaciones[] arrayvacaciones,
+                                      Beneficio beneficio)
         {
             Document doc = new Document(PageSize.LETTER);
             byte[] arraybytes = null;
@@ -181,7 +182,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros","","", "Retencion 5ta Categoria", ""};
 
-                string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), "200.00", "150.00", "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
+                string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFP.ToString("F2"), beneficio.EsSalud.ToString("F2"), "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
 
                 for (int i = 0; i < arrayElementos3.Length; i++)
                 {
@@ -202,7 +203,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos4 = { "Total Ingresos", "Total Descuentos", "Total Aportes", "Total Neto", "", "" };
 
-                string[] arrayDatos4 = { "1500.00", "295.00", "150.00", "1205.00", "", ""};
+                string[] arrayDatos4 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFP.ToString("F2"), beneficio.EsSalud.ToString("F2"), (trabajador.Cargo.Sueldo + beneficio.EsSalud).ToString("F2"), "", ""};
 
                 for (int i = 0; i < arrayElementos4.Length; i++)
                 {
