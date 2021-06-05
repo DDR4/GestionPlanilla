@@ -27,7 +27,9 @@ namespace GP.DataAccess
                      .Select(n => new Beneficio
                      {
                          EsSalud = n.Single(d => d.Key.Equals("EsSalud")).Value.Parse<decimal>(),
-                         AFP = n.Single(d => d.Key.Equals("MontoAFP")).Value.Parse<decimal>()
+                         AFPAporte = n.Single(d => d.Key.Equals("MontoAFP")).Value.Parse<decimal>(),
+                         AFPComision = n.Single(d => d.Key.Equals("MontoAFPComision")).Value.Parse<decimal>(),
+                         AFPSeguro = n.Single(d => d.Key.Equals("MontoAFPSeguro")).Value.Parse<decimal>()
                      });
 
                 return result.FirstOrDefault();

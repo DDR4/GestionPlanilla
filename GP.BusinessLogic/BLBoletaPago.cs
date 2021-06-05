@@ -180,9 +180,9 @@ namespace GP.BusinessLogic
                 PdfPTable tblElementos3 = new PdfPTable(6);
                 tblElementos3.WidthPercentage = 100;
 
-                string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros","","", "Retencion 5ta Categoria", ""};
+                string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros",""};
 
-                string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFP.ToString("F2"), beneficio.EsSalud.ToString("F2"), "0.00", "36.00", "", "", "17.00", "", "", "42.00", "" };
+                string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFPAporte.ToString("F2"), beneficio.EsSalud.ToString("F2"), "0.00", beneficio.AFPComision.ToString("F2"), "", "", beneficio.AFPSeguro.ToString("F2"), "" };
 
                 for (int i = 0; i < arrayElementos3.Length; i++)
                 {
@@ -203,7 +203,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos4 = { "Total Ingresos", "Total Descuentos", "Total Aportes", "Total Neto", "", "" };
 
-                string[] arrayDatos4 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFP.ToString("F2"), beneficio.EsSalud.ToString("F2"), (trabajador.Cargo.Sueldo + beneficio.EsSalud).ToString("F2"), "", ""};
+                string[] arrayDatos4 = { trabajador.Cargo.Sueldo.ToString("F2"), (beneficio.AFPAporte + beneficio.AFPComision +  beneficio.AFPSeguro).ToString("F2"), beneficio.EsSalud.ToString("F2"), (trabajador.Cargo.Sueldo - (beneficio.AFPAporte + beneficio.AFPComision + beneficio.AFPSeguro)).ToString("F2"), "", ""};
 
                 for (int i = 0; i < arrayElementos4.Length; i++)
                 {
