@@ -328,19 +328,19 @@ namespace GP.BusinessLogic
             return cant;
         }
 
-        public Response<BoletaPago> DescargarBoletaPago(BoletaPago obj)
+        public Response<BoletaPago> DescargarBoletaPago(int TrabajadorId, string Periodo)
         {
             Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador(); HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
             IEnumerable<DetalleVacaciones> lstdetalleVacaiones; Beneficio beneficio = new Beneficio(); BoletaPago boletaPago = new BoletaPago();
 
-            trabajador = repository2.ObtenerTrabajador(obj.Trabajador.Trabajador_Id);
+            trabajador = repository2.ObtenerTrabajador(TrabajadorId);
             empleador = repository3.ObtenerEmpleador();
-            horasTrabajadas = repository4.CalculaHorasTrabajadas(obj.HorasTrabajadas.Periodo, trabajador);
-            trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = obj.HorasTrabajadas.Periodo };
+            horasTrabajadas = repository4.CalculaHorasTrabajadas(Periodo, trabajador);
+            trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = Periodo };
             lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
             beneficio = repository6.GetSeguro(trabajador);
-            byte[] arraybytes = CrearBoletaPago(obj.HorasTrabajadas.Periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
-            string nombrearchivo = "Boleta de Pago " + obj.HorasTrabajadas.Periodo;
+            byte[] arraybytes = CrearBoletaPago(Periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
+            string nombrearchivo = "BoletaPago_"+ string.Concat(trabajador.ApellidoPaterno,"_",trabajador.Nombres) +"_"+ Periodo;
             boletaPago.Arraybytes = arraybytes;
             boletaPago.Nombrearchivo = nombrearchivo;
 

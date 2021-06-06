@@ -58,7 +58,7 @@
                 'render': function (data, type, full, meta) {
                     if (data === "1") {
                         return "<center>" +
-                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Editar" href="javascript:BoletaPago.DescargarBoleta(' + meta.row + ');"><i class="fa fa-download" aria-hidden="true"></i></a>' +
+                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Descargar" href="javascript:BoletaPago.DescargarBoleta(' + meta.row + ');"><i class="fa fa-download" aria-hidden="true"></i></a>' +
                             "</center> ";
                     } else {
                         return "";
@@ -94,19 +94,7 @@
     function DescargarBoleta(row) {
 
         var data = app.GetValueRowCellOfDataTable($tblListadoBoletas, row);
-
-        var obj = {
-            "Trabajador": { "Trabajador_Id": data.Trabajador.Trabajador_Id },
-            "HorasTrabajadas": { "Periodo": data.HorasTrabajadas.Periodo }
-        };
-
-        var method = "POST";
-        var url = "BoletaPago/DescargarBoletaPago";
-        var rsdata = obj;
-        var fnDoneCallback = function (data) {
-            GetCargos();
-        };
-        app.CallAjax(method, url, rsdata, fnDoneCallback, null, null, null);
+        app.RedirectTo("BoletaPago/DescargarBoletaPago?TrabajadorId=" + data.Trabajador.Trabajador_Id + "&Periodo=" + data.HorasTrabajadas.Periodo);
 
     }
 

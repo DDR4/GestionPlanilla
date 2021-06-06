@@ -61,20 +61,16 @@ namespace WebGestionPlanilla.Controllers
             return Json(response);
         }
 
-        public FileStreamResult DescargarBoletaPago(BoletaPago obj)
+        public void DescargarBoletaPago(int TrabajadorId, string Periodo)
         {
             var bussingLogic = new GP.BusinessLogic.BLBoletaPago();
-            var response = bussingLogic.DescargarBoletaPago(obj);
+            var response = bussingLogic.DescargarBoletaPago(TrabajadorId, Periodo);
 
-            MemoryStream ms = new MemoryStream(response.Data.Arraybytes, 0, 0, true, true);
-            Response.AddHeader("content-disposition", "attachment;UREfilename= " + response.Data.Nombrearchivo);
-            Response.Buffer = true;
-            Response.Clear();
-            Response.SuppressFormsAuthenticationRedirect = true;
-            Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-            Response.OutputStream.Flush();
+            HttpContext.Response.AddHeader("content-disposition", "attachment; filename="+ response.Data.Nombrearchivo + ".pdf");
+            Response.ContentType = "application/pdf";
+            Response.ClearContent();
+            Response.OutputStream.Write(response.Data.Arraybytes, 0, response.Data.Arraybytes.Length);
             Response.End();
-            return new FileStreamResult(Response.OutputStream, "application/pdf");
         }
 
     }
