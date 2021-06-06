@@ -36,13 +36,26 @@ namespace GP.BusinessLogic
             repository6 = new DABeneficio();
         }
 
+        public Response<IEnumerable<BoletaPago>> GetBoletaPago(BoletaPago obj)
+        {
+            try
+            {
+                var result = repository.GetBoletaPago(obj);
+                return new Response<IEnumerable<BoletaPago>>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<IEnumerable<BoletaPago>>(ex);
+            }
+        }
+
         public Response<IEnumerable<BoletaPago>> GetTrabajadores(BoletaPago obj)
         {
             try
             {
                 var result = repository.GetTrabajadores(obj);
 
-                string periodo = obj.HorasTrabajadas.Periodo;              
+                string periodo = obj.HorasTrabajadas.Periodo;
 
                 string body = CargarPlantilla(periodo);
 
@@ -52,14 +65,14 @@ namespace GP.BusinessLogic
                 while (contador >= i)
                 {
                     trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
-                    Trabajador trabajador = new Trabajador();Empleador empleador = new Empleador();HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
-                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones;Beneficio beneficio = new Beneficio();
+                    Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador(); HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
+                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones; Beneficio beneficio = new Beneficio();
 
                     if (trabajadorid > 0)
                     {
                         trabajador = repository2.ObtenerTrabajador(trabajadorid);
                         empleador = repository3.ObtenerEmpleador();
-                        horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo,trabajador);
+                        horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo, trabajador);
                         trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = periodo };
                         lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
                         beneficio = repository6.GetSeguro(trabajador);
@@ -77,7 +90,7 @@ namespace GP.BusinessLogic
             }
         }
 
-        public byte[] CrearBoletaPago(string periodo,Empleador empleador,Trabajador trabajador,HorasTrabajadas horasTrabajadas,DetalleVacaciones[] arrayvacaciones,
+        public byte[] CrearBoletaPago(string periodo, Empleador empleador, Trabajador trabajador, HorasTrabajadas horasTrabajadas, DetalleVacaciones[] arrayvacaciones,
                                       Beneficio beneficio)
         {
             Document doc = new Document(PageSize.LETTER);
@@ -106,7 +119,7 @@ namespace GP.BusinessLogic
                 Paragraph rasonsocial = AddParagraph(empleador.Descripcion, Element.ALIGN_LEFT, tituloFont);
                 doc.Add(new Paragraph(rasonsocial));
 
-                Paragraph ruc = AddParagraph("RUC: "+empleador.Ruc, Element.ALIGN_LEFT, tituloFont);
+                Paragraph ruc = AddParagraph("RUC: " + empleador.Ruc, Element.ALIGN_LEFT, tituloFont);
                 doc.Add(new Paragraph(ruc));
 
                 doc.Add(Chunk.NEWLINE);
@@ -114,7 +127,7 @@ namespace GP.BusinessLogic
                 Paragraph subtitulo = AddParagraph("BOLETA DE PAGO", Element.ALIGN_CENTER, subtituloFont);
                 doc.Add(new Paragraph(subtitulo));
 
-                Paragraph rangofecha = AddParagraph(horasTrabajadas.PrimerDia.ToString("dd'/'MM'/'yyyy") + "-"+ horasTrabajadas.UltimoDia.ToString("dd'/'MM'/'yyyy"), Element.ALIGN_CENTER, tituloFont);
+                Paragraph rangofecha = AddParagraph(horasTrabajadas.PrimerDia.ToString("dd'/'MM'/'yyyy") + "-" + horasTrabajadas.UltimoDia.ToString("dd'/'MM'/'yyyy"), Element.ALIGN_CENTER, tituloFont);
                 doc.Add(new Paragraph(rangofecha));
 
                 doc.Add(new Paragraph("\n"));
@@ -154,7 +167,7 @@ namespace GP.BusinessLogic
 
                     PdfPCell pdfPCelldatos = AddPdfPCell(arrayDatos[i].ToString(), standardFont, 0, 0, top, Element.ALIGN_LEFT);
                     tblElementos1.AddCell(pdfPCelldatos);
-                }             
+                }
 
                 doc.Add(tblElementos1);
 
@@ -165,11 +178,11 @@ namespace GP.BusinessLogic
                 PdfPTable tblElementos2 = new PdfPTable(3);
                 tblElementos2.WidthPercentage = 100;
 
-                string[] arrayElementos2 = { "Ingresos", "Descuentos", "Aportes de Empleador"};
+                string[] arrayElementos2 = { "Ingresos", "Descuentos", "Aportes de Empleador" };
 
                 for (int i = 0; i < arrayElementos2.Length; i++)
                 {
-                    PdfPCell pdfPCell = AddPdfPCell(arrayElementos2[i].ToString(), subtituloFont2, 1 , 1, 1, Element.ALIGN_CENTER);
+                    PdfPCell pdfPCell = AddPdfPCell(arrayElementos2[i].ToString(), subtituloFont2, 1, 1, 1, Element.ALIGN_CENTER);
                     tblElementos2.AddCell(pdfPCell);
                 }
 
@@ -180,7 +193,7 @@ namespace GP.BusinessLogic
                 PdfPTable tblElementos3 = new PdfPTable(6);
                 tblElementos3.WidthPercentage = 100;
 
-                string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "" , "" , "AFP Seguros",""};
+                string[] arrayElementos3 = { "Remuneracion Basica:", "AFP Aporte:", "ESSALUD:", "Vacaciones:", "AFP Comision", "", "", "AFP Seguros", "" };
 
                 string[] arrayDatos3 = { trabajador.Cargo.Sueldo.ToString("F2"), beneficio.AFPAporte.ToString("F2"), beneficio.EsSalud.ToString("F2"), "0.00", beneficio.AFPComision.ToString("F2"), "", "", beneficio.AFPSeguro.ToString("F2"), "" };
 
@@ -203,7 +216,7 @@ namespace GP.BusinessLogic
 
                 string[] arrayElementos4 = { "Total Ingresos", "Total Descuentos", "Total Aportes", "Total Neto", "", "" };
 
-                string[] arrayDatos4 = { trabajador.Cargo.Sueldo.ToString("F2"), (beneficio.AFPAporte + beneficio.AFPComision +  beneficio.AFPSeguro).ToString("F2"), beneficio.EsSalud.ToString("F2"), (trabajador.Cargo.Sueldo - (beneficio.AFPAporte + beneficio.AFPComision + beneficio.AFPSeguro)).ToString("F2"), "", ""};
+                string[] arrayDatos4 = { trabajador.Cargo.Sueldo.ToString("F2"), (beneficio.AFPAporte + beneficio.AFPComision + beneficio.AFPSeguro).ToString("F2"), beneficio.EsSalud.ToString("F2"), (trabajador.Cargo.Sueldo - (beneficio.AFPAporte + beneficio.AFPComision + beneficio.AFPSeguro)).ToString("F2"), "", "" };
 
                 for (int i = 0; i < arrayElementos4.Length; i++)
                 {
@@ -226,7 +239,7 @@ namespace GP.BusinessLogic
                 tblElementos5.WidthPercentage = 50;
                 tblElementos5.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                string[] arrayElementos5 = { "Inicio", "Fin", "Dias", "Tipo"};
+                string[] arrayElementos5 = { "Inicio", "Fin", "Dias", "Tipo" };
 
                 for (int i = 0; i < arrayElementos5.Length; i++)
                 {
@@ -280,7 +293,7 @@ namespace GP.BusinessLogic
             return body;
         }
 
-        public Paragraph AddParagraph(string descripcion,int alineacion,Font font)
+        public Paragraph AddParagraph(string descripcion, int alineacion, Font font)
         {
             Paragraph paragraph = new Paragraph(descripcion);
             paragraph.Alignment = alineacion;
@@ -298,12 +311,13 @@ namespace GP.BusinessLogic
             return pdfPCell;
         }
 
-        public int CalcularVacacionesPeriodo(DateTime UltimoDia, DateTime FechaInicio, DateTime FechaFin) {
+        public int CalcularVacacionesPeriodo(DateTime UltimoDia, DateTime FechaInicio, DateTime FechaFin)
+        {
 
             int cant = 0;
             while (FechaInicio <= FechaFin)
             {
-                
+
                 if (FechaInicio <= UltimoDia)
                 {
                     cant++;
@@ -312,6 +326,25 @@ namespace GP.BusinessLogic
             }
 
             return cant;
+        }
+
+        public Response<BoletaPago> DescargarBoletaPago(BoletaPago obj)
+        {
+            Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador(); HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
+            IEnumerable<DetalleVacaciones> lstdetalleVacaiones; Beneficio beneficio = new Beneficio(); BoletaPago boletaPago = new BoletaPago();
+
+            trabajador = repository2.ObtenerTrabajador(obj.Trabajador.Trabajador_Id);
+            empleador = repository3.ObtenerEmpleador();
+            horasTrabajadas = repository4.CalculaHorasTrabajadas(obj.HorasTrabajadas.Periodo, trabajador);
+            trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = obj.HorasTrabajadas.Periodo };
+            lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
+            beneficio = repository6.GetSeguro(trabajador);
+            byte[] arraybytes = CrearBoletaPago(obj.HorasTrabajadas.Periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
+            string nombrearchivo = "Boleta de Pago " + obj.HorasTrabajadas.Periodo;
+            boletaPago.Arraybytes = arraybytes;
+            boletaPago.Nombrearchivo = nombrearchivo;
+
+            return new Response<BoletaPago>(boletaPago);
         }
     }
 }

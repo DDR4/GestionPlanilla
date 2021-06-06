@@ -31,6 +31,7 @@ namespace GP.DataAccess
                      {
                          Cargo_Id = n.Single(d => d.Key.Equals("Cargo_Id")).Value.Parse<int>(),
                          Descripcion = n.Single(d => d.Key.Equals("Cargo_Descripcion")).Value.Parse<string>(),
+                         Sueldo = n.Single(d => d.Key.Equals("Cargo_Sueldo")).Value.Parse<decimal>(),
                          Estado = n.Single(d => d.Key.Equals("Cargo_Estado")).Value.Parse<int>(),                       
                          Auditoria = new Auditoria
                          {

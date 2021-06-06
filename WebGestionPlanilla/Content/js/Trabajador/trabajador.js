@@ -31,6 +31,9 @@
     var $rbnIntegra = $('#rbnIntegra');
     var $rbnPrima = $('#rbnPrima');
     var $rbnProFuturo = $('#rbnProFuturo');     
+    var $rbnComisionFlujoAFP = $('#rbnComisionFlujoAFP');
+    var $rbnComisionMixtaAFP = $('#rbnComisionMixtaAFP');
+    var $rbnComisionAFP = $('#rbnComisionAFP');
 
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoNombre = $('#tipoNombre');
@@ -99,6 +102,8 @@
         $rbnIntegra.prop('checked', false);
         $rbnPrima.prop('checked', false);
         $rbnProFuturo.prop('checked', false);
+        $rbnComisionFlujoAFP.prop('checked', false);
+        $rbnComisionMixtaAFP.prop('checked', false);
     }
 
     function $btnGuardar_click() {
@@ -121,6 +126,7 @@
             "NumeroDocumento": $txtModalNumDoc.val(),
             "Salud": GetSaludChecked(),
             "AFP": $("input[name='rbnAFP']:checked").val(),
+            "ComisionAFP": $("input[name='rbnComisionAFP']:checked").val(),
             "Estado": $cboModalEstado.val(),
             "Tipo": $cboModalTipo.val(),
             "Area": { "Area_Id": $cboModalArea.val() },
@@ -230,6 +236,7 @@
         $cboModalEstado.val(data.Estado).trigger('change');
         GetSalud(data.Salud);
         GetAFP(data.AFP);
+        GetComisionAFP(data.ComisionAFP);
         app.Event.Enable($cboModalEstado); 
         app.Event.Disabled($checkboxEsSalud);
   
@@ -348,6 +355,14 @@
             $rbnProFuturo.prop('checked', true);
         }
 
+    }
+
+    function GetComisionAFP(comisionafp) {
+        if (comisionafp === 1) {
+            $rbnComisionFlujoAFP.prop('checked', true);
+        } else if (comisionafp === 2) {
+            $rbnComisionMixtaAFP.prop('checked', true);
+        } 
     }
 
     return {

@@ -45,6 +45,7 @@ namespace GP.DataAccess
                          Tipo = n.Single(d => d.Key.Equals("Trabajador_Tipo")).Value.Parse<int>(),
                          Salud = n.Single(d => d.Key.Equals("Trabajador_Salud")).Value.Parse<int>(),
                          AFP = n.Single(d => d.Key.Equals("Trabajador_AFP")).Value.Parse<int>(),
+                         ComisionAFP = n.Single(d => d.Key.Equals("Trabajador_AFP_Comision")).Value.Parse<int>(),
                          Estado = n.Single(d => d.Key.Equals("Trabajador_Estado")).Value.Parse<int>(),
                          Area = new Area
                          {
@@ -98,6 +99,7 @@ namespace GP.DataAccess
                 parm.Add("@Tipo", obj.Tipo);
                 parm.Add("@Salud", obj.Salud);
                 parm.Add("@AFP", obj.AFP);
+                parm.Add("@AFP_Comision", obj.ComisionAFP);
                 parm.Add("@Estado", obj.Estado);   
                 var result = connection.Execute(
                     sql: "sp_Insertar_Trabajador",

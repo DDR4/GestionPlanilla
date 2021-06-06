@@ -25,6 +25,7 @@ namespace GP.Entities
         public int Tipo { get; set; }
         public int Salud { get; set; }
         public int AFP { get; set; }
+        public int ComisionAFP { get; set; }
         public int Estado { get; set; }
         public Area Area { get; set; }
         public Turno Turno { get; set; }
