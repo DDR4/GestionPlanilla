@@ -55,6 +55,7 @@ namespace GP.DataAccess
                 var parm = new DynamicParameters();
                 parm.Add("@Cargo_Id", obj.Cargo_Id);
                 parm.Add("@Descripcion", obj.Descripcion);
+                parm.Add("@Sueldo", obj.Sueldo);
                 parm.Add("@Estado", obj.Estado);
                 var result = connection.Execute(
                     sql: "sp_Insertar_Cargo",
