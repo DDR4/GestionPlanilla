@@ -66,14 +66,15 @@ var Calculos = (function ($, win, doc) {
             { data: "Estado" },
             { data: "Auditoria.TipoUsuario" }
         ];
-        /*var columnDefs = [ 
-            {
-                "targets": [1],
-                "className": "text-right",
-                'render': function (data, type, full, meta) {
-                    return '' + app.FormatNumber(data) + '';
-                }
-            },
+        var columnDefs = [ 
+            //{
+            //    "targets": [1],
+            //    "className": "text-right",
+            //    'render': function (data, type, full, meta) {
+            //        return '' + app.FormatNumber(data) + '';
+            //    }
+            //},
+
             {
                 "targets": [2],
                 'render': function (data, type, full, meta) {
@@ -100,12 +101,12 @@ var Calculos = (function ($, win, doc) {
                 }
             }
 
-        ];*/
+        ];
 
         var filters = {
             pageLength: app.Defaults.TablasPageLength
         };
-        app.FillDataTableAjaxPaging($tblListadoCalculos, url, parms, columns, null, filters, null, null);
+        app.FillDataTableAjaxPaging($tblListadoCalculos, url, parms, columns, columnDefs, filters, null, null);
 
     }     
 
@@ -154,7 +155,7 @@ var Calculos = (function ($, win, doc) {
 
 
     function $btnBuscar_click() {
-        GetCalculo ();
+        GetCalculo();
     }             
 
     function EditarCargo(row) {
