@@ -30,6 +30,31 @@ namespace GP.BusinessLogic
                 return new Response<IEnumerable<Calculos>>(ex);
             }
         }
+        public Response<int> InsertUpdateCalculos(Calculos obj)
+        {
+            try
+            {
+                var result = repository.InsertUpdateCalculos(obj);
+                return new Response<int>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<int>(ex);
+            }
+        }
+
+        public Response<int> DeleteCargo(Calculos obj)
+        {
+            try
+            {
+                var result = repository.DeleteCalculos(obj);
+                return new Response<int>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<int>(ex);
+            }
+        }
 
     }
 }

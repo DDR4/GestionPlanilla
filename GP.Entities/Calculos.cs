@@ -15,5 +15,6 @@ namespace GP.Entities
         public int Estado { get; set; }
         public Operacion Operacion { get; set; }
         public Auditoria Auditoria { get; set; }
+        public Tipo_Calculo_Boleta Tipo_Calculo_Boleta { get; set; }
     }
 }

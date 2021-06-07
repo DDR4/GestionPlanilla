@@ -20,6 +20,7 @@ namespace GP.DataAccess
                 var parm = new DynamicParameters();
                 parm.Add("@Descripcion", obj.Descripcion); 
                 parm.Add("@Estado", obj.Estado);
+               
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
                 var result = connection.Query(
@@ -42,6 +43,43 @@ namespace GP.DataAccess
                              TotalRows = n.Single(d => d.Key.Equals("TotalRows")).Value.Parse<int>(),
                          }
                      });
+
+                return result;
+            }
+
+
+        }
+
+        public int InsertUpdateCalculos(Calculos obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@CalculoBoleta_Id", obj.Calculo_Boleta_Id);
+                parm.Add("@Tipo_Calculo_Boleta_Id", obj.Tipo_Calculo_Boleta);
+                parm.Add("@Descripcion", obj.Descripcion);
+                parm.Add("@Estado", obj.Estado);
+                var result = connection.Execute(
+                    sql: "sp_Insertar_Calculos",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
+
+                return result;
+            }
+        }
+
+        public int DeleteCalculos(Calculos obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@CalculoBoleta_Id", obj.Calculo_Boleta_Id);
+                var result = connection.Execute(
+                    sql: "sp_Eliminar_Calculos",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
 
                 return result;
             }
