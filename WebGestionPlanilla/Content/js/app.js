@@ -784,9 +784,6 @@
         dia = ('0' + fecha.getDate()).slice(-2);
         mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
         año = fecha.getFullYear();
-        hora = ('0' + fecha.getHours()).slice(-2);
-        minuto = ('0' + fecha.getMinutes()).slice(-2);
-        segundo = ('0' + fecha.getSeconds()).slice(-2);
 
         var rsfecha;
 
@@ -798,6 +795,28 @@
 
         return rsfecha;
     }
+
+    function ConvertDateRelease(pfecha) {
+        var dia = pfecha.substring(0, 2);
+        var mes = pfecha.substring(3, 5);
+        var año = pfecha.substring(6, 10);
+
+        var fecha = mes + "/" + dia + "/" + año;
+
+        return fecha;
+    }
+
+    function ConvertStringDate(pfecha) {
+
+        var dia = pfecha.substring(0, 2);
+        var mes = pfecha.substring(3, 5);
+        var año = pfecha.substring(6, 10);
+
+        var fecha = new Date(año, mes, dia);
+
+        return fecha;
+    }
+
 
 
     function ValidarCampo(valor, msg) {
@@ -890,7 +909,9 @@
         ConvertIntToDatetimeDT: ConvertIntToDatetimeDT,
         ConvertDatetime: ConvertDatetime,
         ConvertDate: ConvertDate,
-        FillDataTableAjaxPaging: FillDataTableAjaxPaging
+        FillDataTableAjaxPaging: FillDataTableAjaxPaging,
+        ConvertStringDate: ConvertStringDate,
+        ConvertDateRelease: ConvertDateRelease
     };
 
 

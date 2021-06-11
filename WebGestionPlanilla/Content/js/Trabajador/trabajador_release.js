@@ -25,6 +25,16 @@
     var $txtModalSueldo = $('#txtModalSueldo');                      
     var $titleModalTrabajador = $('#titleModalTrabajador');
 
+    var $checkboxEsSalud = $('#checkboxEsSalud');
+    var $checkboxEPS = $('#checkboxEPS');
+    var $rbnHabitat = $('#rbnHabitat');
+    var $rbnIntegra = $('#rbnIntegra');
+    var $rbnPrima = $('#rbnPrima');
+    var $rbnProFuturo = $('#rbnProFuturo');
+    var $rbnComisionFlujoAFP = $('#rbnComisionFlujoAFP');
+    var $rbnComisionMixtaAFP = $('#rbnComisionMixtaAFP');
+    var $rbnComisionAFP = $('#rbnComisionAFP');
+
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoNombre = $('#tipoNombre');
     var $tipoEstado = $('#tipoEstado');
@@ -85,6 +95,15 @@
         $txtModalNumDoc.val(""),
         $txtModalSueldo.val(""),
         app.Event.Disabled($cboModalEstado);
+        $checkboxEsSalud.prop('checked', true);
+        app.Event.Disabled($checkboxEsSalud);
+        $checkboxEPS.prop('checked', false);
+        $rbnHabitat.prop('checked', false);
+        $rbnIntegra.prop('checked', false);
+        $rbnPrima.prop('checked', false);
+        $rbnProFuturo.prop('checked', false);
+        $rbnComisionFlujoAFP.prop('checked', false);
+        $rbnComisionMixtaAFP.prop('checked', false);
 
     }
 
@@ -101,12 +120,14 @@
             "Nombres": $txtModalNombres.val(),
             "ApellidoPaterno": $txtModalApellidoP.val(),
             "ApellidoMaterno": $txtModalApellidoM.val(),
-            "FechaIngreso": ConvertFormatDate($txtModalFechaI.val()),
+            "FechaIngreso": $txtModalFechaI.val(),
             "Correo": $txtModalCorreo.val(),
             "Sexo": $cboModalSexo.val(),
             "TipoDocumento": $cboModalTipoDoc.val(),
             "NumeroDocumento": $txtModalNumDoc.val(),
-            "Sueldo": $txtModalSueldo.val(),
+            "Salud": GetSaludChecked(),
+            "AFP": $("input[name='rbnAFP']:checked").val(),
+            "ComisionAFP": $("input[name='rbnComisionAFP']:checked").val(),
             "Estado": $cboModalEstado.val(),
             "Tipo": $cboModalTipo.val(),
             "Area": { "Area_Id": $cboModalArea.val() },
@@ -205,11 +226,7 @@
         $cboModalSexo.val(data.Sexo).trigger('change');
         $cboModalArea.val(data.Area.Area_Id);
         $cboModalCargo.val(data.Cargo.Cargo_Id);
-        var fecha = new Date(parseInt(data.FechaNacimiento.replace("/Date(", "").replace(")/", ""), 10));
-        var dia = ('0' + fecha.getDate()).slice(-2);
-        var mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
-        var año = fecha.getFullYear();
-        $txtModalFechaI.val(dia + "/" + mes + "/" + año);
+        $txtModalFechaI.val(app.ConvertDate(data.FechaIngreso));
         $txtModalCorreo.val(data.Correo);
         $cboModalTurno.val(data.Turno.Turno_Id);           
         $txtModalUsuario.val(data.Usuario);
@@ -217,7 +234,11 @@
         $txtModalSueldo.val(data.Sueldo);
         $cboModalTipo.val(data.Auditoria.TipoUsuario).trigger('change');
         $cboModalEstado.val(data.Estado).trigger('change');
-        app.Event.Enable($cboModalEstado);                                                                                  
+        GetSalud(data.Salud);
+        GetAFP(data.AFP);
+        GetComisionAFP(data.ComisionAFP);
+        app.Event.Enable($cboModalEstado);
+        app.Event.Disabled($checkboxEsSalud);                                                                                
   
     }
 
@@ -306,12 +327,42 @@
         GetTrabajador();
     }                       
 
-    function ConvertFormatDate(pfecha) {                                                      
-        var year = pfecha.substring(6);
-        var month = pfecha.substring(3, 5);
-        var day = pfecha.substring(0, 2);
-        
-        return month + '/' + day + '/' + year;
+    function GetSalud(salud) {
+        if (salud === 1) {
+            $checkboxEsSalud.prop('checked', true);
+        } else if (salud === 2) {
+            $checkboxEsSalud.prop('checked', true);
+            $checkboxEPS.prop('checked', true);
+        }
+    }
+
+    function GetSaludChecked() {
+        var seguro = 1;
+        if ($checkboxEPS.is(":checked")) {
+            seguro = 2;
+        }
+        return seguro;
+    }
+
+    function GetAFP(afp) {
+        if (afp === 3) {
+            $rbnHabitat.prop('checked', true);
+        } else if (afp === 4) {
+            $rbnIntegra.prop('checked', true);
+        } else if (afp === 5) {
+            $rbnPrima.prop('checked', true);
+        } else if (afp === 6) {
+            $rbnProFuturo.prop('checked', true);
+        }
+
+    }
+
+    function GetComisionAFP(comisionafp) {
+        if (comisionafp === 1) {
+            $rbnComisionFlujoAFP.prop('checked', true);
+        } else if (comisionafp === 2) {
+            $rbnComisionMixtaAFP.prop('checked', true);
+        }
     }
 
     return {
