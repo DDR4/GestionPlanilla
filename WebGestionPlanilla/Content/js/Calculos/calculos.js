@@ -3,7 +3,7 @@
 var Calculos = (function ($, win, doc) {
 
     var $tblListadoCalculos = $('#tblListadoCalculos');
-    var $btnNuevaCargo = $('#btnNuevaCargo');
+    var $btnNuevaCalculos = $('#btnNuevaCalculos');
 
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoDescripcion = $('#tipoDescripcion');
@@ -13,8 +13,8 @@ var Calculos = (function ($, win, doc) {
     var $btnBuscar = $('#btnBuscar');
 
     //Modal
-    var $modalCargo = $('#modalCargo');  
-    var $titleModalCargo = $('#titleModalCargo');
+    var $modalCalculos = $('#modalCalculos');  
+    var $titleModalCalculos = $('#titleModalCalculos');
     var $txtModalDescripcion = $('#txtModalDescripcion');  
     var $txtModalSueldo = $('#txtModalSueldo'); 
     var $cboModalEstado = $('#cboModalEstado'); 
@@ -26,7 +26,7 @@ var Calculos = (function ($, win, doc) {
     };
 
     var Global = {
-        Cargo_Id: null
+        Calculos_Id: null
     };
 
     // Constructor
@@ -38,13 +38,13 @@ var Calculos = (function ($, win, doc) {
         $cboTipoBusqueda.change($cboTipoBusqueda_change);
         $btnBuscar.click($btnBuscar_click);         
         $btnGuardar.click($btnGuardar_click);
-        $btnNuevaCargo.click($btnNuevaCargo_click);
+        $btnNuevaCalculos.click($btnNuevaCalculos_click);
     }           
 
-    function $btnNuevaCargo_click() {
-        $titleModalCargo.html("Nueva Cargo");
-        $modalCargo.modal();
-        Global.Cargo_Id = null;
+    function $btnNuevaCalculos_click() {
+        $titleModalCalculos.html("Nuevo Calculo");
+        $modalCalculos.modal();
+        Global.Calculos_Id = null;
         $txtModalDescripcion.val("");
         $txtModalSueldo.val("");
         $cboModalEstado.val(1);
@@ -92,8 +92,8 @@ var Calculos = (function ($, win, doc) {
                 'render': function (data, type, full, meta) {
                     if (data === "1") {
                         return "<center>" +
-                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Editar" href="javascript:Cargo.EditarCargo(' + meta.row + ');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
-                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Eliminar" href="javascript:Cargo.EliminarCargo(' + meta.row + ')"><i class="fa fa-trash" aria-hidden="true"></i></a>' +
+                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Editar" href="javascript:Calculos.EditarCalculos(' + meta.row + ');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
+                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Eliminar" href="javascript:Calculos.EliminarCalculos(' + meta.row + ')"><i class="fa fa-trash" aria-hidden="true"></i></a>' +
                             "</center> ";
                     } else {
                         return "";
@@ -129,13 +129,13 @@ var Calculos = (function ($, win, doc) {
     }
 
     function $btnGuardar_click() {
-        InsertUpdateCargo();
+        InsertUpdateCalculos();
     }
 
-    function InsertUpdateCargo() {
+    function InsertUpdateCalculos() {
 
         var obj = {
-            "Cargo_Id": Global.Cargo_Id,    
+            "Calculos_Id": Global.Calculos_Id,    
             "Descripcion": $txtModalDescripcion.val(),   
             "Sueldo": $txtModalSueldo.val(),
             "Estado": $cboModalEstado.val()
@@ -143,12 +143,12 @@ var Calculos = (function ($, win, doc) {
 
         var method = "POST";
         var data = obj;
-        var url = "Cargo/InsertUpdateCargo";
+        var url = "Calculos/InsertUpdateCalculos";
 
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $modalCargo.modal('hide');
-            GetCargos();
+            $modalCalculos.modal('hide');
+            GetCalculoss();
         };
         app.CallAjax(method, url, data, fnDoneCallback);
     }
@@ -158,40 +158,40 @@ var Calculos = (function ($, win, doc) {
         GetCalculo();
     }             
 
-    function EditarCargo(row) {
-        var data = app.GetValueRowCellOfDataTable($tblListadoCargo, row);
-        $titleModalCargo.html("Editar Cargo");
+    function EditarCalculos(row) {
+        var data = app.GetValueRowCellOfDataTable($tblListadoCalculos, row);
+        $titleModalCalculos.html("Editar calculos");
 
-        $modalCargo.modal();
-        Global.Cargo_Id = data.Cargo_Id;
+        $modalCalculos.modal();
+        Global.Calculos_Id = data.Calculos_Id;
         $txtModalDescripcion.val(data.Descripcion);
         $txtModalSueldo.val(data.Sueldo);
         $cboModalEstado.val(data.Estado).trigger('change');
         app.Event.Enable($cboModalEstado);
     }
 
-    function EliminarCargo(row) {
+    function EliminarCalculos(row) {
         var fnAceptarCallback = function () {
-            var data = app.GetValueRowCellOfDataTable($tblListadoCargo, row);
+            var data = app.GetValueRowCellOfDataTable($tblListadoCalculos, row);
 
             var obj = {
-                "Cargo_Id": data.Cargo_Id
+                "Calculos_Id": data.Calculos_Id
             };
 
             var method = "POST";
-            var url = "Cargo/DeleteCargo";
+            var url = "Calculos/DeleteCalculos";
             var rsdata = obj;
             var fnDoneCallback = function (data) {
-                GetCargos();
+                GetCalculoss();
             };
             app.CallAjax(method, url, rsdata, fnDoneCallback, null, null, null);
         };
-        app.Message.Confirm("Aviso", "Esta seguro que desea eliminar el Cargo?", "Aceptar", "Cancelar", fnAceptarCallback, null);
+        app.Message.Confirm("Aviso", "Esta seguro que desea eliminar el Calculos?", "Aceptar", "Cancelar", fnAceptarCallback, null);
     }
 
     return {
-        EditarCargo: EditarCargo,
-        EliminarCargo: EliminarCargo
+        EditarCalculos: EditarCalculos,
+        EliminarCalculos: EliminarCalculos
     };
 
 

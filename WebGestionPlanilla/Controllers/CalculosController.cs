@@ -52,6 +52,21 @@ namespace WebGestionPlanilla.Controllers
 
             return Json(result);
         }
+        public JsonResult InsertUpdateCalculos(Calculos obj)
+        {
+            var bussingLogic = new GP.BusinessLogic.BLCalculos();
+            var response = bussingLogic.InsertUpdateCalculos(obj);
+
+            return Json(response);
+        }
+
+        public JsonResult DeleteCalculos(Calculos obj)
+        {
+            var bussingLogic = new GP.BusinessLogic.BLCalculos();
+            var response = bussingLogic.DeleteCalculos(obj);
+
+            return Json(response);
+        }
 
     }
 }
