@@ -83,6 +83,7 @@
                                 <table id="tblListadoCalculos" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
                                     <thead>
                                         <tr>
+                                            <th width="10%;">Tipo</th>
                                             <th width="10%;">Descripción</th>
                                             <th width="10%;">Porcentaje</th>
                                             <th width="10%;">Estado</th>
@@ -107,6 +108,14 @@
                 <div class="modal-body">
                     <form id="formModal" class="small" onkeypress="return event.keyCode != 13;">
                         <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="cboModalTipoCalculoBoleta">tipo</label>
+                                <select class="form-control input-sm" id="cboModalTipoCalculoBoleta">
+                                    <option value="0" selected>Todos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtModalDescripcion">Descripcion</label>
@@ -117,8 +126,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtModalSueldo">Sueldo</label>
-                                    <input class="form-control input-sm" type="text" id="txtModalSueldo" maxlength="10" />
+                                    <label for="txtModalMonto">Porcentaje</label>
+                                    <input class="form-control input-sm" type="text" id="txtModalMonto" maxlength="10" />
                                 </div>
                             </div>
                         </div>

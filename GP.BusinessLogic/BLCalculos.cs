@@ -43,7 +43,7 @@ namespace GP.BusinessLogic
             }
         }
 
-        public Response<int> DeleteCargo(Calculos obj)
+        public Response<int> DeleteCalculos(Calculos obj)
         {
             try
             {
