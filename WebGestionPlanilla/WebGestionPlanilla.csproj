@@ -16,7 +16,7 @@
     <AssemblyName>WebGestionPlanilla</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\BoletaPagoController.cs" />
+    <Compile Include="Controllers\CalculosController.cs" />
     <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CombosController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -196,6 +197,7 @@
     <Content Include="Content\js\app.js" />
     <Content Include="Content\js\Area\area.js" />
     <Content Include="Content\js\BoletaPago\boletapago.js" />
+    <Content Include="Content\js\Calculos\calculos.js" />
     <Content Include="Content\js\Cargo\cargo.js" />
     <Content Include="Content\js\HorasTrabajadas\horastrabajadas.js" />
     <Content Include="Content\js\Marcacion\marcacion_release.js" />
@@ -348,6 +350,7 @@
     <Content Include="Views\Shared\_LayoutSideBarControl.cshtml" />
     <Content Include="Views\BoletaPago\Index.cshtml" />
     <Content Include="Views\Vacaciones\Index.cshtml" />
+    <Content Include="Views\Calculos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -400,7 +403,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7775</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WebGestionPlanilla</IISUrl>
+          <IISUrl>http://localhost:7775/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

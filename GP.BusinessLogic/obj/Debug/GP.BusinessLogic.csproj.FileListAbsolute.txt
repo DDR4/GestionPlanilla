@@ -14,3 +14,22 @@ F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\Web
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.csproj.CopyComplete
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.dll
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.BusinessLogic.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.BusinessLogic.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.Common.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.DataAccess.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.Entities.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\itextsharp.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\Dapper.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.Common.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.DataAccess.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\GP.Entities.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\itextsharp.xml
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\Dapper.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\bin\Debug\Dapper.xml
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.csproj.CopyComplete
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.BusinessLogic\obj\Debug\GP.BusinessLogic.pdb

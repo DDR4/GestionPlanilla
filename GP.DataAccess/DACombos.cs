@@ -74,7 +74,27 @@ namespace GP.DataAccess
                 return result;
             }
         }
+        
+        public IEnumerable<Tipo_Calculo_Boleta> GetTipoCalculoBoleta()
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                var result = connection.Query(
+                     sql: "sp_Obtener_Tipo_Calculo_Boleta",
+                     param: parm,
+                     commandType: CommandType.StoredProcedure)
+                     .Select(m => m as IDictionary<string, object>)
+                     .Select(n => new Tipo_Calculo_Boleta
+                     {
+                         Tipo_Calculo_Boleta_Id = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Id")).Value.Parse<int>(),
+                         Descripcion = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Descripcion")).Value.Parse<string>()
+                     });
 
+                return result;
+            }
+        }
         public IEnumerable<TipoDocumento> GetTipoDocumento()
         {
             using (var connection = Factory.ConnectionFactory())
