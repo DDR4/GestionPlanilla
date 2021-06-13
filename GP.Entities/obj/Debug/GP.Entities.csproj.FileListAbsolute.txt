@@ -3,3 +3,9 @@ F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\Web
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.csproj.CoreCompileInputs.cache
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.dll
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.Entities\obj\Debug\GP.Entities.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\bin\Debug\GP.Entities.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\bin\Debug\GP.Entities.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\obj\Debug\GP.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\obj\Debug\GP.Entities.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\obj\Debug\GP.Entities.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.Entities\obj\Debug\GP.Entities.csprojAssemblyReference.cache

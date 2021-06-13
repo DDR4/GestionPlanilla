@@ -16,10 +16,10 @@ var Calculos = (function ($, win, doc) {
     var $modalCalculos = $('#modalCalculos');  
     var $titleModalCalculos = $('#titleModalCalculos');
     var $txtModalDescripcion = $('#txtModalDescripcion');  
-    var $txtModalSueldo = $('#txtModalSueldo'); 
+    var $txtModalMonto = $('#txtModalMonto'); 
     var $cboModalEstado = $('#cboModalEstado'); 
     var $btnGuardar = $('#btnGuardar');
-                                        
+    var $cboModalTipoCalculoBoleta = $('#cboModalTipoCalculoBoleta');                          
     var Message = {
         ObtenerTipoBusqueda: "Obteniendo los tipos de busqueda, Por favor espere...",
         GuardarSuccess: "Los datos se guardaron satisfactoriamente"
@@ -34,24 +34,26 @@ var Calculos = (function ($, win, doc) {
 
     // Implementacion del constructor
     function Initialize() {          
-        GetCalculo();         
+        GetCalculos();         
         $cboTipoBusqueda.change($cboTipoBusqueda_change);
         $btnBuscar.click($btnBuscar_click);         
         $btnGuardar.click($btnGuardar_click);
         $btnNuevaCalculos.click($btnNuevaCalculos_click);
+        GetTipoCalculoBoleta();
     }           
 
     function $btnNuevaCalculos_click() {
         $titleModalCalculos.html("Nuevo Calculo");
         $modalCalculos.modal();
+        $cboModalTipoCalculoBoleta.val(0);
         Global.Calculos_Id = null;
         $txtModalDescripcion.val("");
-        $txtModalSueldo.val("");
+        $txtModalMonto.val("");
         $cboModalEstado.val(1);
         app.Event.Disabled($cboModalEstado);            
     }
 
-    function GetCalculo() {             
+    function GetCalculos() {             
 
         var parms = {
             Descripcion: $txtDescripcion.val(),
@@ -61,6 +63,7 @@ var Calculos = (function ($, win, doc) {
         var url = "Calculos/GetCalculos";
 
         var columns = [
+            { data: "Tipo_Calculo_Boleta.Descripcion" },
             { data: "Descripcion" },
             { data: "Monto"},
             { data: "Estado" },
@@ -76,7 +79,7 @@ var Calculos = (function ($, win, doc) {
             //},
 
             {
-                "targets": [2],
+                "targets": [3],
                 'render': function (data, type, full, meta) {
                     if (data === 1) {
                         return "Activo";
@@ -85,7 +88,7 @@ var Calculos = (function ($, win, doc) {
                 }
             },
             {
-                "targets": [3],
+                "targets": [4],
                 "visible": true,
                 "orderable": false,
                 "className": "text-center",
@@ -132,12 +135,24 @@ var Calculos = (function ($, win, doc) {
         InsertUpdateCalculos();
     }
 
+    function GetTipoCalculoBoleta() {
+        var method = "POST";
+        var url = "Combos/GetTipoCalculoBoleta";
+        var fnDoneCallback = function (data) {
+            for (var i = 0; i < data.Data.length; i++) {
+                $cboModalTipoCalculoBoleta.append('<option value=' + data.Data[i].Tipo_Calculo_Boleta_Id + '>' + data.Data[i].Descripcion + '</option>');
+            }
+
+        };
+        app.CallAjax(method, url, null, fnDoneCallback, null, null, null);
+    }
     function InsertUpdateCalculos() {
 
         var obj = {
-            "Calculos_Id": Global.Calculos_Id,    
+            "CalculoBoleta_Id": Global.Calculos_Id,   
+            "Tipo_Calculo_Boleta": { "Tipo_Calculo_Boleta_Id": $cboModalTipoCalculoBoleta.val()},
             "Descripcion": $txtModalDescripcion.val(),   
-            "Sueldo": $txtModalSueldo.val(),
+            "Monto": $txtModalMonto.val(),
             "Estado": $cboModalEstado.val()
         };
 
@@ -148,14 +163,14 @@ var Calculos = (function ($, win, doc) {
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
             $modalCalculos.modal('hide');
-            GetCalculoss();
+            GetCalculos();
         };
         app.CallAjax(method, url, data, fnDoneCallback);
     }
 
 
     function $btnBuscar_click() {
-        GetCalculo();
+        GetCalculos();
     }             
 
     function EditarCalculos(row) {
@@ -163,11 +178,16 @@ var Calculos = (function ($, win, doc) {
         $titleModalCalculos.html("Editar calculos");
 
         $modalCalculos.modal();
-        Global.Calculos_Id = data.Calculos_Id;
+        console.log(data);
+        Global.Calculos_Id = data.CalculoBoleta_Id;
+        $cboModalTipoCalculoBoleta.val(data.Tipo_Calculo_Boleta.Tipo_Calculo_Boleta_Id).trigger('change');
         $txtModalDescripcion.val(data.Descripcion);
-        $txtModalSueldo.val(data.Sueldo);
+        $txtModalMonto.val(data.Monto);
         $cboModalEstado.val(data.Estado).trigger('change');
         app.Event.Enable($cboModalEstado);
+
+     
+
     }
 
     function EliminarCalculos(row) {
@@ -175,14 +195,14 @@ var Calculos = (function ($, win, doc) {
             var data = app.GetValueRowCellOfDataTable($tblListadoCalculos, row);
 
             var obj = {
-                "Calculos_Id": data.Calculos_Id
+                "CalculoBoleta_Id": data.CalculoBoleta_Id
             };
 
             var method = "POST";
             var url = "Calculos/DeleteCalculos";
             var rsdata = obj;
             var fnDoneCallback = function (data) {
-                GetCalculoss();
+                GetCalculos();
             };
             app.CallAjax(method, url, rsdata, fnDoneCallback, null, null, null);
         };

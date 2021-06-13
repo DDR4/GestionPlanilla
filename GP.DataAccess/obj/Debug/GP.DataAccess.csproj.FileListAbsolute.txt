@@ -12,3 +12,17 @@ F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\Web
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.DataAccess\obj\Debug\GP.DataAccess.csproj.CopyComplete
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.DataAccess\obj\Debug\GP.DataAccess.dll
 F:\EVV_Personal\UTP\Ciclo V\Proyecto Integrador I\Proyecto\Grupal\ProyectoV2\WebGestionPlanilla\GP.DataAccess\obj\Debug\GP.DataAccess.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.DataAccess.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.DataAccess.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\Dapper.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.Common.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.Entities.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.Common.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\GP.Entities.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\Dapper.pdb
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\bin\Debug\Dapper.xml
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\obj\Debug\GP.DataAccess.csprojAssemblyReference.cache
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\obj\Debug\GP.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\obj\Debug\GP.DataAccess.csproj.CopyComplete
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\obj\Debug\GP.DataAccess.dll
+C:\Users\Lopez\Downloads\INTEGRADOR - PLANILLA\GP.DataAccess\obj\Debug\GP.DataAccess.pdb

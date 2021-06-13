@@ -8,7 +8,7 @@ namespace GP.Entities
 {
     public class Calculos
     {
-        public int? Calculo_Boleta_Id { get; set; }
+        public int? CalculoBoleta_Id { get; set; }
         public string Descripcion { get; set; }
         
         public decimal Monto { get; set; }
@@ -16,5 +16,6 @@ namespace GP.Entities
         public Operacion Operacion { get; set; }
         public Auditoria Auditoria { get; set; }
         public Tipo_Calculo_Boleta Tipo_Calculo_Boleta { get; set; }
+
     }
 }

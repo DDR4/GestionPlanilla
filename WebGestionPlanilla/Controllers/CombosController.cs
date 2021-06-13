@@ -43,6 +43,13 @@ namespace WebGestionPlanilla.Controllers
 
             return Json(response);
         }
+        public JsonResult GetTipoCalculoBoleta()
+        {
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
+            var response = bussingLogic.GetTipoCalculoBoleta();
+
+            return Json(response);
+        }
 
     }
 }
