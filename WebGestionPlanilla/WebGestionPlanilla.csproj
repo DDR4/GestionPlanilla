@@ -206,6 +206,7 @@
     <Content Include="Content\js\Trabajador\trabajador_release.js" />
     <Content Include="Content\js\Trabajador\trabajador.js" />
     <Content Include="Content\js\Turno\turno.js" />
+    <Content Include="Content\js\Vacaciones\vacaciones_release.js" />
     <Content Include="Content\js\Vacaciones\vacaciones.js" />
     <Content Include="Content\js\Ventas\ventas.js" />
     <Content Include="Content\lib\adminLTE\css\adminLTE.min.css" />

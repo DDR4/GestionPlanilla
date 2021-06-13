@@ -122,8 +122,8 @@
 
         var obj = {
             "Trabajador_Id": Global.Trabajador_Id,
-            "FechaInicio": $txtModalFechaInicio.val(),
-            "FechaFin": $txtModalFechaFin.val()   
+            "FechaInicio": app.ConvertDateRelease($txtModalFechaInicio.val()),
+            "FechaFin": app.ConvertDateRelease($txtModalFechaFin.val())   
         };
 
         var method = "POST";
@@ -207,7 +207,6 @@
 
         return validar;
     }
-
 
     return {
         DetalleVacaciones: DetalleVacaciones,
