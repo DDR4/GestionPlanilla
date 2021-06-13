@@ -31,8 +31,10 @@ namespace GP.DataAccess
                      .Select(n => new Calculos
                      {
                          CalculoBoleta_Id = n.Single(d => d.Key.Equals("CalculoBoleta_Id")).Value.Parse<int>(),
+
                          Tipo_Calculo_Boleta = new Tipo_Calculo_Boleta
                          {
+                             Tipo_Calculo_Boleta_Id = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Id")).Value.Parse<int>(),
                              Descripcion = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Descripcion")).Value.Parse<string>(),
                          },
                          Descripcion = n.Single(d => d.Key.Equals("CalculoBoleta_Descripcion")).Value.Parse<string>(),

@@ -45,6 +45,7 @@ var Calculos = (function ($, win, doc) {
     function $btnNuevaCalculos_click() {
         $titleModalCalculos.html("Nuevo Calculo");
         $modalCalculos.modal();
+        $cboModalTipoCalculoBoleta.val(0);
         Global.Calculos_Id = null;
         $txtModalDescripcion.val("");
         $txtModalMonto.val("");
@@ -148,7 +149,7 @@ var Calculos = (function ($, win, doc) {
     function InsertUpdateCalculos() {
 
         var obj = {
-            "Calculos_Id": Global.Calculos_Id,   
+            "CalculoBoleta_Id": Global.Calculos_Id,   
             "Tipo_Calculo_Boleta": { "Tipo_Calculo_Boleta_Id": $cboModalTipoCalculoBoleta.val()},
             "Descripcion": $txtModalDescripcion.val(),   
             "Monto": $txtModalMonto.val(),
@@ -177,8 +178,9 @@ var Calculos = (function ($, win, doc) {
         $titleModalCalculos.html("Editar calculos");
 
         $modalCalculos.modal();
-        Global.Calculos_Id = data.Calculos_Id;
-        $cboModalTipoCalculoBoleta = Tipo_Calculo_Boleta(data.Tipo_Calculo_Boleta_Id);
+        console.log(data);
+        Global.Calculos_Id = data.CalculoBoleta_Id;
+        $cboModalTipoCalculoBoleta.val(data.Tipo_Calculo_Boleta.Tipo_Calculo_Boleta_Id).trigger('change');
         $txtModalDescripcion.val(data.Descripcion);
         $txtModalMonto.val(data.Monto);
         $cboModalEstado.val(data.Estado).trigger('change');
