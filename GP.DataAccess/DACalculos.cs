@@ -63,9 +63,6 @@ namespace GP.DataAccess
                 connection.Open();
                 var parm = new DynamicParameters();
                 parm.Add("@CalculoBoleta_Id", obj.CalculoBoleta_Id);
-
-
-                //Tipo_Calculo_Boleta_Id - Tipo_Calculo_Boleta.Tipo_Calculo_Boleta_Id
                 parm.Add("@Tipo_Calculo_Boleta_Id", obj.Tipo_Calculo_Boleta.Tipo_Calculo_Boleta_Id);
                 parm.Add("@Descripcion", obj.Descripcion);
                 parm.Add("@Monto", obj.Monto);

@@ -815,15 +815,24 @@
         var fecha = new Date(año, mes, dia);
 
         return fecha;
-    }
-
-
+    }                                                                 
 
     function ValidarCampo(valor, msg) {
         if (valor === "" || valor === null || valor === 0 || valor === undefined || valor === 0.00) {
             return msg + "<br>";
         }
         return "";
+    }
+
+    function FormatPorcentaje(data) {
+
+        var dato = data;
+        if (dato !== "" || dato !== undefined) {
+            var porcentaje = dato * 100;
+            var rsdato = parseFloat(porcentaje).toFixed(DigitsNumber);
+            return rsdato + " %";
+        }
+        
     }
 
     function FormatNumber(data, index) {
@@ -911,7 +920,8 @@
         ConvertDate: ConvertDate,
         FillDataTableAjaxPaging: FillDataTableAjaxPaging,
         ConvertStringDate: ConvertStringDate,
-        ConvertDateRelease: ConvertDateRelease
+        ConvertDateRelease: ConvertDateRelease,
+        FormatPorcentaje: FormatPorcentaje
     };
 
 
