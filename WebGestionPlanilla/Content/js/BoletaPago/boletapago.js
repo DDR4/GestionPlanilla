@@ -75,7 +75,14 @@
 
     }     
 
-    function $btnGenerarBoleta_click() {
+    function $btnGenerarBoleta_click() {           
+        
+        if (ValidaGenerarBoleta()) {
+            GenerarBoleta();
+        }                                             
+    }
+
+    function GenerarBoleta() {
 
         var obj = {
             "HorasTrabajadas": {
@@ -89,16 +96,26 @@
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
         };
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
-    }
+    }                              
 
     function DescargarBoleta(row) {
 
         var data = app.GetValueRowCellOfDataTable($tblListadoBoletas, row);
         app.RedirectTo("BoletaPago/DescargarBoletaPago?TrabajadorId=" + data.Trabajador.Trabajador_Id + "&Periodo=" + data.HorasTrabajadas.Periodo);
 
+    }           
+
+    function ValidaGenerarBoleta() {
+        var val = false;
+
+        if ($txtFechaBoleta.val() !== "") {
+            val = true;
+        } else {
+            app.Message.Info("Aviso", "Seleccionar la fecha de la boleta", "Aceptar", null);
+        }
+
+        return val;
     }
-
-
 
     return {
         DescargarBoleta: DescargarBoleta
