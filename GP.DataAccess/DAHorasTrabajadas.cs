@@ -37,6 +37,7 @@ namespace GP.DataAccess
                              Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
                              Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
                              Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
+                             Tipo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tipo")).Value.Parse<int>(),
                          },                     
                          Operacion = new Operacion
                          {

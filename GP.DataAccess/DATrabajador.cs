@@ -24,6 +24,7 @@ namespace GP.DataAccess
                 parm.Add("@Estado", obj.Estado);
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
+                parm.Add("@TipoBusqueda", obj.TipoBusqueda);
                 var result = connection.Query(
                      sql: "sp_Buscar_Trabajador",
                      param: parm,

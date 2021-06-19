@@ -23,6 +23,7 @@ namespace GP.Entities
         public int TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }
         public int Tipo { get; set; }
+        public int TipoBusqueda { get; set; }
         public int Salud { get; set; }
         public int AFP { get; set; }
         public int ComisionAFP { get; set; }
