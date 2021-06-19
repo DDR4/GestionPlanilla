@@ -75,5 +75,23 @@ namespace GP.DataAccess
                 return result.FirstOrDefault();
             }
         }
+
+        public int CrearDescansoMedico(Trabajador obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@FechaInicio", obj.HorasTrabajadas.FechaInicio);
+                parm.Add("@FechaFin", obj.HorasTrabajadas.FechaFin);
+                parm.Add("@TrabajadorId", obj.Trabajador_Id);
+                var result = connection.Execute(
+                    sql: "sp_Crear_Descanso_Medico",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
+
+                return result;
+            }
+        }
     }
 }

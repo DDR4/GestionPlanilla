@@ -98,5 +98,13 @@ namespace WebGestionPlanilla.Controllers
             return Json(result);
         }
 
+        public JsonResult CrearDescansoMedico(Trabajador obj)
+        {
+            var bussingLogic = new GP.BusinessLogic.BLHorasTrabajadas();
+            var response = bussingLogic.CrearDescansoMedico(obj);
+
+            return Json(response);
+        }
+
     }
 }

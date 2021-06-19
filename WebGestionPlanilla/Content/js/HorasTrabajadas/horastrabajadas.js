@@ -15,10 +15,15 @@
     var $txtModalNombre = $('#txtModalNombre');
     var $btnBuscarModal = $('#btnBuscarModal');
     var $tblTrabajadores = $('#tblTrabajadores');
+    var $btnGuardar = $('#btnGuardar');
 
     var Message = {
         ObtenerTipoBusqueda: "Obteniendo los tipos de busqueda, Por favor espere...",
         GuardarSuccess: "Los datos se guardaron satisfactoriamente"
+    };
+
+    var Global = {
+        Trabajador_Id: null
     };
 
     // Constructor
@@ -43,20 +48,19 @@
         }); 
         $btnNuevoDescansoMedico.click($btnNuevoDescansoMedico_click);
         $btnBuscarModal.click($btnBuscarModal_click);
-        //var row = $tblTrabajadores.DataTable();
-
-        //console.log(row);
+        $btnGuardar.click($btnGuardar_click);
 
         var table = $tblTrabajadores.DataTable();
 
         $('#tblTrabajadores tbody').on('click', 'tr', function () {
-            console.log(table.row(this).data());
+            if ($(this).hasClass('selected')) {
+                Global.Trabajador_Id = null;
+            } else {          
+                var row = table.row(this).index();
+                var data = app.GetValueRowCellOfDataTable($tblTrabajadores, row);
+                Global.Trabajador_Id = data.Trabajador_Id;
+            }
         });
-
-        //table.on('select', function (e, dt, type, indexes) {
-        //    var row = table.rows({ selected: true }).data();
-        //    console.log(row);
-        //});
     }           
 
     function GetHorasTrabajadas() {             
@@ -119,8 +123,7 @@
 
     function $btnNuevoDescansoMedico_click() {
         $modalDescansoMedico.modal();
-        GetTrabajadores();
-      
+        GetTrabajadores();          
     }
 
     function $btnBuscarModal_click() {
@@ -148,6 +151,27 @@
         app.FillDataTableAjaxPaging($tblTrabajadores, url, parms, columns, null, filters, null, null);
 
     }    
+
+    function $btnGuardar_click() {
+        var obj = {
+            "Trabajador_Id": Global.Trabajador_Id,
+            "HorasTrabajadas": {
+                "FechaInicio": $txtModalFechaDescansoInicio.val(),
+                "FechaFin": $txtModalFechaDescansoFin.val()
+            }             
+        };
+
+        var method = "POST";
+        var data = obj;
+        var url = "HorasTrabajadas/CrearDescansoMedico";
+
+        var fnDoneCallback = function () {
+            app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
+            $modalDescansoMedico.modal('hide');
+            GetHorasTrabajadas();
+        };
+        app.CallAjax(method, url, data, fnDoneCallback);
+    }
 
     return {
 
