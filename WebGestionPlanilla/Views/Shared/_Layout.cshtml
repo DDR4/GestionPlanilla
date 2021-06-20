@@ -88,15 +88,25 @@
                                     <i class="fa fa-calendar-check-o"></i> <span>Vacaciones</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Calculos")">
+                            <li class="treeview">
+                                <a href="#">
                                     <i class="fa fa-calculator"></i> <span>Calculos</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
                                 </a>
-                            </li>
-                             <li>
-                                <a href="@Url.Action("Index", "TipoCalculos")">
-                                    <i class="fa fa-calculator"></i> <span>Tipo Calculos</span>
-                                </a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Calculos")">
+                                            <i class="fa fa-calculator"></i> <span>Calculos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "TipoCalculos")">
+                                            <i class="fa fa-calculator"></i> <span>Tipo Calculos</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="@Url.Action("Index", "BoletaPago")">
@@ -133,10 +143,15 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Calculos")">
+                                    <i class="fa fa-file-excel-o"></i> <span>Reportes</span>
+                                </a>
+                            </li>
 
                         }
                     </ul>
-                </section>
+</section>
             </aside>
 
         }
