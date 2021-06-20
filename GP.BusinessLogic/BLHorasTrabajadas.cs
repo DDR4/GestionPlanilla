@@ -44,6 +44,19 @@ namespace GP.BusinessLogic
             }
         }
 
+        public Response<int> EliminarDescansoMedico(HorasTrabajadas obj)
+        {
+            try
+            {
+                var result = repository.EliminarDescansoMedico(obj);
+                return new Response<int>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<int>(ex);
+            }
+        }
+
 
     }
 }

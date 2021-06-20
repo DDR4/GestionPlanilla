@@ -78,6 +78,7 @@
             { data: "HorasTrabajadas.Horas_Trabajadas" },
             { data: "HorasTrabajadas.Horas_Tardanzas" },
             { data: "HorasTrabajadas.Periodo" },
+            { data: "HorasTrabajadas.Tipo" },
             { data: "HorasTrabajadas.Tipo" }
         ];
         var columnDefs = [                   
@@ -90,7 +91,17 @@
 
                 }
             },
+            {
+                "targets": [5],
+                'render': function (data, type, full, meta) {
+                    if (data === 2) {
+                        return "<center>" +
+                            '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Eliminar" href="javascript:HorasTrabajadas.EliminarDescansoMedico(' + meta.row + ')"><i class="fa fa-trash" aria-hidden="true"></i></a>' +
+                            "</center> ";
+                    } else return "";
 
+                }
+            }
         ];
 
         var filters = {
@@ -173,8 +184,27 @@
         app.CallAjax(method, url, data, fnDoneCallback);
     }
 
-    return {
+    function EliminarDescansoMedico(row) {
+        var fnAceptarCallback = function () {
+            var data = app.GetValueRowCellOfDataTable($tblListadoNumeroHoras, row);
 
+            var obj = {
+                "Horas_Trabajadas_Id": data.HorasTrabajadas.Horas_Trabajadas_Id
+            };
+
+            var method = "POST";
+            var url = "HorasTrabajadas/EliminarDescansoMedico";
+            var rsdata = obj;
+            var fnDoneCallback = function (data) {
+                GetHorasTrabajadas();
+            };
+            app.CallAjax(method, url, rsdata, fnDoneCallback, null, null, null);
+        };
+        app.Message.Confirm("Aviso", "Esta seguro que desea eliminar el area?", "Aceptar", "Cancelar", fnAceptarCallback, null);
+    }
+
+    return {
+        EliminarDescansoMedico : EliminarDescansoMedico
     };
 
 

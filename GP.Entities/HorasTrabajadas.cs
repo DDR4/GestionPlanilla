@@ -9,6 +9,7 @@ namespace GP.Entities
 {
     public class HorasTrabajadas
     {
+        public int? Horas_Trabajadas_Id { get; set; }
         public int Horas_Trabajadas { get; set; }
         public int Horas_Tardanzas { get; set; }
         public string Periodo { get; set; }

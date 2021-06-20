@@ -34,6 +34,7 @@ namespace GP.DataAccess
                          Nombres = n.Single(d => d.Key.Equals("NombreApellido")).Value.Parse<string>(),
                          HorasTrabajadas = new HorasTrabajadas
                          {
+                             Horas_Trabajadas_Id = n.Single(d => d.Key.Equals("Horas_Trabajadas_Id")).Value.Parse<int>(),
                              Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
                              Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
                              Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
@@ -93,5 +94,22 @@ namespace GP.DataAccess
                 return result;
             }
         }
+
+        public int EliminarDescansoMedico(HorasTrabajadas obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@Horas_Trabajadas_Id", obj.Horas_Trabajadas_Id);
+                var result = connection.Execute(
+                    sql: "sp_Eliminar_Descanso_Medico",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
+
+                return result;
+            }
+        }
+
     }
 }
