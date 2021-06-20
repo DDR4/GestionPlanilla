@@ -12,6 +12,9 @@ namespace GP.Entities
         public int Horas_Trabajadas { get; set; }
         public int Horas_Tardanzas { get; set; }
         public string Periodo { get; set; }
+        public int Tipo { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public DateTime PrimerDia { get; set; }
         public DateTime UltimoDia { get; set; }
         public int DiasTrabajados { get; set; }

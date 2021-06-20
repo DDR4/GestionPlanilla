@@ -70,14 +70,13 @@ var Calculos = (function ($, win, doc) {
             { data: "Auditoria.TipoUsuario" }
         ];
         var columnDefs = [ 
-            //{
-            //    "targets": [1],
-            //    "className": "text-right",
-            //    'render': function (data, type, full, meta) {
-            //        return '' + app.FormatNumber(data) + '';
-            //    }
-            //},
-
+            {
+                "targets": [2],
+                "className": "text-right",
+                'render': function (data, type, full, meta) {
+                    return '' + app.FormatPorcentaje(data) + '';
+                }
+            },     
             {
                 "targets": [3],
                 'render': function (data, type, full, meta) {

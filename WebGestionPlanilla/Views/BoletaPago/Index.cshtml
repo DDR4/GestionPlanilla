@@ -81,13 +81,5 @@
 </section>
 
 @section scripts{
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        <script src="~/Content/js/BoletaPago/boletapago.js"></script>
-    }
-    else
-    {
-        <script src="~/Content/js/Marcacion/marcacion_release.js"></script>
-    }
-
+   <script src="~/Content/js/BoletaPago/boletapago.js"></script>
 }

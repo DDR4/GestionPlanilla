@@ -153,6 +153,13 @@
 </div>
 
 @section scripts{
-    <script src="~/Content/js/Vacaciones/vacaciones.js"></script>
-}
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="~/Content/js/Vacaciones/vacaciones.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/js/Vacaciones/vacaciones_release.js"></script>
+    }
 
+}

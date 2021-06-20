@@ -8,10 +8,22 @@
     var $tipoNombres = $('#tipoNombres');
     var $txtNombres = $('#txtNombres');
     var $btnBuscar = $('#btnBuscar');
-                                        
+    var $btnNuevoDescansoMedico = $('#btnNuevoDescansoMedico');
+    var $modalDescansoMedico = $('#modalDescansoMedico');
+    var $txtModalFechaDescansoInicio = $('#txtModalFechaDescansoInicio');
+    var $txtModalFechaDescansoFin = $('#txtModalFechaDescansoFin');
+    var $txtModalNombre = $('#txtModalNombre');
+    var $btnBuscarModal = $('#btnBuscarModal');
+    var $tblTrabajadores = $('#tblTrabajadores');
+    var $btnGuardar = $('#btnGuardar');
+
     var Message = {
         ObtenerTipoBusqueda: "Obteniendo los tipos de busqueda, Por favor espere...",
         GuardarSuccess: "Los datos se guardaron satisfactoriamente"
+    };
+
+    var Global = {
+        Trabajador_Id: null
     };
 
     // Constructor
@@ -25,7 +37,30 @@
         $txtFecha.datepicker({
             endDate: "today",
             todayHighlight: true
-        });                 
+        });    
+        $txtModalFechaDescansoInicio.datepicker({
+            endDate: "today",
+            todayHighlight: true
+        }); 
+        $txtModalFechaDescansoFin.datepicker({
+            endDate: "today",
+            todayHighlight: true
+        }); 
+        $btnNuevoDescansoMedico.click($btnNuevoDescansoMedico_click);
+        $btnBuscarModal.click($btnBuscarModal_click);
+        $btnGuardar.click($btnGuardar_click);
+
+        var table = $tblTrabajadores.DataTable();
+
+        $('#tblTrabajadores tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                Global.Trabajador_Id = null;
+            } else {          
+                var row = table.row(this).index();
+                var data = app.GetValueRowCellOfDataTable($tblTrabajadores, row);
+                Global.Trabajador_Id = data.Trabajador_Id;
+            }
+        });
     }           
 
     function GetHorasTrabajadas() {             
@@ -42,26 +77,19 @@
             { data: "Nombres" },
             { data: "HorasTrabajadas.Horas_Trabajadas" },
             { data: "HorasTrabajadas.Horas_Tardanzas" },
-            { data: "HorasTrabajadas.Periodo" }
-            //{ data: "Auditoria.TipoUsuario" }
+            { data: "HorasTrabajadas.Periodo" },
+            { data: "HorasTrabajadas.Tipo" }
         ];
         var columnDefs = [                   
-            //{
-            //    "targets": [4],
-            //    "visible": true,
-            //    "orderable": false,
-            //    "className": "text-center",
-            //    'render': function (data, type, full, meta) {
-            //        if (data === "1") {
-            //            return "<center>" +
-            //                '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Editar" href="javascript:Trabajador.EditarTrabajador(' + meta.row + ');"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>' +
-            //                '<a class="btn btn-default btn-xs" style= "margin-right:0.5em" title="Eliminar" href="javascript:Trabajador.EliminarTrabajador(' + meta.row + ')"><i class="fa fa-trash" aria-hidden="true"></i></a>' +
-            //                "</center> ";
-            //        } else {
-            //            return "";
-            //        }
-            //    }
-            //}
+            {
+                "targets": [4],
+                'render': function (data, type, full, meta) {
+                    if (data === 1) {
+                        return "Horas Trabajadas";
+                    } else return "Descanso Medico";
+
+                }
+            },
 
         ];
 
@@ -92,6 +120,58 @@
     function $btnBuscar_click() {
         GetHorasTrabajadas();
     }   
+
+    function $btnNuevoDescansoMedico_click() {
+        $modalDescansoMedico.modal();
+        GetTrabajadores();          
+    }
+
+    function $btnBuscarModal_click() {
+        GetTrabajadores();
+    }
+
+    function GetTrabajadores() {
+
+        var parms = {
+            Trabajador_Id: null,
+            Nombres: $txtModalNombre.val(),
+            Estado: 1,
+            TipoBusqueda: 1
+        };
+
+        var url = "HorasTrabajadas/GetTrabajador";
+
+        var columns = [
+            { data: "Nombres" }
+        ];
+
+        var filters = {
+            pageLength: app.Defaults.TablasPageLength
+        };
+        app.FillDataTableAjaxPaging($tblTrabajadores, url, parms, columns, null, filters, null, null);
+
+    }    
+
+    function $btnGuardar_click() {
+        var obj = {
+            "Trabajador_Id": Global.Trabajador_Id,
+            "HorasTrabajadas": {
+                "FechaInicio": $txtModalFechaDescansoInicio.val(),
+                "FechaFin": $txtModalFechaDescansoFin.val()
+            }             
+        };
+
+        var method = "POST";
+        var data = obj;
+        var url = "HorasTrabajadas/CrearDescansoMedico";
+
+        var fnDoneCallback = function () {
+            app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
+            $modalDescansoMedico.modal('hide');
+            GetHorasTrabajadas();
+        };
+        app.CallAjax(method, url, data, fnDoneCallback);
+    }
 
     return {
 

@@ -8,6 +8,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using GestionPlanilla.Common.EnumTypes;
 using GP.Common;
 using GP.DataAccess;
 using GP.Entities;
@@ -55,34 +56,43 @@ namespace GP.BusinessLogic
             {
                 var result = repository.GetTrabajadores(obj);
 
-                string periodo = obj.HorasTrabajadas.Periodo;
-
-                string body = CargarPlantilla(periodo);
-
-                string nombrearchivo = "Boleta de Pago " + periodo;
-
-                int i = 1; int? trabajadorid = 0; int contador = result.Count();
-                while (contador >= i)
+                if (result.Any())
                 {
-                    trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
-                    Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador(); HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
-                    IEnumerable<DetalleVacaciones> lstdetalleVacaiones; Beneficio beneficio = new Beneficio();
+                    string periodo = obj.HorasTrabajadas.Periodo;
 
-                    if (trabajadorid > 0)
+                    string body = CargarPlantilla(periodo);
+
+                    string nombrearchivo = "Boleta de Pago " + periodo;
+
+                    int i = 1; int? trabajadorid = 0; int contador = result.Count();
+                    while (contador >= i)
                     {
-                        trabajador = repository2.ObtenerTrabajador(trabajadorid);
-                        empleador = repository3.ObtenerEmpleador();
-                        horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo, trabajador);
-                        trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = periodo };
-                        lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
-                        beneficio = repository6.GetSeguro(trabajador);
-                        byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
-                        EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
-                    }
-                    i++;
-                }
+                        trabajadorid = result.Where(x => x.Indicador == i).Select(y => y.Trabajador.Trabajador_Id).FirstOrDefault();
+                        Trabajador trabajador = new Trabajador(); Empleador empleador = new Empleador(); HorasTrabajadas horasTrabajadas = new HorasTrabajadas();
+                        IEnumerable<DetalleVacaciones> lstdetalleVacaiones; Beneficio beneficio = new Beneficio();
 
-                return new Response<IEnumerable<BoletaPago>>(result);
+                        if (trabajadorid > 0)
+                        {
+                            trabajador = repository2.ObtenerTrabajador(trabajadorid);
+                            empleador = repository3.ObtenerEmpleador();
+                            horasTrabajadas = repository4.CalculaHorasTrabajadas(periodo, trabajador);
+                            trabajador.HorasTrabajadas = new HorasTrabajadas { Periodo = periodo };
+                            lstdetalleVacaiones = repository5.DetalleVacaciones(trabajador);
+                            beneficio = repository6.GetSeguro(trabajador);
+                            byte[] arraybytes = CrearBoletaPago(periodo, empleador, trabajador, horasTrabajadas, lstdetalleVacaiones.ToArray(), beneficio);
+                            EnvioCorreo.Send(trabajador.Correo, nombrearchivo, body, arraybytes, nombrearchivo + ".pdf");
+                        }
+                        i++;
+                    }
+                    return new Response<IEnumerable<BoletaPago>>(result);
+                }
+                else
+                {
+                   var rs =  new Response<IEnumerable<BoletaPago>>(result);
+                   rs.InternalException = "No se encontraton boletas con esa fecha";
+                   rs.InternalStatus = InternalStatus.Failed;
+                   return rs;
+                }               
             }
             catch (Exception ex)
             {

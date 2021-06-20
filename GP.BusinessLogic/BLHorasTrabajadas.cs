@@ -29,8 +29,21 @@ namespace GP.BusinessLogic
             {
                 return new Response<IEnumerable<Trabajador>>(ex);
             }
-        }       
-        
+        }
+
+        public Response<int> CrearDescansoMedico(Trabajador obj)
+        {
+            try
+            {
+                var result = repository.CrearDescansoMedico(obj);
+                return new Response<int>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<int>(ex);
+            }
+        }
+
 
     }
 }

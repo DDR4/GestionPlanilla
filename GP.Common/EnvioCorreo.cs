@@ -31,6 +31,7 @@ namespace GP.Common
                 var clave = EncriptacionBase64.Base64Decode(ConfigurationUtilities.GetAppSettings("Clave"));
 
                 SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Credentials = new System.Net.NetworkCredential(email, clave);
                 SmtpServer.EnableSsl = true;
 

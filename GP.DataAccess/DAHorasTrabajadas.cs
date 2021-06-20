@@ -37,6 +37,7 @@ namespace GP.DataAccess
                              Horas_Trabajadas = n.Single(d => d.Key.Equals("Horas_Trabajadas")).Value.Parse<int>(),
                              Horas_Tardanzas = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tardanzas")).Value.Parse<int>(),
                              Periodo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Periodo")).Value.Parse<string>(),
+                             Tipo = n.Single(d => d.Key.Equals("Horas_Trabajadas_Tipo")).Value.Parse<int>(),
                          },                     
                          Operacion = new Operacion
                          {
@@ -72,6 +73,24 @@ namespace GP.DataAccess
                      });
 
                 return result.FirstOrDefault();
+            }
+        }
+
+        public int CrearDescansoMedico(Trabajador obj)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@FechaInicio", obj.HorasTrabajadas.FechaInicio);
+                parm.Add("@FechaFin", obj.HorasTrabajadas.FechaFin);
+                parm.Add("@TrabajadorId", obj.Trabajador_Id);
+                var result = connection.Execute(
+                    sql: "sp_Crear_Descanso_Medico",
+                    param: parm,
+                    commandType: CommandType.StoredProcedure);
+
+                return result;
             }
         }
     }

@@ -13,6 +13,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">&nbsp;</h3>
                     <div class="box-tools pull-right">
+                        <button class="btn btn-success btn-sm-max" id="btnNuevoDescansoMedico"><span class="fa fa-plus-square"></span> Nuevo Descanso Medico</button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -78,7 +79,7 @@
                                             <th width="10%;">Horas Trabajadas</th>
                                             <th width="10%;">Tardanzas</th>
                                             <th width="10%;">Periodo</th>
-                                            @*<th width="8%;"></th>*@
+                                            <th width="10%;">Tipo</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -90,6 +91,69 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="modalDescansoMedico" tabindex="-1" role="dialog" aria-labelledby="titleModal" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content" style="width:65%;left:20%;">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar Descanso Medico</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formModal" class="small" onkeypress="return event.keyCode != 13;">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="txtModalFechaDescansoInicio">Fecha Descanso Inicio</label>
+                                <input class="form-control input-sm" id="txtModalFechaDescansoInicio" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="txtModalFechaDescansoFin">Fecha Descanso Fin</label>
+                                <input class="form-control input-sm" id="txtModalFechaDescansoFin" readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="txtModalNombre">Nombres y Apellidos</label>
+                                <input type="text" class="form-control input-sm" id="txtModalNombre">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="btnBuscarModal"><font color="white">_</font></label>
+                                <button type="button" class="btn btn-primary btn-sm" id="btnBuscarModal">
+                                    <span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="tblTrabajadores" class="table table-bordered table-striped table-hover table-condensed" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">Nombre Trabajador</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-sm" type="button" id="btnGuardar">Guardar</button>
+                <button class="btn btn-default btn-sm" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section scripts{
     <script src="~/Content/js/HorasTrabajadas/horastrabajadas.js"></script>
