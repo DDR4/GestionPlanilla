@@ -70,16 +70,16 @@ namespace GP.BusinessLogic
             }
         }
 
-        public Response<IEnumerable<Tipo_Calculo_Boleta>> GetTipoCalculoBoleta()
+        public Response<IEnumerable<TipoCalculoBoleta>> GetTipoCalculoBoleta()
         {
             try
             {
                 var result = repository.GetTipoCalculoBoleta();
-                return new Response<IEnumerable<Tipo_Calculo_Boleta>>(result);
+                return new Response<IEnumerable<TipoCalculoBoleta>>(result);
             }
             catch (Exception ex)
             {
-                return new Response<IEnumerable<Tipo_Calculo_Boleta>>(ex);
+                return new Response<IEnumerable<TipoCalculoBoleta>>(ex);
             }
         }
         

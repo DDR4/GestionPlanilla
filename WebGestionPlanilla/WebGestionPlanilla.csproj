@@ -16,7 +16,7 @@
     <AssemblyName>WebGestionPlanilla</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HorasTrabajadasController.cs" />
     <Compile Include="Controllers\MarcacionController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\TipoCalculosController.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Controllers\TurnoController.cs" />
     <Compile Include="Controllers\VacacionesController.cs" />
@@ -352,6 +353,7 @@
     <Content Include="Views\BoletaPago\Index.cshtml" />
     <Content Include="Views\Vacaciones\Index.cshtml" />
     <Content Include="Views\Calculos\Index.cshtml" />
+    <Content Include="Views\TipoCalculos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
