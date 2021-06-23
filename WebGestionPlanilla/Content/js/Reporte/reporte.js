@@ -1,7 +1,7 @@
 ﻿var Reporte = (function ($, win, doc) {
 
     var $txtFechaReporte = $('#txtFechaReporte');
-    var $btnNuevaArea = $('#btnNuevaArea');
+    var $btnGenerarReporteTurno = $('#btnGenerarReporteTurno');
 
                                         
     var Message = {
@@ -21,27 +21,12 @@
             startView: "months",
             minViewMode: "months"
         });      
+        $btnGenerarReporteTurno.click($btnGenerarReporteTurno_click)
     }           
 
-    function InsertUpdateArea() {
-
-        var obj = {
-            "Area_Id": Global.Area_Id,
-            "Descripcion": $txtModalDescripcion.val(),       
-            "Estado": $cboModalEstado.val()
-        };
-
-        var method = "POST";
-        var data = obj;
-        var url = "Area/InsertUpdateArea";
-
-        var fnDoneCallback = function (data) {
-            app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $modalArea.modal('hide');
-            GetAreas();
-        };
-        app.CallAjax(method, url, data, fnDoneCallback);
-    }
+    function $btnGenerarReporteTurno_click() {
+        app.RedirectTo("Reporte/GenerarReporteTurno?Periodo=" + $txtFechaReporte.val());       
+    }           
 
 
 

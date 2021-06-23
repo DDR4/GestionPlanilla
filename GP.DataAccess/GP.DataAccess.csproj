@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAReporte.cs" />
     <Compile Include="DABeneficio.cs" />
     <Compile Include="DACalculos.cs" />
     <Compile Include="DATipoCalculo.cs" />

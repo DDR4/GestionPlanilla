@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLReporte.cs" />
     <Compile Include="BLBoletaPago.cs" />
     <Compile Include="BLArea.cs" />
     <Compile Include="BLAuthorization.cs" />

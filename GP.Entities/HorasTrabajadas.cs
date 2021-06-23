@@ -19,6 +19,7 @@ namespace GP.Entities
         public DateTime PrimerDia { get; set; }
         public DateTime UltimoDia { get; set; }
         public int DiasTrabajados { get; set; }
+        public int DiasTardanzas { get; set; }
         public int DiasNoTrabajados { get; set; }
         public int HorasNoTrabajados { get; set; }
         public Operacion Operacion { get; set; }
