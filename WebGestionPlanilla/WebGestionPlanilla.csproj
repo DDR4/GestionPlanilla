@@ -206,6 +206,7 @@
     <Content Include="Content\js\Marcacion\marcacion.js" />
     <Content Include="Content\js\Producto\producto.js" />
     <Content Include="Content\js\Reporte\reporte.js" />
+    <Content Include="Content\js\TipoCalculo\TipoCalculo.js" />
     <Content Include="Content\js\Trabajador\trabajador_release.js" />
     <Content Include="Content\js\Trabajador\trabajador.js" />
     <Content Include="Content\js\Turno\turno.js" />
