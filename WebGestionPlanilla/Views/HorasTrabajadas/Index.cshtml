@@ -157,7 +157,13 @@
 
 
 @section scripts{
-    <script src="~/Content/js/HorasTrabajadas/horastrabajadas.js"></script>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="~/Content/js/HorasTrabajadas/horastrabajadas.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/js/HorasTrabajadas/horastrabajadas_release.js"></script>
+    }
+
 }
-
-
