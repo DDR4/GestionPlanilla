@@ -16,23 +16,22 @@ namespace GP.DataAccess
             using (var connection = Factory.ConnectionFactory())
             {
                 connection.Open();
-                var parm = new DynamicParameters();
+                    var parm = new DynamicParameters();
                 parm.Add("@Descripcion", obj.Descripcion); 
                 parm.Add("@Estado", obj.Estado);
-                
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
                 var result = connection.Query(
-                     sql: "sp_Buscar_Calculos",
+                     sql: "sp_Buscar_Tipo_Calculos",
                      param: parm,
                      commandType: CommandType.StoredProcedure)
                      .Select(m => m as IDictionary<string, object>)
                      .Select(n => new TipoCalculoBoleta
                      {
 
-
-                         Descripcion = n.Single(d => d.Key.Equals("CalculoBoleta_Descripcion")).Value.Parse<string>(),
-                         Estado = n.Single(d => d.Key.Equals("CalculoBoleta_Estado")).Value.Parse<int>(),
+                         Tipo_Calculo_Boleta_Id = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Id")).Value.Parse<int>(),
+                         Descripcion = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Descripcion")).Value.Parse<string>(),
+                         Estado = n.Single(d => d.Key.Equals("Tipo_Calculo_Boleta_Estado")).Value.Parse<int>(),
                          Auditoria = new Auditoria
                          {
                              TipoUsuario = obj.Auditoria.TipoUsuario,
@@ -55,11 +54,11 @@ namespace GP.DataAccess
             {
                 connection.Open();
                 var parm = new DynamicParameters();
-
-                parm.Add("@Descripcion", obj.Descripcion);;
+                parm.Add("@Tipo_Calculo_Boleta_Id", obj.Tipo_Calculo_Boleta_Id); ;
+                parm.Add("@Descripcion", obj.Descripcion);
                 parm.Add("@Estado", obj.Estado);
                 var result = connection.Execute(
-                    sql: "sp_Insertar_Calculos",
+                    sql: "sp_Insertar_Tipo_Calculos",
                     param: parm,
                     commandType: CommandType.StoredProcedure);
 
@@ -73,9 +72,9 @@ namespace GP.DataAccess
             {
                 connection.Open();
                 var parm = new DynamicParameters();
-               
+                parm.Add("@Tipo_Calculo_Boleta_Id", obj.Tipo_Calculo_Boleta_Id);
                 var result = connection.Execute(
-                    sql: "sp_Eliminar_Calculos",
+                    sql: "sp_Eliminar_Tipo_Calculos",
                     param: parm,
                     commandType: CommandType.StoredProcedure);
 

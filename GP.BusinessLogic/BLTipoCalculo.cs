@@ -43,7 +43,7 @@ namespace GP.BusinessLogic
             }
         }
 
-        public Response<int> DeleteCalculos(TipoCalculoBoleta obj)
+        public Response<int> DeleteTipoCalculos(TipoCalculoBoleta obj)
         {
             try
             {

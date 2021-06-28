@@ -16,7 +16,7 @@ namespace WebGestionPlanilla.Controllers
         }
 
         // GET: Calculos/Details/5
-        public JsonResult GetCalculos(Calculos obj)
+        public JsonResult GetTipoCalculos(TipoCalculoBoleta obj)
         {
             var ctx = HttpContext.GetOwinContext();
             var tipoUsuario = ctx.Authentication.User.Claims.FirstOrDefault().Value;
@@ -35,8 +35,8 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GP.BusinessLogic.BLCalculos();
-            var response = bussingLogic.GetCalculos(obj);
+            var bussingLogic = new GP.BusinessLogic.BLTipoCalculo();
+            var response = bussingLogic.GetTipoCalculos(obj);
 
             var Datos = response.Data;
             int totalRecords = Datos.Any() ? Datos.FirstOrDefault().Operacion.TotalRows : 0;
@@ -52,18 +52,18 @@ namespace WebGestionPlanilla.Controllers
 
             return Json(result);
         }
-        public JsonResult InsertUpdateCalculos(Calculos obj)
+        public JsonResult InsertUpdateTipoCalculos(TipoCalculoBoleta obj)
         {
-            var bussingLogic = new GP.BusinessLogic.BLCalculos();
-            var response = bussingLogic.InsertUpdateCalculos(obj);
+            var bussingLogic = new GP.BusinessLogic.BLTipoCalculo();
+            var response = bussingLogic.InsertUpdateTipoCalculos(obj);
 
             return Json(response);
         }
 
-        public JsonResult DeleteCalculos(Calculos obj)
+        public JsonResult DeleteTipoCalculos(TipoCalculoBoleta obj)
         {
-            var bussingLogic = new GP.BusinessLogic.BLCalculos();
-            var response = bussingLogic.DeleteCalculos(obj);
+            var bussingLogic = new GP.BusinessLogic.BLTipoCalculo();
+            var response = bussingLogic.DeleteTipoCalculos(obj);
 
             return Json(response);
         }
