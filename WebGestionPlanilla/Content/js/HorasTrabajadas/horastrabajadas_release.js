@@ -176,8 +176,8 @@
         var obj = {
             "Trabajador_Id": Global.Trabajador_Id,
             "HorasTrabajadas": {
-                "FechaInicio": $txtModalFechaDescansoInicio.val(),
-                "FechaFin": $txtModalFechaDescansoFin.val()
+                "FechaInicio": app.ConvertDateRelease($txtModalFechaDescansoInicio.val()),
+                "FechaFin": app.ConvertDateRelease($txtModalFechaDescansoFin.val())
             }
         };
 
