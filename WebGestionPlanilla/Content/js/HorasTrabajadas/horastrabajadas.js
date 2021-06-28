@@ -134,6 +134,8 @@
 
     function $btnNuevoDescansoMedico_click() {
         $modalDescansoMedico.modal();
+        $txtModalFechaDescansoInicio.val("");
+        $txtModalFechaDescansoFin.val("");
         GetTrabajadores();          
     }
 
@@ -164,12 +166,19 @@
     }    
 
     function $btnGuardar_click() {
+        if (ValidarGuardarDescansoMedico()) {
+            GuardarDescansoMedico();
+        }
+    }
+
+    function GuardarDescansoMedico() {
+
         var obj = {
             "Trabajador_Id": Global.Trabajador_Id,
             "HorasTrabajadas": {
                 "FechaInicio": $txtModalFechaDescansoInicio.val(),
                 "FechaFin": $txtModalFechaDescansoFin.val()
-            }             
+            }
         };
 
         var method = "POST";
@@ -182,6 +191,30 @@
             GetHorasTrabajadas();
         };
         app.CallAjax(method, url, data, fnDoneCallback);
+    }
+
+    function ValidarGuardarDescansoMedico() {
+
+        var val = true;
+
+        var msj = "";
+
+        if ($txtModalFechaDescansoInicio.val() === "") {
+            val = false;
+            msj = "Seleccionar fecha de inicio de Descanso Medico";
+        } else if ($txtModalFechaDescansoFin.val() === "") {
+            val = false;
+            msj = "Seleccionar fecha de fin de Descanso Medico";
+        } else if (Global.Trabajador_Id === null) {
+            val = false;
+            msj = "Seleccionar el trabajador";
+        }
+
+        if (!val) {
+            app.Message.Info("Aviso", msj, "Aceptar", null);
+        }     
+
+        return val;
     }
 
     function EliminarDescansoMedico(row) {
