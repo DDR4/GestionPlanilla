@@ -50,8 +50,8 @@ namespace GP.DataAccess
                      .Select(m => m as IDictionary<string, object>)
                      .Select(n => new Turno
                      {
-                         Marcar_Hora_Ingreso = n.Single(d => d.Key.Equals("Marcacion_Hora_Ingreso")).Value.Parse<DateTime>(),
-                         Marcar_Hora_Salida = n.Single(d => d.Key.Equals("Marcacion_Hora_Salida")).Value.Parse<DateTime>()
+                         Hora_Ingreso = n.Single(d => d.Key.Equals("Marcacion_Hora_Ingreso")).Value.Parse<string>(),
+                         Hora_Salida = n.Single(d => d.Key.Equals("Marcacion_Hora_Salida")).Value.Parse<string>()
                      });
 
                 return result.FirstOrDefault();

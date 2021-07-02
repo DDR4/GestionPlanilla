@@ -120,7 +120,7 @@
             "Nombres": $txtModalNombres.val(),
             "ApellidoPaterno": $txtModalApellidoP.val(),
             "ApellidoMaterno": $txtModalApellidoM.val(),
-            "FechaIngreso": $txtModalFechaI.val(),
+            "FechaIngreso": app.ConvertDateRelease($txtModalFechaI.val()),
             "Correo": $txtModalCorreo.val(),
             "Sexo": $cboModalSexo.val(),
             "TipoDocumento": $cboModalTipoDoc.val(),

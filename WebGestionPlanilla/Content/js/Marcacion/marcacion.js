@@ -70,8 +70,8 @@
         var url = "Marcacion/GetMarcaHorarios";
         var fnDoneCallback = function (data) {
             if (data.Data !== null) {
-                $txtMarcarHoraIngreso.val(app.ConvertDatetime(data.Data.Marcar_Hora_Ingreso));
-                $txtMarcarHoraSalida.val(app.ConvertDatetime(data.Data.Marcar_Hora_Salida));
+                $txtMarcarHoraIngreso.val(app.ConvertDatetime(data.Data.Hora_Ingreso));
+                $txtMarcarHoraSalida.val(app.ConvertDatetime(data.Data.Hora_Salida));
             }
 
         };
@@ -92,7 +92,7 @@
         var url = "Marcacion/MarcarIngreso";
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $txtMarcarHoraIngreso.val(app.ConvertDatetime(data.Data));
+            $txtMarcarHoraIngreso.val(fechaIngreso);
         };
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
 
@@ -112,7 +112,7 @@
         var url = "Marcacion/MarcarSalida";
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
-            $txtMarcarHoraSalida.val(app.ConvertDatetime(data.Data));
+            $txtMarcarHoraSalida.val(fechaSalida);
         };
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
 

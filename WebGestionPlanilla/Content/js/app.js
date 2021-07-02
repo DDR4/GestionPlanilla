@@ -760,20 +760,16 @@
     }
 
     function ConvertDatetime(pfecha) {
-        var fecha = new Date(parseInt(pfecha.replace("/Date(", "").replace(")/", ""), 10));
-        dia = ('0' + fecha.getDate()).slice(-2);
-        mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
-        año = fecha.getFullYear();
-        hora = ('0' + fecha.getHours()).slice(-2);
-        minuto = ('0' + fecha.getMinutes()).slice(-2);
-        segundo = ('0' + fecha.getSeconds()).slice(-2);
+        var rsfecha = "";
+        if (pfecha !== null) {
+            var fechaingreso = pfecha.substring(0, 10);
+            var horaingreso = pfecha.substring(11, 20);
 
-        var rsfecha;
-
-        if (año === 0 || año === 1) {
-            rsfecha = "";
-        } else {
-            rsfecha = dia + "/" + mes + "/" + año + " " + hora + ":" + minuto + ":" + segundo;
+            var day = fechaingreso.substr(8, 10);
+            var month = fechaingreso.substr(5, 2);
+            var year = fechaingreso.substr(0, 4);
+       
+            rsfecha = day + "/" + month + "/" + year + " " + horaingreso;
         }
 
         return rsfecha;
