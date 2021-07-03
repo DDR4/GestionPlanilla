@@ -35,6 +35,7 @@
         GetMarcaHorarios();
         $btnMarcarIngreso.click($btnMarcarIngreso_click);
         $btnMarcarSalida.click($btnMarcarSalida_click);
+        GetEstadoMarcacion();
     }
 
     function ActualizarFecha() {
@@ -93,6 +94,7 @@
         var fnDoneCallback = function (data) {
             app.Message.Success("Grabar", Message.GuardarSuccess, "Aceptar", null);
             $txtMarcarHoraIngreso.val(fechaIngreso);
+            GetEstadoMarcacion();
         };
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
 
@@ -117,11 +119,16 @@
         app.CallAjax(method, url, data, fnDoneCallback, null, null, null);
 
     }                                            
-         
 
-    return {
+    function GetEstadoMarcacion() {
 
-    };
-
+        if ($txtMarcarHoraIngreso.val() === "") {
+            app.Event.Disabled($btnMarcarSalida);
+        } else {
+            app.Event.Disabled($btnMarcarIngreso);
+            app.Event.Enable($btnMarcarSalida);         
+        }
+ 
+    }
 
 })(window.jQuery, window, document);

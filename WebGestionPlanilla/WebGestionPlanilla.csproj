@@ -202,6 +202,7 @@
     <Content Include="Content\js\Calculos\calculos.js" />
     <Content Include="Content\js\Cargo\cargo.js" />
     <Content Include="Content\js\HorasTrabajadas\horastrabajadas.js" />
+    <Content Include="Content\js\HorasTrabajadas\horastrabajadas_release.js" />
     <Content Include="Content\js\Marcacion\marcacion_release.js" />
     <Content Include="Content\js\Marcacion\marcacion.js" />
     <Content Include="Content\js\Producto\producto.js" />
