@@ -113,6 +113,12 @@
     }
 
     function InsertUpdateTrabajador() {
+        GetTrabajador();
+        GetArea();
+        GetTurno();
+        GetCargo();
+        GetTipoDocumento();
+        GetTipoAFP();
 
         var obj = {
             "Trabajador_Id": Global.Trabajador_Id,
@@ -158,6 +164,7 @@
         var url = "Trabajador/GetTrabajador";
 
         var columns = [
+            { data: "Usuario" },
             { data: "Nombres" },
             { data: "ApellidoPaterno" },       
             { data: "ApellidoMaterno" },    
