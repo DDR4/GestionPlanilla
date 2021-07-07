@@ -67,7 +67,7 @@
         GetTurno();
         GetCargo();
         GetTipoDocumento();
-        GetTipoAFP()
+        GetTipoAFP();
         $txtModalFechaI.datepicker({
             endDate: "today",
             todayHighlight: true
