@@ -9,7 +9,7 @@ using GP.Entities;
 
 namespace GP.BusinessLogic
 {
-    class BLAfp
+    public class BLAfp
     {
         private DAAfp repository;
 
@@ -31,11 +31,11 @@ namespace GP.BusinessLogic
             }
         }
 
-        public Response<int> InsertUpdateArea(Afp obj)
+        public Response<int> InsertUpdateAfp(Afp obj)
         {
             try
             {
-                var result = repository.InsertUpdateArea(obj);
+                var result = repository.InsertUpdateAfp(obj);
                 return new Response<int>(result);
             }
             catch (Exception ex)
@@ -44,11 +44,11 @@ namespace GP.BusinessLogic
             }
         }
 
-        public Response<int> DeleteArea(Area obj)
+        public Response<int> DeleteAfp(Afp obj)
         {
             try
             {
-                var result = repository.DeleteArea(obj);
+                var result = repository.DeleteAfp(obj);
                 return new Response<int>(result);
             }
             catch (Exception ex)

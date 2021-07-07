@@ -13,7 +13,7 @@ namespace GP.DataAccess
 {
     public class DAAfp
     {
-        public IEnumerable<Area> GetAfp(Afp obj)
+        public IEnumerable<Afp> GetAfp(Afp obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
@@ -24,15 +24,15 @@ namespace GP.DataAccess
                 parm.Add("@NumPagina", obj.Operacion.Inicio);
                 parm.Add("@TamPagina", obj.Operacion.Fin);
                 var result = connection.Query(
-                     sql: "sp_Buscar_Area",
+                     sql: "sp_Buscar_Afp",
                      param: parm,
                      commandType: CommandType.StoredProcedure)
                      .Select(m => m as IDictionary<string, object>)
-                     .Select(n => new Area
+                     .Select(n => new Afp
                      {
-                         Area_Id = n.Single(d => d.Key.Equals("Area_Id")).Value.Parse<int>(),
-                         Descripcion = n.Single(d => d.Key.Equals("Area_Descripcion")).Value.Parse<string>(),
-                         Estado = n.Single(d => d.Key.Equals("Area_Estado")).Value.Parse<int>(),
+                         Afp_Id = n.Single(d => d.Key.Equals("Afp_Id")).Value.Parse<int>(),
+                         Descripcion = n.Single(d => d.Key.Equals("Afp_Descripcion")).Value.Parse<string>(),
+                         Estado = n.Single(d => d.Key.Equals("Afp_Estado")).Value.Parse<int>(),
                          Auditoria = new Auditoria
                          {
                              TipoUsuario = obj.Auditoria.TipoUsuario,
@@ -46,17 +46,17 @@ namespace GP.DataAccess
                 return result;
             }
         }
-        public int InsertUpdateArea(Area obj)
+        public int InsertUpdateAfp(Afp obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
                 connection.Open();
                 var parm = new DynamicParameters();
-                parm.Add("@Area_Id", obj.Area_Id);
+                parm.Add("@Afp_Id", obj.Afp_Id);
                 parm.Add("@Descripcion", obj.Descripcion);
                 parm.Add("@Estado", obj.Estado);
                 var result = connection.Execute(
-                    sql: "sp_Insertar_Area",
+                    sql: "sp_Insertar_Afp",
                     param: parm,
                     commandType: CommandType.StoredProcedure);
 
@@ -64,15 +64,15 @@ namespace GP.DataAccess
             }
         }
 
-        public int DeleteArea(Area obj)
+        public int DeleteAfp(Afp obj)
         {
             using (var connection = Factory.ConnectionFactory())
             {
                 connection.Open();
                 var parm = new DynamicParameters();
-                parm.Add("@Area_Id", obj.Area_Id);
+                parm.Add("@Afp_Id", obj.Afp_Id);
                 var result = connection.Execute(
-                    sql: "sp_Eliminar_Area",
+                    sql: "sp_Eliminar_Afp",
                     param: parm,
                     commandType: CommandType.StoredProcedure);
 

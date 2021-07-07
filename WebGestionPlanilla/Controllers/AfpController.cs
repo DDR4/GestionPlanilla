@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 namespace WebGestionPlanilla.Controllers
 {
-    public class AreaController : Controller
+    public class AfpController : Controller
     {
 
         public ActionResult Index()
@@ -37,8 +37,8 @@ namespace WebGestionPlanilla.Controllers
                 Fin = fin
             };
 
-            var bussingLogic = new GP.BusinessLogic.BLArea();
-            var response = bussingLogic.GetArea(obj);
+            var bussingLogic = new GP.BusinessLogic.BLAfp();
+            var response = bussingLogic.GetAfp(obj);
 
             var Datos = response.Data;
             int totalRecords = Datos.Any() ? Datos.FirstOrDefault().Operacion.TotalRows : 0;
@@ -55,18 +55,18 @@ namespace WebGestionPlanilla.Controllers
             return Json(result);
         }
 
-        public JsonResult InsertUpdateArea(Area obj)
+        public JsonResult InsertUpdateAfp(Afp obj)
         {
-            var bussingLogic = new GP.BusinessLogic.BLArea();
-            var response = bussingLogic.InsertUpdateArea(obj);
+            var bussingLogic = new GP.BusinessLogic.BLAfp();
+            var response = bussingLogic.InsertUpdateAfp(obj);
 
             return Json(response);
         }
 
-        public JsonResult DeleteArea(Area obj)
+        public JsonResult DeleteAfp(Afp obj)
         {
-            var bussingLogic = new GP.BusinessLogic.BLArea();
-            var response = bussingLogic.DeleteArea(obj);
+            var bussingLogic = new GP.BusinessLogic.BLAfp();
+            var response = bussingLogic.DeleteAfp(obj);
 
             return Json(response);
         }
