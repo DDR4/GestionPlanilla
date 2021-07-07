@@ -51,5 +51,13 @@ namespace WebGestionPlanilla.Controllers
             return Json(response);
         }
 
+        public JsonResult GetTipoAFP()
+        {
+            var bussingLogic = new GP.BusinessLogic.BLCombos();
+            var response = bussingLogic.GetTipoAFP();
+
+            return Json(response);
+        }
+
     }
 }

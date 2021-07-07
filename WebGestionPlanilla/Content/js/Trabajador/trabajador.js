@@ -20,7 +20,8 @@
     var $txtModalCorreo = $('#txtModalCorreo');  
     var $cboModalSexo = $('#cboModalSexo');              
     var $cboModalEstado = $('#cboModalEstado');           
-    var $cboModalTipoDoc = $('#cboModalTipoDoc');    
+    var $cboModalTipoDoc = $('#cboModalTipoDoc');
+    var $cboModalAFP = $('#cboModalAFP');   
     var $txtModalNumDoc = $('#txtModalNumDoc');    
     var $txtModalSueldo = $('#txtModalSueldo');                      
     var $titleModalTrabajador = $('#titleModalTrabajador');
@@ -66,6 +67,7 @@
         GetTurno();
         GetCargo();
         GetTipoDocumento();
+        GetTipoAFP()
         $txtModalFechaI.datepicker({
             endDate: "today",
             todayHighlight: true
@@ -301,6 +303,17 @@
         var fnDoneCallback = function (data) {
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalTipoDoc.append('<option value=' + data.Data[i].TipoDocumento_Id + '>' + data.Data[i].Descripcion + '</option>');
+            }
+        };
+        app.CallAjax(method, url, null, fnDoneCallback, null, null, null);
+    }
+
+    function GetTipoAFP() {
+        var method = "POST";
+        var url = "Combos/GetTipoAFP";
+        var fnDoneCallback = function (data) {
+            for (var i = 0; i < data.Data.length; i++) {
+                $cboModalAFP.append('<option value=' + data.Data[i].CalculoBoleta_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
         };
         app.CallAjax(method, url, null, fnDoneCallback, null, null, null);

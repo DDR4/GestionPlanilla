@@ -82,7 +82,20 @@ namespace GP.BusinessLogic
                 return new Response<IEnumerable<TipoCalculoBoleta>>(ex);
             }
         }
-        
+
+        public Response<IEnumerable<Calculos>> GetTipoAFP()
+        {
+            try
+            {
+                var result = repository.GetTipoAFP();
+                return new Response<IEnumerable<Calculos>>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<IEnumerable<Calculos>>(ex);
+            }
+        }
+
 
 
     }

@@ -115,5 +115,26 @@ namespace GP.DataAccess
                 return result;
             }
         }
+
+        public IEnumerable<Calculos> GetTipoAFP()
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                var result = connection.Query(
+                     sql: "sp_Obtener_Tipo_Afp",
+                     param: parm,
+                     commandType: CommandType.StoredProcedure)
+                     .Select(m => m as IDictionary<string, object>)
+                     .Select(n => new Calculos
+                     {
+                         CalculoBoleta_Id = n.Single(d => d.Key.Equals("CalculoBoleta_Id")).Value.Parse<int>(),
+                         Descripcion = n.Single(d => d.Key.Equals("CalculoBoleta_Descripcion")).Value.Parse<string>()
+                     });
+
+                return result;
+            }
+        }
     }
 }
