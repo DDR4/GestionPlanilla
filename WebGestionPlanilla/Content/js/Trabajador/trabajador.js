@@ -177,7 +177,7 @@
         ];
         var columnDefs = [
             {
-                "targets": [6],
+                "targets": [7],
                 'render': function (data, type, full, meta) {
                     if (data === 1) {
                         return "Administrador";
@@ -186,7 +186,7 @@
                 }
             },
             {
-                "targets": [7],
+                "targets": [8],
                 'render': function (data, type, full, meta) {
                     if (data === 1) {
                         return "Activo";
@@ -195,7 +195,7 @@
                 }
             },
             {
-                "targets": [8],
+                "targets": [9],
                 "visible": true,
                 "orderable": false,
                 "className": "text-center",
