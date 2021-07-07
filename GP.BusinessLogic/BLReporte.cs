@@ -31,5 +31,18 @@ namespace GP.BusinessLogic
             }
         }
 
+        public Response<IEnumerable<Trabajador>> GetReporteArea(string Periodo)
+        {
+            try
+            {
+                var result = repository.GetReporteArea(Periodo);
+                return new Response<IEnumerable<Trabajador>>(result);
+            }
+            catch (Exception ex)
+            {
+                return new Response<IEnumerable<Trabajador>>(ex);
+            }
+        }
+
     }
 }

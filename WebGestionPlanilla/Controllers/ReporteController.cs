@@ -103,14 +103,14 @@ namespace WebGestionPlanilla.Controllers
 
         public void GenerarReporteArea(string Periodo)
         {
-            var NombreExcel = "Reporte Turno";
+            var NombreExcel = "Reporte Area";
 
             // Recuperamos la data  de las consulta DB
             var bussingLogic = new GP.BusinessLogic.BLReporte();
-            var data = bussingLogic.GetReporteTurno(Periodo);
+            var data = bussingLogic.GetReporteArea(Periodo);
 
             string[] Cabezeras = {
-                    "Nombre y Apellido", "Turno", "Asistencia", "Tardanzas", "Faltas"
+                    "Nombre y Apellido", "Area", "Cargo", "Asistencia", "Tardanzas", "Faltas", "Asistencia Area", "Tardanzas Area", "Faltas Area"
             };
 
             // Creación del libro excel xlsx.
@@ -169,10 +169,14 @@ namespace WebGestionPlanilla.Controllers
 
                 sheet.AutoSizeColumn(cellnum);
                 AddValue(row, cellnum++, item.Nombres.ToString(), styleBody, sheet);
-                AddValue(row, cellnum++, item.Turno.Descripcion.ToString(), styleBody, sheet);
+                AddValue(row, cellnum++, item.Area.Descripcion.ToString(), styleBody, sheet);
+                AddValue(row, cellnum++, item.Cargo.Descripcion.ToString(), styleBody, sheet);
                 AddValue(row, cellnum++, item.HorasTrabajadas.DiasTrabajados.ToString(), styleBody, sheet);
                 AddValue(row, cellnum++, item.HorasTrabajadas.DiasTardanzas.ToString(), styleBody, sheet);
                 AddValue(row, cellnum++, item.HorasTrabajadas.DiasNoTrabajados.ToString(), styleBody, sheet);
+                AddValue(row, cellnum++, item.Area.Asistencias.ToString(), styleBody, sheet);
+                AddValue(row, cellnum++, item.Area.Tardanzas.ToString(), styleBody, sheet);
+                AddValue(row, cellnum++, item.Area.Faltas.ToString(), styleBody, sheet);
             }
 
 

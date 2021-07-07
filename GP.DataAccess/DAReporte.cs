@@ -42,5 +42,43 @@ namespace GP.DataAccess
                 return result;
             }
         }
+
+        public IEnumerable<Trabajador> GetReporteArea(string Periodo)
+        {
+            using (var connection = Factory.ConnectionFactory())
+            {
+                connection.Open();
+                var parm = new DynamicParameters();
+                parm.Add("@Periodo", Periodo);
+                var result = connection.Query(
+                     sql: "sp_Reporte_Area",
+                     param: parm,
+                     commandType: CommandType.StoredProcedure)
+                     .Select(m => m as IDictionary<string, object>)
+                     .Select(n => new Trabajador
+                     {
+                         Nombres = n.Single(d => d.Key.Equals("NombreApellido")).Value.Parse<string>(),
+                         Area = new Area
+                         {
+                             Descripcion = n.Single(d => d.Key.Equals("Area_Descripcion")).Value.Parse<string>(),
+                             Asistencias = n.Single(d => d.Key.Equals("Asistencias_Area")).Value.Parse<int>(),
+                             Tardanzas = n.Single(d => d.Key.Equals("Tardanzas_Area")).Value.Parse<int>(),
+                             Faltas = n.Single(d => d.Key.Equals("Faltas_Area")).Value.Parse<int>(),
+                         },
+                         Cargo = new Cargo
+                         {
+                             Descripcion = n.Single(d => d.Key.Equals("Cargo_Descripcion")).Value.Parse<string>(),
+                         },
+                         HorasTrabajadas = new HorasTrabajadas
+                         {
+                             DiasTrabajados = n.Single(d => d.Key.Equals("Asistencias")).Value.Parse<int>(),
+                             DiasTardanzas = n.Single(d => d.Key.Equals("Tardanzas")).Value.Parse<int>(),
+                             DiasNoTrabajados = n.Single(d => d.Key.Equals("Faltas")).Value.Parse<int>(),
+                         }
+                     });
+
+                return result;
+            }
+        }
     }
 }
