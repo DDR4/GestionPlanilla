@@ -34,7 +34,6 @@
     var $rbnProFuturo = $('#rbnProFuturo');
     var $rbnComisionFlujoAFP = $('#rbnComisionFlujoAFP');
     var $rbnComisionMixtaAFP = $('#rbnComisionMixtaAFP');
-    var $rbnComisionAFP = $('#rbnComisionAFP');
 
     var $cboTipoBusqueda = $('#cboTipoBusqueda');
     var $tipoNombre = $('#tipoNombre');
@@ -54,6 +53,8 @@
         Area_Id: null
     };
 
+	var cboTodos = "<option value=0>Todos</option>";
+
     // Constructor
     $(Initialize);
 
@@ -63,11 +64,7 @@
         $btnNuevoTrabajador.click($btnNuevoTrabajador_click);
         $btnGuardar.click($btnGuardar_click);
         GetTrabajador();
-        GetArea();
-        GetTurno();
-        GetCargo();
-        GetTipoDocumento();
-        GetTipoAFP();
+        RefrescarCombos();
         $txtModalFechaI.datepicker({
             endDate: "today",
             todayHighlight: true
@@ -106,7 +103,7 @@
         $rbnProFuturo.prop('checked', false);
         $rbnComisionFlujoAFP.prop('checked', false);
         $rbnComisionMixtaAFP.prop('checked', false);
-
+		RefrescarCombos();
     }
 
     function $btnGuardar_click() {
@@ -114,13 +111,6 @@
     }
 
     function InsertUpdateTrabajador() {
-
-        GetTrabajador();
-        GetArea();
-        GetTurno();
-        GetCargo();
-        GetTipoDocumento();
-        GetTipoAFP();
 
         var obj = {
             "Trabajador_Id": Global.Trabajador_Id,
@@ -135,7 +125,7 @@
             "TipoDocumento": $cboModalTipoDoc.val(),
             "NumeroDocumento": $txtModalNumDoc.val(),
             "Salud": GetSaludChecked(),
-            "AFP": $("input[name='rbnAFP']:checked").val(),
+            "AFP": $cboModalAFP.val(),
             "ComisionAFP": $("input[name='rbnComisionAFP']:checked").val(),
             "Estado": $cboModalEstado.val(),
             "Tipo": $cboModalTipo.val(),
@@ -234,11 +224,11 @@
         $cboModalTipoDoc.val(data.TipoDocumento);
         $txtModalNumDoc.val(data.NumeroDocumento);
         $cboModalSexo.val(data.Sexo).trigger('change');
-        $cboModalArea.val(data.Area.Area_Id);
-        $cboModalCargo.val(data.Cargo.Cargo_Id);
+        $cboModalArea.val(data.Area.Area_Id).trigger('change');;
+        $cboModalCargo.val(data.Cargo.Cargo_Id).trigger('change');;
         $txtModalFechaI.val(app.ConvertDate(data.FechaIngreso));
         $txtModalCorreo.val(data.Correo);
-        $cboModalTurno.val(data.Turno.Turno_Id);           
+        $cboModalTurno.val(data.Turno.Turno_Id).trigger('change');;           
         $txtModalUsuario.val(data.Usuario);
         $txtModalClave.val(data.Contraseña);
         $txtModalSueldo.val(data.Sueldo);
@@ -246,10 +236,10 @@
         $cboModalEstado.val(data.Estado).trigger('change');
         GetSalud(data.Salud);
         GetAFP(data.AFP);
+		$cboModalAFP.val(data.AFP).trigger('change');
         GetComisionAFP(data.ComisionAFP);
         app.Event.Enable($cboModalEstado);
-        app.Event.Disabled($checkboxEsSalud);                                                                                
-  
+        app.Event.Disabled($checkboxEsSalud);                                                                              
     }
 
     function EliminarTrabajador(row) {
@@ -275,6 +265,8 @@
         var method = "POST";
         var url = "Combos/GetArea";
         var fnDoneCallback = function (data) {  
+		    $cboModalArea.html("");
+            $cboModalArea.append(cboTodos);
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalArea.append('<option value=' + data.Data[i].Area_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
@@ -287,6 +279,8 @@
         var method = "POST";
         var url = "Combos/GetTurno";
         var fnDoneCallback = function (data) {
+     		$cboModalTurno.html("");
+            $cboModalTurno.append(cboTodos);
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalTurno.append('<option value=' + data.Data[i].Turno_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
@@ -298,6 +292,8 @@
         var method = "POST";
         var url = "Combos/GetCargo";
         var fnDoneCallback = function (data) {
+			$cboModalCargo.html("");
+            $cboModalCargo.append(cboTodos);
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalCargo.append('<option value=' + data.Data[i].Cargo_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
@@ -309,6 +305,8 @@
         var method = "POST";
         var url = "Combos/GetTipoDocumento";
         var fnDoneCallback = function (data) {
+			$cboModalTipoDoc.html("");
+            $cboModalTipoDoc.append(cboTodos);
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalTipoDoc.append('<option value=' + data.Data[i].TipoDocumento_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
@@ -320,6 +318,8 @@
         var method = "POST";
         var url = "Combos/GetTipoAFP";
         var fnDoneCallback = function (data) {
+			$cboModalAFP.html("");
+            $cboModalAFP.append(cboTodos);
             for (var i = 0; i < data.Data.length; i++) {
                 $cboModalAFP.append('<option value=' + data.Data[i].CalculoBoleta_Id + '>' + data.Data[i].Descripcion + '</option>');
             }
@@ -384,6 +384,14 @@
         } else if (comisionafp === 2) {
             $rbnComisionMixtaAFP.prop('checked', true);
         }
+    }
+	
+	function RefrescarCombos() {
+		GetArea();
+		GetTurno();
+		GetCargo();
+		GetTipoDocumento();
+		GetTipoAFP();
     }
 
     return {
