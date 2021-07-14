@@ -34,8 +34,7 @@
         GetHorarios();
         GetMarcaHorarios();
         $btnMarcarIngreso.click($btnMarcarIngreso_click);
-        $btnMarcarSalida.click($btnMarcarSalida_click);
-        GetEstadoMarcacion();
+        $btnMarcarSalida.click($btnMarcarSalida_click);          
     }
 
     function ActualizarFecha() {
@@ -73,6 +72,7 @@
             if (data.Data !== null) {
                 $txtMarcarHoraIngreso.val(app.ConvertDatetime(data.Data.Hora_Ingreso));
                 $txtMarcarHoraSalida.val(app.ConvertDatetime(data.Data.Hora_Salida));
+                GetEstadoMarcacion();
             }
 
         };
